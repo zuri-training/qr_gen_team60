@@ -1,0 +1,3 @@
+# TODO:
+    - Register
+    - Generate QR 
