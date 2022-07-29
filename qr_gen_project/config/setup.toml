@@ -1,14 +1,2 @@
 SECRET_KEY = "django-insecure-o80n6aftui53q1^mbo*lbm1cpmjfmoy=gvda1^z(l27@zwo$r5"
 DEBUG = true
-
-[DB]
-    NAME = '-your_db_name'
-    USER = '_your_db_user'  
-    PASSWORD = '_your_password_'  
-    HOST = '_your_host_'  
-    PORT = _your_port_(as integer)
-
-[EMAIL]
-    EMAIL_USE_TLS = true
-    EMAIL_HOST_USER = ""
-    EMAIL_HOST_PASSWORD = ""
