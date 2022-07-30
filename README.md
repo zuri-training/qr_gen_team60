@@ -13,7 +13,7 @@
   <p align="center">
     A QR Generator to perform some actions _will be updated later_
     <br />
-    <a href="https://github.com/zuri-training/qr_gen_team60/qr_gen_project/docs/README.md"><strong>Explore the docs »</strong></a>
+    <a href="https://docs.google.com/document/d/11YqY3GACwCbnjsB-XrjberOGCVKw7SUvrz6sGoQM0_s/edit"><strong>Explore the docs »</strong></a>
     <br />
     <br />
     <a href="">View Demo</a>
