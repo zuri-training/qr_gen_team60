@@ -15,7 +15,6 @@
     <br />
     <h2><a href="https://github.com/zuri-training/qr_gen_team60/qr_gen_project/docs/README.md"><strong>Explore the docs »</strong></a></h2>
     <br />
-    <br />
     <a href="">View Demo</a>
     ·
     <a href="#issues">Report Bug</a>
