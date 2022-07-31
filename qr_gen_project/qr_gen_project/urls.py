@@ -8,7 +8,7 @@ from django.conf import settings
 
 
 urlpatterns = [
-        path('', include('accounts.urls')),
+        path('qr-gen', include('accounts.urls')),
 ]
 
 urlpatterns += [
