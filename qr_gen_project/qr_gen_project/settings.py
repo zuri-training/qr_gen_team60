@@ -32,12 +32,19 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'accounts',
+    'accounts'
+
+    # Our own Apps
+    'qr_generator.apps.QrGeneratorConfig',
+    # 'api',
+    'rest_framework',
+    'corsheaders'
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -112,10 +119,41 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIR = (
-    os.path.join(BASE_DIR, '')
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'), ) 
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+MEDIA_URL = '/media/' 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
+CORS_ORIGIN_ALLOW_ALL = True # for now, will be changed later
+CORS_ORIGIN_WHITELIST = (
+    'http://localhost:8000',
 )
+
+# SMTP Configuration (for sending mails)
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_USE_TLS = True
+EMAIL_HOST = ''
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
+EMAIL_PORT = ''
+
+# Thousand Separator
+USE_THOUSAND_SEPARATOR = True
+THOUSAND_SEPARATOR = ', '
+DECIMAL_SEPARATOR = '.'
+NUMBER_GROUPING = 3
+
+
+# Google Drive Storage Settings
+
+GOOGLE_DRIVE_STORAGE_JSON_KEY_FILE = '<path to your json private key file>'
+GOOGLE_DRIVE_STORAGE_MEDIA_ROOT = '<base google drive path for file uploads>' # OPTIONAL
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
