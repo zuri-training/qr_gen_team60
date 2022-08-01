@@ -5,10 +5,10 @@ from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
 
-
+# qr-gen/
 
 urlpatterns = [
-        path('qr-gen', include('accounts.urls')),
+    path('', include('accounts.urls')),
 ]
 
 urlpatterns += [

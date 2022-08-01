@@ -15,3 +15,14 @@ AUTHENTICATION
 - @ifeoluwa
 
 `STATUS: PENDING`
+
+sub-team 1
+    login, register, reset password
+
+sub-team 2
+    generate qr, share qr,
+
+
+sub-team 3
+    download qr, save qr
+
