@@ -1,10 +1,10 @@
 from django.db import models
 
 # Create your models here.
-class Qr_Collection(models.Model):
-    category = models.CharField(max_length=100),
+#class Qr_Collection(models.Model):
+    #category = models.CharField(max_length=100),
 
 
 
-    def __str__(self):
-        return self.title
+    #def __str__(self):
+        #return self.title
