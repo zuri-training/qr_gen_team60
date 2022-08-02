@@ -5,11 +5,10 @@
 <br />
 <div align="center">
   <a href="https://github.com/zuri-training/qr_gen_team60">
-    <img src="./qr_gen_project/static/images/qr_logo.png" alt="Logo" width="80" height="80">
+    <img src="./qr_gen_project/static/images/qr_logo.png" alt="Logo" width="300" height="250">
   </a>
 
 <h3 align="center">QR Planet</h3>
-
   <p align="center"><h3>
     </h3>
     <br />
@@ -50,21 +49,24 @@
 </details>
 
 
-
 <!-- ABOUT THE PROJECT -->
 ## About The Project:
 QR Planet is a web app that focuses on generating QR  codes that perform tasks involving encoding information. The codes generated can be shared directly via email or any other social media platform while also giving users the option to download the QR codes generated in various formats.
 
 
+<!-- Project Documentation -->
 #### Project Documentation:
 > <a href="https://docs.google.com/document/d/11YqY3GACwCbnjsB-XrjberOGCVKw7SUvrz6sGoQM0_s/edit">Team 60 QR Generator Docs</a>
 
+<!-- Project Figma Board -->
 #### Project Figma Board:
 > <a href="https://www.figma.com/file/IsSByeqo1V0yS9QW6wmS8j/QR_GENERATOR-PROJECT">Team 60 QR Generator</a>
 
+<!-- Github Project Organization -->
 #### Github Project Organization:
 > <a href="https://github.com/orgs/zuri-training/projects/299">Team 60 Github Projects</a>
 
+<!-- Technologies Used -->
 ### Technologies Used:
 
 * ![html5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
@@ -83,7 +85,12 @@ QR Planet is a web app that focuses on generating QR  codes that perform tasks i
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-
+<!-- Collaborators -->
 ## Collaborators
+
+<div align="center">
+    <h1>Try our QR Generator Today!!!</h1>
+    <img src="../qr_gen_team60/qr_gen_project/static/gif/qr.gif" alt="Logo" width="300" height="220">
+</div>
 
 <p align="right">(<a href="#top">back to top</a>)</p>
