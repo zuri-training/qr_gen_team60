@@ -6,5 +6,9 @@ from qr_generator import views
 
 app_name = 'qr_generator'
 urlpatterns = [
-    path('', views.index, name="home")
+    path('', views.index, name="home"), 
+]
+
+urlpatterns +=[
+    path('test', views.qr_gen, name="home"),
 ]
