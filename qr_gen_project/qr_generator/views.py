@@ -7,7 +7,7 @@ import time
 
 def index(request):
     context = {}
-    return render(request, 'qr_generator/index.html', context)
+    return render(request, 'qr_generator/generator.html', context)
 
 
 def qr_gen(request):
@@ -16,5 +16,5 @@ def qr_gen(request):
         img = make(data)
         img_name = 'qr' + str(time.time()) + '.png'
         img.save(str(settings.MEDIA_ROOT) + '/' + img_name)
-        return render(request, 'index.html', {'img_name': img_name})
-    return render(request, 'index.html')
+        return render(request, 'generator.html', {'img_name': img_name})
+    return render(request, 'generator.html')
