@@ -3,9 +3,7 @@ from django.urls import reverse
 
 # import requests
 
-
-#TODO: Fix this tests later
-class QRGeneratorURLTest(TestCase):
-        def test_home_url(self):
-            response = self.client.get("/qr-gen/")
-            self.assertEqual(response.status_code, 200)
+class QRGeneratorrURLTest(TestCase):
+    def test_home_url(self):
+        response = self.client.get("/qr-gen/")
+        self.assertEqual(response.status_code, 200)

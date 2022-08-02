@@ -12,8 +12,8 @@ urlpatterns = [
 ]
 
 urlpatterns += [
-    path('qr-gen/admin/', admin.site.urls),
     path('qr-gen/', include('qr_generator.urls',), ),
+    path('qr-gen/admin/', admin.site.urls),
     path('qr-gen/api/', include('api.urls'), ),
 ]
 
