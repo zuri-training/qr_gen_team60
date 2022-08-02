@@ -2,7 +2,7 @@ from django.shortcuts import redirect, render
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
-from .models import Qr_Collection
+# from .models import Qr_Collection
 from django import forms
 
 # Create your views here.
