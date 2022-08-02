@@ -3,7 +3,8 @@
 from django.shortcuts import render
 from django.conf import settings
 from qrcode import *
-import time 
+import time
+from .models import QRCollection
 
 def index(request):
     context = {}
@@ -18,3 +19,10 @@ def qr_gen(request):
         img.save(str(settings.MEDIA_ROOT) + '/' + img_name)
         return render(request, 'generator.html', {'img_name': img_name})
     return render(request, 'generator.html')
+
+def get_qr(request, qr_id):
+    collection = QRCollection.objects.get(id=qr_id)
+    return render(request, "", {"qr":collection})
+
+
+# QRCollection.objects.create()
