@@ -4,6 +4,7 @@ from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
 # from .models import Qr_Collection
 from django import forms
+from accounts.decorators import unauthenticated_user
 
 # Create your views here.
 def index(request):
@@ -33,3 +34,6 @@ def dashboard(request):
 def logout(request):
     return render(request, 'accounts/logout.html')
      
+@unauthenticated_user
+def login(request):
+    return render(request,  'accounts/register.html')
