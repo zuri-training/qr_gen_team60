@@ -1,9 +1,10 @@
 from django.shortcuts import redirect, render
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from django.contrib.auth.forms import UserCreationForm
-# from .models import Qr_Collection
 from django import forms
+from accounts.decorators import unauthenticated_user
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth import login, logout
 
 # Create your views here.
 def index(request):
@@ -23,13 +24,26 @@ def register(request):
 
     return render(request, 'accounts/register.html', {'form': form})
 
-def login(request):
-    return render(request, 'accounts/login.html')
+def login_view(request):
+    if request.method == 'POST':
+        form = AuthenticationForm(data=request.POST)
+        if form.is_valid():
+            user = form.get_user()
+            login(request, user)
+            return render(request, 'accounts/login.html')
+    else:
+        form = AuthenticationForm()
+    return render(request, 'accounts/login.html', {'form':form})
 
-@login_required
+@login_required(login_url="/accounts/login")
 def dashboard(request):
     return render(request, 'accounts/dashboard.html')
 
 def logout(request):
+    if request.method == 'POST':
+        logout(request)
     return render(request, 'accounts/logout.html')
      
+@unauthenticated_user
+def login(request):
+    return render(request,  'accounts/register.html')
