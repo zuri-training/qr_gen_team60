@@ -1,0 +1,382 @@
+{
+  "success-color": {
+    "value": "rgb(16, 161, 31)",
+    "metadata": {
+      "source": {
+        "project": {
+          "id": "62e82817ac404c154461e08d",
+          "name": "Untitled",
+          "platform": "web",
+          "linked_styleguide": {
+            "id": "62e6c87856065c156aa252a1"
+          }
+        }
+      },
+      "resource": {
+        "id": "62e83e7a3029f7160c74917b",
+        "type": "Color"
+      }
+    }
+  },
+  "error-color": {
+    "value": "rgb(217, 15, 15)",
+    "metadata": {
+      "source": {
+        "project": {
+          "id": "62e82817ac404c154461e08d",
+          "name": "Untitled",
+          "platform": "web",
+          "linked_styleguide": {
+            "id": "62e6c87856065c156aa252a1"
+          }
+        }
+      },
+      "resource": {
+        "id": "62e83e7a93ca7c166d547885",
+        "type": "Color"
+      }
+    }
+  },
+  "white": {
+    "value": "rgb(252, 255, 255)",
+    "metadata": {
+      "source": {
+        "project": {
+          "id": "62e82817ac404c154461e08d",
+          "name": "Untitled",
+          "platform": "web",
+          "linked_styleguide": {
+            "id": "62e6c87856065c156aa252a1"
+          }
+        }
+      },
+      "resource": {
+        "id": "62e83e7a395b4f132cac5371",
+        "type": "Color"
+      }
+    }
+  },
+  "warning-color": {
+    "value": "rgb(255, 248, 73)",
+    "metadata": {
+      "source": {
+        "project": {
+          "id": "62e82817ac404c154461e08d",
+          "name": "Untitled",
+          "platform": "web",
+          "linked_styleguide": {
+            "id": "62e6c87856065c156aa252a1"
+          }
+        }
+      },
+      "resource": {
+        "id": "62e83e7a7bf3111538ee2be3",
+        "type": "Color"
+      }
+    }
+  },
+  "black-for-texts": {
+    "value": "rgb(51, 49, 49)",
+    "metadata": {
+      "source": {
+        "project": {
+          "id": "62e82817ac404c154461e08d",
+          "name": "Untitled",
+          "platform": "web",
+          "linked_styleguide": {
+            "id": "62e6c87856065c156aa252a1"
+          }
+        }
+      },
+      "resource": {
+        "id": "62e83e7a88491511af628f38",
+        "type": "Color"
+      }
+    }
+  },
+  "white-2": {
+    "value": "rgb(255, 252, 255)",
+    "metadata": {
+      "source": {
+        "project": {
+          "id": "62e82817ac404c154461e08d",
+          "name": "Untitled",
+          "platform": "web",
+          "linked_styleguide": {
+            "id": "62e6c87856065c156aa252a1"
+          }
+        }
+      },
+      "resource": {
+        "id": "62e83e7af1a92210f45670e9",
+        "type": "Color"
+      }
+    }
+  },
+  "secondary-color-100": {
+    "value": "rgb(233, 239, 248)",
+    "metadata": {
+      "source": {
+        "project": {
+          "id": "62e82817ac404c154461e08d",
+          "name": "Untitled",
+          "platform": "web",
+          "linked_styleguide": {
+            "id": "62e6c87856065c156aa252a1"
+          }
+        }
+      },
+      "resource": {
+        "id": "62e83e7a3c0c3410e95b289c",
+        "type": "Color"
+      }
+    }
+  },
+  "secondary-color-300": {
+    "value": "rgb(135, 161, 201)",
+    "metadata": {
+      "source": {
+        "project": {
+          "id": "62e82817ac404c154461e08d",
+          "name": "Untitled",
+          "platform": "web",
+          "linked_styleguide": {
+            "id": "62e6c87856065c156aa252a1"
+          }
+        }
+      },
+      "resource": {
+        "id": "62e83e7a1b00fb136199944a",
+        "type": "Color"
+      }
+    }
+  },
+  "secondary-color-200": {
+    "value": "rgb(208, 223, 246)",
+    "metadata": {
+      "source": {
+        "project": {
+          "id": "62e82817ac404c154461e08d",
+          "name": "Untitled",
+          "platform": "web",
+          "linked_styleguide": {
+            "id": "62e6c87856065c156aa252a1"
+          }
+        }
+      },
+      "resource": {
+        "id": "62e83e7aececbe115277c280",
+        "type": "Color"
+      }
+    }
+  },
+  "secondary-color-400": {
+    "value": "rgb(98, 130, 178)",
+    "metadata": {
+      "source": {
+        "project": {
+          "id": "62e82817ac404c154461e08d",
+          "name": "Untitled",
+          "platform": "web",
+          "linked_styleguide": {
+            "id": "62e6c87856065c156aa252a1"
+          }
+        }
+      },
+      "resource": {
+        "id": "62e83e7afa6ac210b99a4412",
+        "type": "Color"
+      }
+    }
+  },
+  "grey-700": {
+    "value": "rgb(66, 68, 71)",
+    "metadata": {
+      "source": {
+        "project": {
+          "id": "62e82817ac404c154461e08d",
+          "name": "Untitled",
+          "platform": "web",
+          "linked_styleguide": {
+            "id": "62e6c87856065c156aa252a1"
+          }
+        }
+      },
+      "resource": {
+        "id": "62e83e7b2ef40910fe9f902e",
+        "type": "Color"
+      }
+    }
+  },
+  "grey-500": {
+    "value": "rgb(108, 110, 113)",
+    "metadata": {
+      "source": {
+        "project": {
+          "id": "62e82817ac404c154461e08d",
+          "name": "Untitled",
+          "platform": "web",
+          "linked_styleguide": {
+            "id": "62e6c87856065c156aa252a1"
+          }
+        }
+      },
+      "resource": {
+        "id": "62e83e7baffd331566530fff",
+        "type": "Color"
+      }
+    }
+  },
+  "grey-600": {
+    "value": "rgb(79, 81, 85)",
+    "metadata": {
+      "source": {
+        "project": {
+          "id": "62e82817ac404c154461e08d",
+          "name": "Untitled",
+          "platform": "web",
+          "linked_styleguide": {
+            "id": "62e6c87856065c156aa252a1"
+          }
+        }
+      },
+      "resource": {
+        "id": "62e83e7b72f7c612b22c926f",
+        "type": "Color"
+      }
+    }
+  },
+  "grey-200": {
+    "value": "rgb(196, 197, 198)",
+    "metadata": {
+      "source": {
+        "project": {
+          "id": "62e82817ac404c154461e08d",
+          "name": "Untitled",
+          "platform": "web",
+          "linked_styleguide": {
+            "id": "62e6c87856065c156aa252a1"
+          }
+        }
+      },
+      "resource": {
+        "id": "62e83e7bdb2fdb14101d3423",
+        "type": "Color"
+      }
+    }
+  },
+  "grey-400": {
+    "value": "rgb(138, 139, 142)",
+    "metadata": {
+      "source": {
+        "project": {
+          "id": "62e82817ac404c154461e08d",
+          "name": "Untitled",
+          "platform": "web",
+          "linked_styleguide": {
+            "id": "62e6c87856065c156aa252a1"
+          }
+        }
+      },
+      "resource": {
+        "id": "62e83e7b1e334d1343cc4f86",
+        "type": "Color"
+      }
+    }
+  },
+  "primary-color-300": {
+    "value": "rgb(8, 37, 83)",
+    "metadata": {
+      "source": {
+        "project": {
+          "id": "62e82817ac404c154461e08d",
+          "name": "Untitled",
+          "platform": "web",
+          "linked_styleguide": {
+            "id": "62e6c87856065c156aa252a1"
+          }
+        }
+      },
+      "resource": {
+        "id": "62e83e7b6ff67312392c2aa9",
+        "type": "Color"
+      }
+    }
+  },
+  "primary-color-200": {
+    "value": "rgb(9, 44, 100)",
+    "metadata": {
+      "source": {
+        "project": {
+          "id": "62e82817ac404c154461e08d",
+          "name": "Untitled",
+          "platform": "web",
+          "linked_styleguide": {
+            "id": "62e6c87856065c156aa252a1"
+          }
+        }
+      },
+      "resource": {
+        "id": "62e83e7b56065c156aac0ff2",
+        "type": "Color"
+      }
+    }
+  },
+  "wc1": {
+    "value": "rgb(255, 252, 252)",
+    "metadata": {
+      "source": {
+        "project": {
+          "id": "62e82817ac404c154461e08d",
+          "name": "Untitled",
+          "platform": "web",
+          "linked_styleguide": {
+            "id": "62e6c87856065c156aa252a1"
+          }
+        }
+      },
+      "resource": {
+        "id": "62e83e7b6ae7a816c28f8b92",
+        "type": "Color"
+      }
+    }
+  },
+  "primary-color-100": {
+    "value": "rgb(173, 185, 203)",
+    "metadata": {
+      "source": {
+        "project": {
+          "id": "62e82817ac404c154461e08d",
+          "name": "Untitled",
+          "platform": "web",
+          "linked_styleguide": {
+            "id": "62e6c87856065c156aa252a1"
+          }
+        }
+      },
+      "resource": {
+        "id": "62e83e7b0cdb38123040bb91",
+        "type": "Color"
+      }
+    }
+  },
+  "gc600": {
+    "value": "rgb(134, 139, 143)",
+    "metadata": {
+      "source": {
+        "project": {
+          "id": "62e82817ac404c154461e08d",
+          "name": "Untitled",
+          "platform": "web",
+          "linked_styleguide": {
+            "id": "62e6c87856065c156aa252a1"
+          }
+        }
+      },
+      "resource": {
+        "id": "62e83e7b430040120ab6262b",
+        "type": "Color"
+      }
+    }
+  }
+}
