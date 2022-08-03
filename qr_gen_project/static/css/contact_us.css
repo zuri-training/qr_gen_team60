@@ -31,11 +31,22 @@ style.css
 
 
 body {
+<<<<<<< HEAD
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+=======
+>>>>>>> a84a2e4572177ea61c7c5789f04c087874aa5d86
     background-image: url(../svg/contact_us.svg);
     background-size: cover;
 }
 
 .container {
+<<<<<<< HEAD
+    width: 50%;
+    height: 55%;
+=======
     width: 35%;
     margin: auto;
     overflow: hidden;
@@ -45,12 +56,18 @@ body {
 }
 
 .wrapper {
+>>>>>>> a84a2e4572177ea61c7c5789f04c087874aa5d86
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 20px;
+<<<<<<< HEAD
+    border-radius: 8px;
+    border: solid 1px var(--secondary-color-200);
+=======
 
+>>>>>>> a84a2e4572177ea61c7c5789f04c087874aa5d86
 }
 
 .container h1 {
@@ -68,7 +85,11 @@ body {
 }
 
 .highlight {
+<<<<<<< HEAD
+    transform: rotateX(15deg);
+=======
     transform: rotate(15deg);
+>>>>>>> a84a2e4572177ea61c7c5789f04c087874aa5d86
     font-family: "Montserrat", sans-serif;
     font-size: 92px;
     font-weight: 800;
@@ -80,7 +101,11 @@ body {
     height: 40px;
     border: 1px solid var(--gc-600);
     border-radius: 5px;
+<<<<<<< HEAD
+    margin-bottom: 7px;
+=======
     margin-bottom: 10px;
+>>>>>>> a84a2e4572177ea61c7c5789f04c087874aa5d86
     padding-left: 10px;
     font-family: "Outfit", sans-serif;
     font-size: 12px;
@@ -94,10 +119,17 @@ textarea {
 }
 
 .socials {
+<<<<<<< HEAD
+    height: 24px;
+    display: flex;
+    flex-direction: row;
+    gap: 12;
+=======
     height: 18px;
     display: flex;
     /* flex-direction: row; */
     gap: 30;
+>>>>>>> a84a2e4572177ea61c7c5789f04c087874aa5d86
     margin: 20px;
 }
 
@@ -106,9 +138,18 @@ textarea {
     height: 40px;
     padding: 8px 32px;
     border-radius: 8px;
+<<<<<<< HEAD
+    font-family: Outfit;
+=======
     font-family: "Outfit", sans-serif;
+>>>>>>> a84a2e4572177ea61c7c5789f04c087874aa5d86
     font-size: 14px;
     border: none;
     color: var(--white);
     background-color: var(--primary-color-200);
+<<<<<<< HEAD
+    align-items: center;
 }
+=======
+}
+>>>>>>> a84a2e4572177ea61c7c5789f04c087874aa5d86
