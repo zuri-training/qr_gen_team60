@@ -177,4 +177,4 @@ LOGGING = {
     },
 }
 
-
+LOGOUT_REDIRECT_URL = '/qr_generator/'

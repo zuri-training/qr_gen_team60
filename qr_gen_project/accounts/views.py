@@ -1,49 +1,67 @@
+from django.http import HttpResponseRedirect
 from django.shortcuts import redirect, render
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from django import forms
 from accounts.decorators import unauthenticated_user
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-from django.contrib.auth import login, logout
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import login, logout, authenticate
+
+from .forms import CreateUserForm
+
+#===============================================================
+
 
 # Create your views here.
 def index(request):
     return render(request, 'accounts/index.html')
 
+
+# Registers a new user
+@unauthenticated_user
 def register(request):
-    form = UserCreationForm()
-    if request.method == 'POST':
-        form = UserCreationForm()
-        if form.is_valid():
-            form.save()
-            username = form.cleaned_data.get('username')
-            messages.success(request, f'Hi {username}, your registration is successful.')
-            return redirect('login')
-        else:
-            form = UserCreationForm()
-
-    return render(request, 'accounts/register.html', {'form': form})
-
-def login_view(request):
-    if request.method == 'POST':
-        form = AuthenticationForm(data=request.POST)
-        if form.is_valid():
-            user = form.get_user()
-            login(request, user)
-            return render(request, 'accounts/login.html')
+  form = CreateUserForm()
+    
+  if request.method=='POST':
+    form = CreateUserForm(request.POST)
+    if form.is_valid():
+      form.save()
+      username = form.cleaned_data.get('username')
+      
+      messages.success(request," Account was Created for "+username)
+      return redirect('accounts:login')
     else:
-        form = AuthenticationForm()
-    return render(request, 'accounts/login.html', {'form':form})
+      messages.error(request, 'Incorrect credentials')
+        
+  context = {'form':form}
+  return render(request,'accounts/register.html', context)
+
+
+@unauthenticated_user
+def login_view(request):
+  """ This uses the built in Django User"""
+  if request.method =='POST':
+		
+    username = request.POST.get('username')
+    password = request.POST.get('password')
+    user = authenticate(request, username=username, password=password)
+
+    if user is not None:
+      login(request, user)
+      return redirect('qr_generator:home',) # pk=str(request.user.id)
+      
+    else: messages.error(request, 'Account not Registered!!')
+  
+  return render(request, 'accounts/login.html')
+
 
 @login_required(login_url="/accounts/login")
 def dashboard(request):
-    return render(request, 'accounts/dashboard.html')
+	context = {}
+	return redirect('qr_generate:home')
 
-def logout(request):
-    if request.method == 'POST':
-        logout(request)
-    return render(request, 'accounts/logout.html')
-     
+
 @unauthenticated_user
-def login(request):
-    return render(request,  'accounts/register.html')
+def log_out(request):
+	logout(request)
+	messages.success(request, f'{request.user} Logged out')
+	return HttpResponseRedirect(redirect_to='qr_generate:home')
