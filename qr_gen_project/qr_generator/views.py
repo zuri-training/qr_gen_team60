@@ -2,7 +2,8 @@
 
 from django.shortcuts import render
 from django.conf import settings
-from qrcode import *
+from qr_generator.forms import ContactUsForm
+# from qrcode import *
 import time 
 
 def index(request):
@@ -18,3 +19,7 @@ def qr_gen(request):
         img.save(str(settings.MEDIA_ROOT) + '/' + img_name)
         return render(request, 'generator.html', {'img_name': img_name})
     return render(request, 'generator.html')
+
+def test_form(request, template):
+    form = ContactUsForm()
+    return render(request, "qr_generator/" + template +'.html',{"form":form})
