@@ -4,6 +4,7 @@ from smtplib import SMTPServerDisconnected
 from django.http import BadHeaderError, HttpResponse, HttpResponseRedirect
 from django.shortcuts import redirect, render
 from django.conf import settings
+<<<<<<< HEAD
 from qrcode import *
 import time
 from django.core.mail import send_mail
@@ -20,6 +21,11 @@ import datetime
 # --------------------imports
 
 
+=======
+from qr_generator.forms import ContactUsForm
+# from qrcode import *
+import time 
+>>>>>>> a84a2e4572177ea61c7c5789f04c087874aa5d86
 
 def index(request):
     context = {}
@@ -35,6 +41,7 @@ def qr_gen(request):
         return render(request, 'generator.html', {'img_name': img_name})
     return render(request, 'generator.html')
 
+<<<<<<< HEAD
 
 
 
@@ -125,3 +132,8 @@ def qr_gen2(request):
         print(f'QR code generated! it is at {qr}')
         return render(request, 'qr_generator/form.html', {"qr":qr})
     return render(request, 'qr_generator/form.html',)
+=======
+def test_form(request, template):
+    form = ContactUsForm()
+    return render(request, "qr_generator/" + template +'.html',{"form":form})
+>>>>>>> a84a2e4572177ea61c7c5789f04c087874aa5d86
