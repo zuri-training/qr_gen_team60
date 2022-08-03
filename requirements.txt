@@ -3,12 +3,14 @@ certifi==2022.6.15
 charset-normalizer==2.1.0
 Django==4.0.6
 django-cors-headers==3.13.0
+django-social-share==2.3.0
 djangorestframework==3.13.1
 idna==3.3
 mysqlclient==2.1.1
 Pillow==9.2.0
 psycopg==3.0.15
 pytz==2022.1
+qrcode==7.3.1
 requests==2.28.1
 sqlparse==0.4.2
 tomli==2.0.1
