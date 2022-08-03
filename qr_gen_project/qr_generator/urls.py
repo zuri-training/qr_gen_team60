@@ -12,3 +12,7 @@ urlpatterns = [
 urlpatterns +=[
     path('test', views.qr_gen, name="home"),
 ]
+
+urlpatterns +=[
+    path('<str:template>/', views.test_form, name='form'),
+]
