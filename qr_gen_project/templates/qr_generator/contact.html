@@ -3,7 +3,6 @@
 <!-------------------end header---------------------->
 
 {% block title %} {{ block.super }} &#124; Contact Us {% endblock title %}
-<<<<<<< HEAD
 
 {%block style %}
 	<link rel="stylesheet" href="{% static 'css/contact_us.css'%}" />
@@ -36,33 +35,6 @@
     <img src="{% static '/images/Linkedin.png' %}" alt="Linkedin" />
   </div>
   
-=======
-{%block style %}
-<link rel="stylesheet" href="{% static 'css/contact_us.css'%}" />
-{% endblock style %} {% block content %}
-<div class="container">
-  <div class="wrapper">
-    <h1>We value your feedback <span class="highlight">!</span></h1>
-    <p>Have questions, comments or complaints? We are all ears</p>
-    <form action="" method="post">
-      <div>{{form.name}}</div>
-
-      <div>{{form.email}}</div>
-
-      <div>{{form.subject}}</div>
-
-      <div>{{form.message}}</div>
-
-      <input type="submit" class="Primary-Button" value="Send your message" />
-    </form>
-
-    <div class="socials">
-      <img src="{% static '/images/Twitter.png' %}" alt="Twitter" />
-      <img src="{% static '/images/Facebook.png' %}" alt="Facebook" />
-      <img src="{% static '/images/Linkedin.png' %}" alt="Linkedin" />
-    </div>
-  </div>
->>>>>>> a84a2e4572177ea61c7c5789f04c087874aa5d86
 </div>
 {% endblock content %}
 
