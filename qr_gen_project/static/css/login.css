@@ -12,7 +12,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: url('home.svg');
+    background-image: url('../svg/login_home.svg');
     background-size: 90%;
 }
 

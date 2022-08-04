@@ -1,19 +1,76 @@
-{% extends 'accounts/base.html' %}
+{% extends 'base.html' %}
+{% load static%}
+
+<!-----------------Leave here for header------------->
+<!-------------------end header---------------------->
+
+
+{% block title %} {{ block.super }} &#124; Login {% endblock title %}
+
+
+{%block style %}
+	<link rel="stylesheet" href="{% static 'css/login.css'%}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.1.5/css/unicons.css">
+{% endblock style %}
+
 
 {% block content %}
-    <div class="container" style="margin-top: 30px;">
-    <form action="{% url 'accounts:login' %}" method="POST">
-      {% csrf_token %}
-      <fieldset class="form-group">
-          <legend class="border-bottom mb-4" >Log In Now</legend>
-          {{form}}
-      </fieldset>
-      <div class="form-group" id="signup-button">
-          <button class="btn ">Log In</button>
-      </div>
-      <div class="form-group">
-          <small class="text-muted ml-3" >Don't have an account yet? <a href="{% url 'accounts:register' %}">Get One Today</a></small>
-      </div>
-    </form>
-    </div>
-{% endblock %}</title>
+
+<body>
+    <div class="container">
+        <div class="forms">
+            <div class="form login">
+                <p class="title">Welcome</p>
+                <p class="sub-title">We're happy to have you back</p>
+                <form action="#">
+                    {% csrf_token%}
+                    <div class="input-field">
+                        <input type="text" name="email" placeholder="Enter your email" required>
+                        <i class="uil uil-envelope icon"></i>
+                    </div>
+                    <div class="input-field">
+                        <input type="password" placeholder="Enter your password" required>
+                        <!-- <i class="uil uil-lock icon"></i> -->
+                        <i class="uil uil-eye-slash showHidePw" ></i>
+                    </div>
+
+                    <div class="checkbox-text">
+                        <div class="checkbox-content">
+                            <input type="checkbox" id="logCheck">
+                            <label for="logCheck" class="text">Keep me logged in</label>    <!--Fix this later-->
+                        </div>
+
+                        <a href="{% url 'accounts:password_reset'%}" class="text">Forgot password?</a>
+                    </div>
+
+                    <div class="input-field button">
+                        <input onclick="validateForm()" style="background-color: blue;" name="login" type="submit" value="submit" required >
+                    </div>
+                </form>
+
+                <div class="login-signup">
+                    <span class="text">Not yet registered&quest;
+                        <a href="#" class="text signup-text">Sign Up</a>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>    
+
+    <script src="{% static 'js/custom/validate_login.js' %}"></script>
+
+    <script>
+        var form_fields = document.getElementsByTagName("input");
+        form_fields[1].placeholder = "Username..";
+        form_fields[2].placeholder = "Enter password...";
+    
+        for (var field in form_fields) {
+        form_fields[field].className += " form-control";
+        }
+    </script>
+    {% endblock content %}
+
+
+<!-----------------Leave here for footer--------->
+<!-------------------end footer---------------------->
