@@ -180,3 +180,7 @@ LOGGING = {
 }
 
 LOGOUT_REDIRECT_URL = '/qr-gen/'
+
+
+# Because we changed default user id
+AUTH_USER_MODEL='accounts.QRUser'
