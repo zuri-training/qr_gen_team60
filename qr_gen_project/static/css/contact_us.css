@@ -6,51 +6,25 @@ style.css
     padding: 0;
 }
 
-:root {
-    --secondary-color-200: #d0dff6;
-    --success-color: #10a11f;
-    --error-color: #d90f0f;
-    --warning-color: #fff849;
-    --white: #fffcfc;
-    --black-for-texts: #333131;
-    --white-2: #fcfeff;
-    --secondary-color-100: #e9eff8;
-    --secondary-color-300: #87a1c9;
-    --secondary-color-400: #6282b2;
-    --grey-700: #424447;
-    --grey-600: #4f5155;
-    --grey-500: #6c6e71;
-    --grey-400: #8a8b8e;
-    --grey-200: #c4c5c6;
-    --primary-color-300: #082553;
-    --primary-color-200: #092c64;
-    --primary-color-100: #adb9cb;
-    --gc-600: #868b8f;
-    --wc-1: #fffcfc;
-}
-
-
 body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-image: url(../svg/contact_us.svg);
     background-size: cover;
 }
 
 .container {
-    width: 35%;
-    margin: auto;
-    overflow: hidden;
-    padding: 20px;
-    border-radius: 8px;
-    border: solid 1px var(--secondary-color-200);
-}
-
-.wrapper {
+    width: 50%;
+    height: 55%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 20px;
-
+    border-radius: 8px;
+    border: solid 1px var(--secondary-color-200);
 }
 
 .container h1 {
@@ -68,7 +42,7 @@ body {
 }
 
 .highlight {
-    transform: rotate(15deg);
+    transform: rotateX(15deg);
     font-family: "Montserrat", sans-serif;
     font-size: 92px;
     font-weight: 800;
@@ -94,10 +68,10 @@ textarea {
 }
 
 .socials {
-    height: 18px;
+    height: 24px;
     display: flex;
-    /* flex-direction: row; */
-    gap: 30;
+    flex-direction: row;
+    gap: 12;
     margin: 20px;
 }
 
@@ -106,10 +80,10 @@ textarea {
     height: 40px;
     padding: 8px 32px;
     border-radius: 8px;
-    font-family: "Outfit", sans-serif;
+    font-family: Outfit;
     font-size: 14px;
     border: none;
     color: var(--white);
     background-color: var(--primary-color-200);
+    align-items: center;
 }
-

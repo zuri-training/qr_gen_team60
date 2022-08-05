@@ -1,22 +1,14 @@
-{% extends 'base.html' %}
-{% load static%}
-
-<!-----------------Leave here for header------------->
-<!-------------------end header---------------------->
-
-
-{% block title %} {{ block.super }} &#124; Login {% endblock title %}
-
-
-{%block style %}
-	<link rel="stylesheet" href="{% static 'css/login.css'%}" />
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.1.5/css/unicons.css">
-{% endblock style %}
-
-
-{% block content %}
-
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
 <body>
     <div class="container">
         <div class="forms">
@@ -24,9 +16,8 @@
                 <p class="title">Welcome</p>
                 <p class="sub-title">We're happy to have you back</p>
                 <form action="#">
-                    {% csrf_token%}
                     <div class="input-field">
-                        <input type="text" name="email" placeholder="Enter your email" required>
+                        <input type="text" placeholder="Enter your email" required>
                         <i class="uil uil-envelope icon"></i>
                     </div>
                     <div class="input-field">
@@ -38,39 +29,24 @@
                     <div class="checkbox-text">
                         <div class="checkbox-content">
                             <input type="checkbox" id="logCheck">
-                            <label for="logCheck" class="text">Keep me logged in</label>    <!--Fix this later-->
+                            <label for="logCheck" class="text">Keep me logged in</label>
                         </div>
 
-                        <a href="{% url 'accounts:password_reset'%}" class="text">Forgot password?</a>
+                        <a href="#" class="text">Forgot password?</a>
                     </div>
 
                     <div class="input-field button">
-                        <input onclick="validateForm()" style="background-color: blue;" name="login" type="submit" value="submit" required >
+                        <input type="button" value="Login" required>
                     </div>
                 </form>
 
                 <div class="login-signup">
-                    <span class="text">Not yet registered&quest;
+                    <span class="text">Not yet registered?
                         <a href="#" class="text signup-text">Sign Up</a>
                     </span>
                 </div>
             </div>
         </div>
     </div>    
-
-    <script src="{% static 'js/custom/validate_login.js' %}"></script>
-
-    <script>
-        var form_fields = document.getElementsByTagName("input");
-        form_fields[1].placeholder = "Username..";
-        form_fields[2].placeholder = "Enter password...";
-    
-        for (var field in form_fields) {
-        form_fields[field].className += " form-control";
-        }
-    </script>
-    {% endblock content %}
-
-
-<!-----------------Leave here for footer--------->
-<!-------------------end footer---------------------->
+</body>
+</html>

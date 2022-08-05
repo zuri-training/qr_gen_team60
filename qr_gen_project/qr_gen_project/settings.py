@@ -121,15 +121,17 @@ CORS_ORIGIN_ALLOW_ALL = True # for now, will be changed later
 CORS_ORIGIN_WHITELIST = (
     'http://localhost:8000',
 )
-
 # SMTP Configuration (for sending mails)
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_USE_TLS = True
-EMAIL_HOST = ''
-EMAIL_HOST_USER = ''
-EMAIL_HOST_PASSWORD = ''
-EMAIL_PORT = ''
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_USE_TLS = True
+# EMAIL_HOST = 'smtp.mailtrap.io'
+# EMAIL_HOST_USER = 'd9c28aad6129e6'
+# EMAIL_HOST_PASSWORD = '019e302beff558'
+# EMAIL_PORT = '2525'
+
+
+EMAIL_BACKEND =  'django.core.mail.backends.console.EmailBackend' #!
 
 # Thousand Separator
 USE_THOUSAND_SEPARATOR = True
@@ -156,3 +158,25 @@ REST_FRAMEWORK = {
 }
 
 
+
+# Loggers
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'file': {
+            'level': 'WARNING',
+            'class': 'logging.FileHandler',
+            'filename': BASE_DIR / 'logs/Logs.log',
+        },
+    },
+    'loggers': {
+        '': {
+            'handlers': ['file'], 
+            'level': 'WARNING',
+            'propagate': True,
+        },
+    },
+}
+
+LOGOUT_REDIRECT_URL = '/qr-gen/'
