@@ -5,7 +5,7 @@ from .imports import *
 
 def index(request):
     context = {}
-    return render(request, 'qr_generator/generator.html', context)
+    return render(request, 'qr_generator/home.html', context)
 
 
 def qr_gen(request):
