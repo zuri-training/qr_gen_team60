@@ -1,27 +1,5 @@
-from django.http import HttpResponseRedirect
-from django.shortcuts import redirect, render
-from django.contrib.auth.decorators import login_required
-from django.contrib import messages
-from accounts.decorators import unauthenticated_user
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth import login, logout, authenticate
+from .imports import *
 
-from .forms import CreateUserForm
-
-#===============================================================
-from django.shortcuts import render, redirect
-from django.core.mail import send_mail, BadHeaderError
-from django.http import HttpResponse
-from django.contrib.auth.forms import PasswordResetForm
-from django.contrib.auth.models import User
-from django.template.loader import render_to_string
-from django.db.models.query_utils import Q
-from django.utils.http import urlsafe_base64_encode
-from django.contrib.auth.tokens import default_token_generator
-from django.utils.encoding import force_bytes
-
-
-#=================================================================
 
 # Create your views here.
 def index(request):
@@ -36,10 +14,10 @@ def register(request):
     form = CreateUserForm(request.POST)
     if form.is_valid():
       form.save()
-      username = form.cleaned_data.get('username')
+      email = form.cleaned_data.get('email')
       
-      login(request, username)
-      messages.success(request," Account was Created for "+username)
+      login(request, email)
+      messages.success(request," Account was Created for "+email)
       return redirect('accounts:home')
   
     messages.error(request, 'Incorrect credentials')
@@ -57,42 +35,40 @@ def login_view(request):
   context = {}
 
   if request.method =='POST':
-    form = AuthenticationForm(request, data=request.POST)
+    email = request.POST.get('username')
+    password = request.POST.get('password')
 
-    if form.is_valid():
-      username = form.cleaned_data.get('username')
-      password = form.cleaned_data.get('password')
-      user = authenticate(username=username, password=password)
+    user = authenticate(username=email, password=password)
 
-      if user is not None:
-        login(request, user)
-        messages.info(request, f"You are now logged in as {username}.")
-        return redirect('qr_generator:home',) # pk=str(request.user.id)
-        
-      else: messages.error(request, 'Account not Registered!!')
-    
-    else:
-      messages.error(request, "Invalid Username or Password")
+    print(email, password)
 
-  form = AuthenticationForm()   
-  context['form'] = form 
+    if user is not None:
+      login(request, user)
+      print(f'{user} logged in')
+      messages.info(request, f"You are now logged in as {email}.")
+      return redirect('qr_generator:home',) # pk=str(request.user.id)
+      
+    else: 
+      messages.error(request, 'Account not Registered!!')
+      print(user)
+  
   return render(request, 'accounts/login.html', context)
 
 
-@login_required(login_url="/accounts/login")
+@login_required(login_url="/qr-gen/accounts/login")
 def dashboard(request):
 	context = {}
 	return redirect('qr_generator:home')
 
 
-@unauthenticated_user
+@login_required(login_url="/qr-gen/accounts/login")
 def log_out(request):
 	logout(request)
 	messages.success(request, f'{request.user} Logged out')
-	return HttpResponseRedirect(redirect_to='qr_generate:home')
+	return redirect(to='qr_generator:home')
 
 
-
+@login_required(login_url="/qr-gen/accounts/login")
 def password_reset_request(request):
 	if request.method == "POST":
 		password_reset_form = PasswordResetForm(request.POST)

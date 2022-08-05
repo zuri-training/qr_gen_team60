@@ -23,14 +23,14 @@
             <div class="form login">
                 <p class="title">Welcome</p>
                 <p class="sub-title">We're happy to have you back</p>
-                <form action="#">
+                <form action="" method="post">
                     {% csrf_token%}
                     <div class="input-field">
-                        <input type="text" name="email" placeholder="Enter your email" required>
+                        <input type="email" name="username" placeholder="Enter your email" required>
                         <i class="uil uil-envelope icon"></i>
                     </div>
                     <div class="input-field">
-                        <input type="password" placeholder="Enter your password" required>
+                        <input type="password" name="password" placeholder="Enter your password" required>
                         <!-- <i class="uil uil-lock icon"></i> -->
                         <i class="uil uil-eye-slash showHidePw" ></i>
                     </div>
@@ -45,7 +45,7 @@
                     </div>
 
                     <div class="input-field button">
-                        <input onclick="validateForm()" style="background-color: blue;" name="login" type="submit" value="submit" required >
+                        <input style="background-color: blue;" type="submit" value="submit" required >
                     </div>
                 </form>
 
@@ -62,7 +62,7 @@
 
     <script>
         var form_fields = document.getElementsByTagName("input");
-        form_fields[1].placeholder = "Username..";
+        form_fields[1].placeholder = "Enter your Email...";
         form_fields[2].placeholder = "Enter password...";
     
         for (var field in form_fields) {
