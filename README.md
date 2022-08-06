@@ -89,8 +89,9 @@ QR Planet is a web app that focuses on generating QR  codes that perform tasks i
 ## Collaborators
 
 <div align="center">
-    <h1>Try our QR Generator Today!!!</h1>
-    <img src="https://github.com/zuri-training/qr_gen_team60/tree/main/qr_gen_project/static/gif/qr.qif" alt="Logo" width="300" height="220">
+    <h1>Try our QR Planet Today!!!</h1>
 </div>
+
+![QR Planet](https://github.com/zuri-training/qr_gen_team60/blob/main/qr_gen_project/static/gif/qr.gif)
 
 <p align="right">(<a href="#top">back to top</a>)</p>

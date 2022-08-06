@@ -44,17 +44,9 @@
       href="{% static 'qr_design/favicon_io/favicon.ico' %}"
       type="image/x-icon"
     />
-    <link rel="stylesheet" href="./style.css" class="css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700;800;900&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Outfit:wght@200;300;400;500;600;700;800;900&display=swap"
-      rel="stylesheet"
-    />
+
+
+    <link rel="stylesheet" href="{% static 'css/home.css'%}" />
     <title>QR Planet {% block title %} {% endblock title %}</title>
 
     {% block style %} {% endblock style %}
@@ -63,7 +55,104 @@
   {% endblock head %}
 
   <body>
+
+    <header>
+    {% block header %}
+    
+      <!-- <div class="wrapper"> -->
+      <div class="inner-header">
+        <div><img class="logo" src="{% static 'svg/qr_planet_logo.svg'%}" alt="logo"  width="60%"/></div>
+        <nav>
+          
+          <ul class="nav_links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">QR code</a></li>
+            <li><a href="#">Why us?</a></li>
+            <li><a href="#">API</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+          <button type="submit" href="#" class="Secondary-button">Login</button></a>
+          <button type="submit" href="#" class="Primary-button">Get started</button>
+        </nav>
+      </div>
+      
+    {% endblock header%}
+    </header>
+
     {% block content %} {% endblock content %}
+    
+
+    <footer>
+    {% block main_footer %}
+      <div class="main_footer">
+        <div class="top_footer">
+          <div>
+            <h4>Don't miss out!</h4>
+            <p>Do you like discounts, specials offers and rewards?</p>
+          </div class="form-edit">
+            <form action="" method=""> <!--! fix to send mail Later-->
+              <input type="email" class="mail" placeholder="Email" class="">          
+              <button type="submit" class="footer-button">Subscribe Now </button>
+            </form>
+        </div>    
+      </div>
+    {% endblock main_footer %}
+
+
+    {% block mid_footer %} 
+    <hr>
+    <div class="middle_footer">
+      <p class="md_footer_info">Enjoy seamless and efficient generation of qr codes. Create various
+        styles for your qr codes using the various designs available</p>
+
+      <div class="footer_info">
+        <p>QR Planet</p>
+        <ul>
+          <li><a href="#">How to generate QR codes</a></li>
+          <li><a href="#">Dynamic QR codes</a></li>
+          <li><a href="#">Static QR codes</a></li>
+        </ul>
+      </div>
+
+      <div class="footer_info">
+        <p>Why us?</p>
+        <ul>
+          <li>Product features</li>
+          <li>About us</li>
+          <li>FAQs</li>
+        </ul>
+      </div>
+
+      <div class="footer_info">
+        <p>API</p>
+        <ul>
+          <li>API docs</li>
+        </ul>
+      </div>      
+      
+      <div class="footer_info">
+        <p>Contact</p>
+        <!-- <div class="socials"> -->
+        <img src="{% static 'images/Twitter.png' %}" alt="Twitter" height="24px"/>
+        <img src="{% static 'images/Facebook.png' %}" alt="Facebook" height="24px" />
+        <img src="{% static 'images/Linkedin.png' %}" alt="Linkedin" height="24px" />
+        <!-- </div> -->
+      </div>
+    </div>
+    {% endblock mid_footer %}
+
+    {% block bottom_footer %}
+      <hr>  
+      <div class="bottom_footer">
+        <div class="footer_2">
+          <p> <span> 2022 </span> QR Planet&semi; All Rights Reserved&copy;</p>      
+          <a href="#">Report</a>
+        </div>
+      </div>
+    {% endblock bottom_footer %}
+  </footer>
+
   </body>
   <!--scripts and others-->
 </html>
+
