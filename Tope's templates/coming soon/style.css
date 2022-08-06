@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Poppins:wght@300;400;600;700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+:root {
+    --secondary-color-200: #d0dff6;
+    --success-color: #10a11f;
+    --error-color: #d90f0f;
+    --warning-color: #fff849;
+    --white: #fffcfc;
+    --black-for-texts: #333131;
+    --white-2: #fcfeff;
+    --secondary-color-100: #e9eff8;
+    --secondary-color-300: #87a1c9;
+    --secondary-color-400: #6282b2;
+    --grey-700: #424447;
+    --grey-600: #4f5155;
+    --grey-500: #6c6e71;
+    --grey-400: #8a8b8e;
+    --grey-200: #c4c5c6;
+    --primary-color-300: #082553;
+    --primary-color-200: #092c64;
+    --primary-color-100: #adb9cb;
+    --gc-600: #868b8f;
+    --wc-1: #fffcfc;
+  }
+
+body{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: solid 1px var(--secondary-color-400);
+    background-image: linear-gradient(to bottom, #b6cff4 0%, var(--secondary-color-200) 34%, var(--white-2) 90%);
+    /* background: ; */
+    /* background-size: 90%; */
+}
+
+.container p{
+    /* font-size: 40px;
+    font-weight: 500;
+    padding: 20px; */
+    width: 638px;
+    height: 112px;
+    /* margin: 0 86px 191px 67px; */
+    padding-bottom: 100px;
+    font-family: Montserrat;
+    font-size: 80px;
+    font-weight: 800;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.4;
+    letter-spacing: normal;
+    text-align: center;
+    color: var(--black-for-texts);
+}
+
+.container .sub-title{
+    /* width: 1058px; */
+    /* height: 39px; */
+    /* margin: 176px 0 144px 1px; */
+    /* margin-top: -5%; */
+    padding-top: 40px;
+    font-family: Outfit;
+    font-size: 28px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.29;
+    letter-spacing: normal;
+    text-align: center;
+    color: var(--grey-700);
+
+}
+
+.input-field{
+    /* display: flex;
+    flex-direction: row;
+    justify-content: flex-start; */
+}
+
+.input-field input{
+    width: 388px;
+    height: 46px;
+    flex-grow: 0;
+    
+    align-items: center;
+    gap: 10px;
+    padding: 16px 8px;
+    border-radius: 8px;
+    border: solid 1px #868683;
+    background-color: #fff;
+}
+
+.input-field button {
+    width: 156px;
+    height: 42px;
+    /* flex-grow: 0;
+    display: flex;
+    flex-direction: row; */
+    
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    padding: 8px 32px;
+    border-radius: 8px;
+    background-color: var(--primary-color-300);
+}
