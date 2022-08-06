@@ -24,7 +24,7 @@ def register(request):
   form = CreateUserForm()
         
   context = {'form':form}
-  return render(request,'accounts/register.html', context)
+  return render(request,'accounts/signup.html', context)
 
 
 from django.contrib.auth.forms import AuthenticationForm #add this

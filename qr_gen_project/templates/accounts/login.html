@@ -17,6 +17,7 @@
   }
 </style>
 {% endblock footer_adjust%}
+
 {%block style %}
 	<link rel="stylesheet" href="{% static 'accounts/css/login.css'%}" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
@@ -25,7 +26,6 @@
 
 
 {% block content %}
-{% include 'base/messages.html' %}
 
     <div class="container">
         <div class="forms">
@@ -60,7 +60,7 @@
 
                 <div class="login-signup">
                     <span class="text">Not yet registered&quest;
-                        <a href="#" class="text signup-text">Sign Up</a>
+                        <a href="{% url 'accounts:register'%}" class="text signup-text">Sign Up</a>
                     </span>
                 </div>
             </div>
@@ -68,12 +68,7 @@
     </div>    
 
     <script src="{% static 'accounts/js/custom/validate_login.js' %}"></script>
-    <script>
-        setTimeout(function(){
-          if ($(`#msg`).length > 0){
-            $(`#msg`).remove();
-          }
-        }, 2000)
+)
       </script>
     <script>
         var form_fields = document.getElementsByTagName("input");

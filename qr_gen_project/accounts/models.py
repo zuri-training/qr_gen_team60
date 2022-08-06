@@ -42,6 +42,7 @@ class UsersManager(BaseUserManager):
 class QRUser(AbstractBaseUser):
     """We are Using Email as our ID"""
     email = models.CharField(primary_key=True, max_length=155)
+    fullname = models.CharField(max_length=155, default="Empty")
     active = models.BooleanField(default=True)
     staff = models.BooleanField(default=False)
     admin = models.BooleanField(default=False)
