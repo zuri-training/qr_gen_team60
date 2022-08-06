@@ -24,7 +24,7 @@ def register(request):
   form = CreateUserForm()
         
   context = {'form':form}
-  return render(request,'accounts/register.html', context)
+  return render(request,'accounts/signup.html', context)
 
 
 from django.contrib.auth.forms import AuthenticationForm #add this
@@ -45,7 +45,7 @@ def login_view(request):
     if user is not None:
       login(request, user)
       print(f'{user} logged in')
-      messages.info(request, f"You are now logged in as {email}.")
+      messages.success(request, f"You are now logged in as {email}.")
       return redirect('qr_generator:home',) # pk=str(request.user.id)
       
     else: 

@@ -1,15 +1,25 @@
-{% extends 'base.html' %}
+{% extends 'base/base.html'%}
 {% load static%}
 
 <!-----------------Leave here for header------------->
-<!-------------------end header---------------------->
-
-
 {% block title %} {{ block.super }} &#124; Login {% endblock title %}
 
+<!-------------------end header---------------------->
+
+{% block footer_adjust %}
+<style>
+    #footer {
+      position: fixed;
+      padding: 10px 10px 0px 10px;
+      bottom: 0;
+      width: 100%;
+
+  }
+</style>
+{% endblock footer_adjust%}
 
 {%block style %}
-	<link rel="stylesheet" href="{% static 'css/login.css'%}" />
+	<link rel="stylesheet" href="{% static 'accounts/css/login.css'%}" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.1.5/css/unicons.css">
 {% endblock style %}
@@ -17,7 +27,6 @@
 
 {% block content %}
 
-<body>
     <div class="container">
         <div class="forms">
             <div class="form login">
@@ -51,15 +60,16 @@
 
                 <div class="login-signup">
                     <span class="text">Not yet registered&quest;
-                        <a href="#" class="text signup-text">Sign Up</a>
+                        <a href="{% url 'accounts:register'%}" class="text signup-text">Sign Up</a>
                     </span>
                 </div>
             </div>
         </div>
     </div>    
 
-    <script src="{% static 'js/custom/validate_login.js' %}"></script>
-
+    <script src="{% static 'accounts/js/custom/validate_login.js' %}"></script>
+)
+      </script>
     <script>
         var form_fields = document.getElementsByTagName("input");
         form_fields[1].placeholder = "Enter your Email...";
@@ -71,6 +81,6 @@
     </script>
     {% endblock content %}
 
-
 <!-----------------Leave here for footer--------->
+{% block bottom_footer %} {% include 'base/bottom_footer.html' %} {% endblock bottom_footer %}
 <!-------------------end footer---------------------->

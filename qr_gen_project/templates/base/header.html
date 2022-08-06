@@ -1,0 +1,37 @@
+{% load static %}
+
+{% block style %}
+
+{% endblock style %}
+    
+
+
+{% block header %}
+
+
+
+
+
+    <!-- <div class="wrapper"> -->
+    <div class="inner-header">
+    <div><img class="logo" src="{% static 'base/svg/qr_planet_logo.svg'%}" alt="logo"  width="60%"/></div>
+    <nav>
+        
+        <ul class="nav_links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">QR code</a></li>
+        <li><a href="#">Why us?</a></li>
+        <li><a href="#">API</a></li>
+        <li><a href="#">Contact</a></li>
+        </ul>
+        {% if request.user.is_authenticated %}
+        
+        <a href="{% url 'accounts:logout' %}" class="Secondary-button">Logout</a>
+        {% else %}
+        <a href="{% url 'accounts:login' %}" class="Secondary-button">Login</a>
+        {% endif %}
+        <button type="submit" href="#" class="Primary-button">Get started</button>
+    </nav>
+    </div>
+    
+{% endblock header%}
