@@ -2,6 +2,7 @@ from django.shortcuts import redirect, render
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from pkg_resources import require
 from .models import Qr_Collection
 from django import forms
 from django.contrib.auth import login, logout
@@ -44,4 +45,8 @@ def logout(request):
     if request.method == 'POST':
         logout(request)
     return render(request, 'accounts/logout.html')
+
+@login_required(login_url="/accounts/login")
+def faq(request):
+    return redirct(request, 'accounts:faq')
      
