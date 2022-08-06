@@ -1,0 +1,1 @@
+### Remember to Move static files to app folder before production

@@ -123,13 +123,15 @@ CORS_ORIGIN_WHITELIST = (
 )
 # SMTP Configuration (for sending mails)
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_USE_TLS = True
-EMAIL_HOST = 'smtp.mailtrap.io'
-EMAIL_HOST_USER = 'd9c28aad6129e6'
-EMAIL_HOST_PASSWORD = '019e302beff558'
-EMAIL_PORT = '2525'
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_USE_TLS = True
+# EMAIL_HOST = 'smtp.mailtrap.io'
+# EMAIL_HOST_USER = 'd9c28aad6129e6'
+# EMAIL_HOST_PASSWORD = '019e302beff558'
+# EMAIL_PORT = '2525'
 
+
+EMAIL_BACKEND =  'django.core.mail.backends.console.EmailBackend' #!
 
 # Thousand Separator
 USE_THOUSAND_SEPARATOR = True
@@ -177,4 +179,8 @@ LOGGING = {
     },
 }
 
+LOGOUT_REDIRECT_URL = '/qr-gen/'
 
+
+# Because we changed default user id
+AUTH_USER_MODEL='accounts.QRUser'

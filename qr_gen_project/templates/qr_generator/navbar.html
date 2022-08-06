@@ -1,0 +1,71 @@
+<style>
+    header {
+    background-color: var(--white);
+    height: 102px;
+    padding: 10px 0 5px 0;
+}
+
+.inner-header {
+    width: 80%;
+    margin: auto;
+    font-family: "Outfit", sans-serif;
+    font-size: 14px;
+    height: 70px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0;
+    gap: 3px;
+}
+
+
+.logo {
+    cursor: pointer;
+    width: 200px;
+    margin-right: 25vh;
+}
+
+.nav_links {
+    list-style: none;
+}
+
+.nav_links,
+li {
+    display: inline-block;
+    padding: 0px 15px;
+
+}
+
+.nav_links,
+li,
+a {
+    color: var(--primary-color-200);
+    text-decoration: none;
+    transition: all 0.3s ease 0s;
+}
+
+button {
+    font-family: "Outfit", sans-serif;
+    border: none;
+}
+</style>
+
+
+<header>
+    <!-- <div class="wrapper"> -->
+    <div class="inner-header">
+      <img class="logo" src="{% static 'svg/qr_planet_logo.svg'%}" alt="logo" />
+      <nav>
+        <ul class="nav_links">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">QR code</a></li>
+          <li><a href="#">Why us?</a></li>
+          <li><a href="#">API</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+        <button type = "submit" href="#" class="Secondary-button">Login</button></a>
+        <button type = "submit" href="#" class="Primary-button">Get started</button>
+
+    </div>
+      </nav>
+  </header>
