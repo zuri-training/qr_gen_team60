@@ -96,7 +96,8 @@ QR Planet is a web app that focuses on generating QR  codes that perform tasks i
   #### Ibrahim Tomiwa-   Product designer
   #### Ifeoma Sylvia Dike - Product Designer
   #### Saminu Mojisola - Product Designer
-  ### Ndafohamba Shadjanale- Product design 
+  #### Raji John Damisa - Product Designer
+  #### Ndafohamba Shadjanale- Product design 
 <div align="center">
     <h1>Try out QR Planet Today!!!</h1>
 </div>
