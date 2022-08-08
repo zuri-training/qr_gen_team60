@@ -1,6 +1,6 @@
 # account/views.py
 
-from .imports import *
+# from .imports import *
 # --------------------imports
 
 def index(request):
