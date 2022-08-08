@@ -32,7 +32,7 @@
             <div class="form login">
                 <p class="title">Welcome</p>
                 <p class="sub-title">We're happy to have you back</p>
-                <form action="" method="post">
+                <form action="{% url 'accounts:login' %}" method="post">
                     {% csrf_token%}
                     <div class="input-field">
                         <input type="email" name="username" placeholder="Enter your email" required>
