@@ -6,7 +6,7 @@
 <div class="alert" id="msg" role="alert">Alert</div>
 
 <div class="d-flex justify-content-center form_container">
-    <form method="POST">
+    <form method="POST" action="{% url 'accounts:register' %}" class="site-form">
       {% csrf_token %}
 
       <div class="input-group mb-2">{{ form.username }}</div>
