@@ -1,21 +1,20 @@
-# account/views.py
+from .imports import *
 
-# from .imports import *
-# --------------------imports
+
 
 def index(request):
     context = {}
     return render(request, 'qr_generator/index.html', context)
 
 
-def qr_gen(request):
-    if request.method == 'POST':
-        data = request.POST['data']
-        img = make(data)
-        img_name = 'qr' + str(time.time()) + '.png'
-        img.save(str(settings.MEDIA_ROOT) + '/' + img_name)
-        return render(request, 'generator.html', {'img_name': img_name})
-    return render(request, 'generator.html')
+# def qr_gen(request):
+#     if request.method == 'POST':
+#         data = request.POST['data']
+#         img = make(data)
+#         img_name = 'qr' + str(time.time()) + '.png'
+#         img.save(str(settings.MEDIA_ROOT) + '/' + img_name)
+#         return render(request, 'generator.html', {'img_name': img_name})
+#     return render(request, 'generator.html')
 
 
 
@@ -26,7 +25,6 @@ def form(request, template):
 
 
 def contact_us(request):
-    logger = logging.getLogger(__name__) # logger to  view errors
  
     context = {}
     if request.method == "POST":
@@ -48,7 +46,6 @@ def contact_us(request):
                 return redirect(to='qr_generator:contact')
 
             except Exception as err:
-                logger.warning(f'{err} [{request.user}] tried Contacting us at '+str(datetime.datetime.now())+' hours! but couldn\'t')
                 return HttpResponse("We haven't encountered this problem before") # TODO: will fix this when error page comes
 
             else:

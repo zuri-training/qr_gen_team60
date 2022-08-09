@@ -1,37 +1,41 @@
 {% load static %}
 
-{% block style %}
 
-{% endblock style %}
-    
-
-
-{% block header %}
-
-
-
-
-
-    <!-- <div class="wrapper"> -->
-    <div class="inner-header">
-    <div><img class="logo" src="{% static 'base/svg/qr_planet_logo.svg'%}" alt="logo"  width="60%"/></div>
-    <nav>
-        
-        <ul class="nav_links">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">QR code</a></li>
-        <li><a href="#">Why us?</a></li>
-        <li><a href="#">API</a></li>
-        <li><a href="#">Contact</a></li>
+{% block header %} 
+<div class="wrapper">
+    <img class="logo" href="{% url 'qr_generator:home'%}" src="{% static 'qr_generator/images/logo.svg'%}" alt="logo" />
+    <nav class="navbar">
+      <input type="checkbox" name="" id="nav-toggle">
+      <div class="nav-links">
+        <ul>
+          <li><a href="#">Home</a></li>
+          {% if request.user.is_authenticated %}
+          {# -- Add QR generate url here-- #}
+            <li><a href="#">Generate QR Code</a></li>
+            {%else%}
+            <li><a href="{% url 'accounts:login'%}">Generate QR Code</a></li>
+          {% endif %}
+          
+          <li><a href="#">Why us?</a></li>
+          <li><a href="{% url 'docs'%}">API</a></li>
+          <li><a href="#">Contact</a></li>
         </ul>
-        {% if request.user.is_authenticated %}
-        
-        <a href="{% url 'accounts:logout' %}" class="Secondary-button">Logout</a>
-        {% else %}
-        <a href="{% url 'accounts:login' %}" class="Secondary-button">Login</a>
-        {% endif %}
-        <button type="submit" href="#" class="Primary-button">Get started</button>
+        <div class="nav-button">
+            {% if request.user.is_authenticated %}
+                <button type = "submit" class="Secondary-button"><a href="{% url 'accounts:logout'%}">Logout</a></button>
+                <button type = "submit" class="Primary-button"><a href="#">Generate QR Code</a></button>
+            {% else %}
+                <button type = "submit" class="Secondary-button"><a href="{% url 'accounts:login'%}">Login</a></button>
+                <button type = "submit" class="Primary-button"><a href="#">Get Started</a></button>
+            {% endif %}
+          
+        </div>
+      </div>            
+      <label for="nav-toggle" class="icon-burger"> 
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div> 
+      </label>  
     </nav>
-    </div>
-    
-{% endblock header%}
+  </div> 
+{% endblock header %}
