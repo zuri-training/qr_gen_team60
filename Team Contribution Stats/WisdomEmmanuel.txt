@@ -3,9 +3,9 @@ Slack Username: SimpleNick
 Github Username : SimpleNiQue
 Track : Full-stack
 Contributions : 
-		API (https://github.com/zuri-training/qr_gen_team60/commit/12c6119a06498e60446055e11a60f9ad9f13c959)
-		Login views (Backend Logic) [https://github.com/zuri-training/qr_gen_team60/commit/79fd1a747fe7df12433e7b36445e52b0e69646f3]
-		Signup views (Backend Logic) (https://github.com/zuri-training/qr_gen_team60/commit/79fd1a747fe7df12433e7b36445e52b0e69646f3)
-		URL configuration and General Project setup [https://github.com/zuri-training/qr_gen_team60/commit/fb1dea621760c70626c1278ffe3049b4a44b648a]
-		General Repo Management 
+		* API (https://github.com/zuri-training/qr_gen_team60/commit/12c6119a06498e60446055e11a60f9ad9f13c959)
+		* Login views (Backend Logic) [https://github.com/zuri-training/qr_gen_team60/commit/79fd1a747fe7df12433e7b36445e52b0e69646f3]
+		* Signup views (Backend Logic) (https://github.com/zuri-training/qr_gen_team60/commit/79fd1a747fe7df12433e7b36445e52b0e69646f3)
+		* URL configuration and General Project setup [https://github.com/zuri-training/qr_gen_team60/commit/fb1dea621760c70626c1278ffe3049b4a44b648a]
+		* General Repo Management 
 
