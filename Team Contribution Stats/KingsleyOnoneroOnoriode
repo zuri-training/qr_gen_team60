@@ -1,0 +1,17 @@
+Name: Kingsley Ononero Onoriode
+Slack Username: Ononero
+Github Username: Ononero
+Student ID: I4G005629UCK
+Track: Product Design
+
+Contributions:
+          UI elements, Components and Designs: https://www.figma.com/file/IsSByeqo1V0yS9QW6wmS8j/QR_GENERATOR-PROJECT
+
+          Prototyping: https://www.figma.com/proto/IsSByeqo1V0yS9QW6wmS8j/QR_GENERATOR-PROJECT?node-id=949%3A14998&starting-point-node-id=831%3A10434&scaling=scale-down
+          
+          Technical Documentation: https://docs.google.com/document/d/11YqY3GACwCbnjsB-XrjberOGCVKw7SUvrz6sGoQM0_s/edit?usp=sharing
+          
+          Presentation Slides: https://docs.google.com/presentation/d/1tgBIZ4bBodhI5Qq0xPWWmzvwheyojryPx6nqJhKC7VM/edit?usp=sharing
+          
+          Video Presentation: https://drive.google.com/file/d/12n6Tj7QWaUbftnBqRZrmhUk3I0vleB0u/view?usp=sharing
+          
