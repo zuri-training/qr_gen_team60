@@ -19,9 +19,8 @@ schema_view = get_schema_view(
       description="""The Easiest Way to generate, download &amp; share QR CodesOnline with QR Planet Code Generator within few minutes.
       Get started today.
       These are the Available Endpoints, Other API Endpoints are coming soon""",
-      terms_of_service="https://www.google.com/policies/terms/",
-      contact=openapi.Contact(email="contact@snippets.local"),
-      license=openapi.License(name="BSD License"),
+      
+      contact=openapi.Contact(email="simplenick01@gmail.com"),
    ),
    public=True,
    permission_classes=[permissions.AllowAny],
