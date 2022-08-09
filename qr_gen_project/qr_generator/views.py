@@ -112,3 +112,5 @@ def qr_gen2(request):
 def test_form(request, template):
     form = ContactUsForm()
     return render(request, "qr_generator/" + template +'.html',{"form":form})
+
+

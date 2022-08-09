@@ -28,7 +28,8 @@ INSTALLED_APPS = [
     'qr_generator.apps.QrGeneratorConfig',
     # 'api',
     'rest_framework',
-    'corsheaders'
+    'corsheaders',
+    'drf_yasg',
 ]
 
 
@@ -151,10 +152,9 @@ GOOGLE_DRIVE_STORAGE_MEDIA_ROOT = '<base google drive path for file uploads>' # 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 REST_FRAMEWORK = {
-    # Use Django's standard `django.contrib.auth` permissions,
-    # or allow read-only access for unauthenticated users.
-    'DEFAULT_PERMISSION_CLASSES': [],
-    'TEST_REQUEST_DEFAULT_FORMAT': 'json'
+    'DEFAULT_AUTHENTICATION_CLASSES':[
+        'accounts.jwt.JWTAuthentication',
+    ]
 }
 
 

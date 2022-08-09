@@ -1,0 +1,9 @@
+Name : Wisdom Emmanuel
+Slack Username: SimpleNick
+Github Username : SimpleNiQue
+Track : Full-stack
+Contributions : 
+		Login views (https://github.com/zuri-training/)
+		Signup views (https://github.com/zuri-training/)
+		API ()
+
