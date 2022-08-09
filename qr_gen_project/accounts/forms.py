@@ -7,7 +7,7 @@ class CreateUserForm(UserCreationForm):
     email = forms.EmailField(required=True)
     class Meta:
         model = QRUser
-        fields = ('fullname', 'email', 'password1', 'password2')
+        fields = ('username', 'email', 'password1', 'password2')
         widgets = {
             'form_item': forms.TextInput(
                 attrs={
