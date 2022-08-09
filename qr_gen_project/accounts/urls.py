@@ -20,6 +20,7 @@ urlpatterns += [
     path('login/',views.login_view, name="login"),
     path('logout/', auth_views.LogoutView.as_view(next_page=settings.LOGOUT_REDIRECT_URL), name='logout'),
     path('dashboard/',views.dashboard, name="dashboard"),
+    path('faq/', views.faq, name="faq"), # avong added thisn for FAQ page
 ]
 
 
