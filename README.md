@@ -4,8 +4,8 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/zuri-training/qr_gen_team60">
-    <img src="./qr_gen_project/static/images/qr_logo.png" alt="Logo" width="300" height="250">
+  <a href="https://github.com/zuri-training/qr_gen_team60/">
+    <img src="https://github.com/zuri-training/qr_gen_team60/blob/main/qr_gen_project/static/base/images/qr_logo.png" alt="Logo" width="300" height="250">
   </a>
 
 <h3 align="center">QR Planet</h3>
