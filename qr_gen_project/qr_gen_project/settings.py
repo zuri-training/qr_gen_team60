@@ -160,24 +160,24 @@ REST_FRAMEWORK = {
 
 
 # Loggers
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'handlers': {
-        'file': {
-            'level': 'WARNING',
-            'class': 'logging.FileHandler',
-            'filename': BASE_DIR / 'logs/Logs.log',
-        },
-    },
-    'loggers': {
-        '': {
-            'handlers': ['file'], 
-            'level': 'WARNING',
-            'propagate': True,
-        },
-    },
-}
+# LOGGING = {
+#     'version': 1,
+#     'disable_existing_loggers': False,
+#     'handlers': {
+#         'file': {
+#             'level': 'WARNING',
+#             'class': 'logging.FileHandler',
+#             'filename': BASE_DIR / 'logs/Logs.log',
+#         },
+#     },
+#     'loggers': {
+#         '': {
+#             'handlers': ['file'], 
+#             'level': 'WARNING',
+#             'propagate': True,
+#         },
+#     },
+# }
 
 LOGOUT_REDIRECT_URL = '/qr-gen/'
 
