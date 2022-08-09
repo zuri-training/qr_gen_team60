@@ -1,19 +1,14 @@
 {% extends 'base/base.html'%}
-{% load static%}
+{% load static %}
 
 
-   
-{% block title %}{{ block.super }}{% endblock title %}
-    {% block style %} 
-        <link rel="stylesheet" href="{% static 'qr_generator/css/homepage.css'%}" />
-    {% endblock style %}
+{% block style %}
+    <link rel="stylesheet" href="{% static 'qr_generator/css/home.css'%}" />
+{% endblock style%}
     
- 
+{% block header %}{% include 'base/header.html'%}{% endblock header %}
 
-    {% block header %} {% include 'base/header.html'%}{% endblock header %}
-    
-    {% block content %} 
-    
+{% block content %}
     <section class="hero-bg">
         <div class="hero-section">
             <div class="wrapper">
@@ -32,6 +27,8 @@
             </div>
         </div>
     </section>
+
+<!-- -->
 
 <section class="middle-section">
     <div class="wrapper">
@@ -67,14 +64,14 @@
         
                 <div class="third card">
                     <div class="option">
-                    <img src="{% static 'qr_generator/images/Features.svg'%}" alt="options">
+                    <img src="{% static 'qr_generator/images/options.svg'%}" alt="options">
                     </div>
                     <p>Set Options</p>
                 </div>
     
                 <div class="fourth card">
                     <div class="qr">
-                    <img src=" {% static 'qr_generator/images/qr.svg'%}" alt="QR">
+                    <img src="{% static 'qr_generator/images/qr.svg'%}" alt="QR">
                     </div>
                     <p>Generate QR</p>
                 </div>
@@ -82,7 +79,7 @@
 
             <div class="bottom-curve">
               <div class="curve2"><img src="{% static 'qr_generator/images/Curve 2.svg'%}" alt="curve2"></div>
-              <div class="curve3"><img src="{% static 'qr_generator/images/Curve 2.svg'%}" alt="curve3"></div>
+              <div class="curve3"><img src="{% static 'qr_generator/images/Curve 2.svg'%}" alt="curve2"></div>
             </div>
           </div>
   
@@ -151,14 +148,10 @@
 
 {% endblock content %}
 
+{% block main_footer %} {% include 'base/main_footer.html' %} {% endblock main_footer %}
 
-{% block top_and_middle_footer %}
-    {% include 'base/top_and_middle_footer.html'%}
-{% endblock top_and_middle_footer %}
+{% block mid_footer %} {% include 'base/mid_footer.html' %} {% endblock mid_footer %}
 
-{% block bottom_footer %}
-    {% include 'base/bottom_footer.html'%}
-{% endblock bottom_footer %} 
-    
-  </body>
-</html>
+{% block bottom_footer %} {% include 'base/bottom_footer.html' %} {% endblock bottom_footer %}
+
+

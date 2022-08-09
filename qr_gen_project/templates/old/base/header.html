@@ -1,7 +1,14 @@
 {% load static %}
 
 
-{% block header %} 
+{% block style %}
+
+{% endblock style %}
+    
+
+{% block header %}
+
+
 <div class="wrapper">
     <img class="logo" href="#" src="{% static 'qr_generator/images/logo.svg'%}" alt="logo" />
     <nav class="navbar">
@@ -25,5 +32,6 @@
         <div class="line"></div> 
       </label>  
     </nav>
-  </div> 
-{% endblock header %}
+  </div>
+    
+{% endblock header%}
