@@ -31,28 +31,29 @@ from django.contrib.auth.forms import AuthenticationForm #add this
 
 @unauthenticated_user
 def login_view(request):
-  """ This uses the built in Django User"""
-  context = {}
+	""" This uses the built in Django User"""
+	context = {}
 
-  if request.method =='POST':
-    email = request.POST.get('username')
-    password = request.POST.get('password')
+	if request.method =='POST':
+		username = request.POST.get('username')
+		email = request.POST.get('email')
+		password = request.POST.get('password')
 
-    user = authenticate(username=email, password=password)
+		user = authenticate(username=email, password=password)
 
-    print(email, password)
+		print(email, password)
 
-    if user is not None:
-      login(request, user)
-      print(f'{user} logged in')
-      messages.success(request, f"You are now logged in as {email}.")
-      return redirect('qr_generator:home',) # pk=str(request.user.id)
-      
-    else: 
-      messages.error(request, 'Account not Registered!!')
-      print(user)
-  
-  return render(request, 'accounts/login.html', context)
+		if user is not None:
+			login(request, user)
+			print(f'{user} logged in')
+			messages.success(request, f"You are now logged in as {email}.")
+			return redirect('qr_generator:home',) # pk=str(request.user.id)
+		
+		else: 
+			messages.error(request, 'Account not Registered!!')
+			print(user)
+	
+	return render(request, 'accounts/login.html', context)
 
 
 @login_required(login_url="/qr-gen/accounts/login")
