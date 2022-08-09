@@ -1,0 +1,174 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+:root {
+    --secondary-color-200: #d0dff6;
+    --success-color: #10a11f;
+    --error-color: #d90f0f;
+    --warning-color: #fff849;
+    --white: #fffcfc;
+    --black-for-texts: #333131;
+    --white-2: #fcfeff;
+    --secondary-color-100: #e9eff8;
+    --secondary-color-300: #87a1c9;
+    --secondary-color-400: #6282b2;
+    --grey-700: #424447;
+    --grey-600: #4f5155;
+    --grey-500: #6c6e71;
+    --grey-400: #8a8b8e;
+    --grey-200: #c4c5c6;
+    --primary-color-300: #082553;
+    --primary-color-200: #092c64;
+    --primary-color-100: #adb9cb;
+    --gc-600: #868b8f;
+    --wc-1: #fffcfc;
+  }
+
+
+  .container{
+    /* width: 1193px;
+    height: 855px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 68px;
+    margin: 64px 52px 66.4px 364px;
+    padding: 64px 20px;
+    background-color: var(--white-2); */
+    width: 60%;
+    margin: auto;
+    display: grid;
+    grid-gap: 1em;
+    grid-template-columns: 9fr 3fr;
+    padding: 60px;
+  }
+
+  .container .box1 {
+    border: 1px solid var(--secondary-color-300);
+    grid-row: span 30;
+  }
+
+  .box1{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+
+  .box1 button{
+    margin-top: 8px;
+    color: var(--grey-400);
+    background-color: var(--primary-color-100);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .box1 button:hover{
+    background-color: var(--secondary-color-400);
+    /* cursor: pointer; */
+  }
+
+  .box1 .card1{
+    /* display: grid;
+    grid-gap: 8px; */
+    width: 120px;
+    padding: 10px;
+  }
+  .box1 .card2{
+    /* display: grid;
+    grid-gap: 8px; */
+    width: 120px;
+    padding: 10px;
+  }
+  .box1 .card3{
+    /* display: grid;
+    grid-gap: 8px; */
+    width: 120px;
+    padding: 10px;
+  }
+  .box1 .card4{
+    /* display: grid;
+    grid-gap: 8px; */
+    width: 120px;
+    padding: 10px;
+  }
+  .box1 .card5{
+    /* display: grid;
+    grid-gap: 8px; */
+    width: 120px;
+    padding: 10px;
+  }
+
+  .box1 button{
+    width: 120px;
+    padding: 6px;
+  }
+
+  
+
+  /* .box1 .buttons{
+    padding: 12px;
+  } */
+
+  .container .box2{
+    border: 1px solid var(--secondary-color-300);
+    grid-row: span 30;
+    border-radius: 8px;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    background-color: #fff;
+  }
+
+  .box2 img{
+    width: 80%;
+    padding: 20px;
+  }
+
+  .box2 .btn1{
+    width: 150px;
+    padding: 5px;
+    margin-left: 2px;
+    border: 1px solid var(--secondary-color-400);
+    border-radius: 8px;
+    color: var(--secondary-color-100);
+    background-color: var(--primary-color-200);
+  }
+
+  .box2 .btn1:hover{
+    background-color: var(--primary-color-100);
+  }
+
+  .box2 .btn2{
+    width: 160px;
+    padding: 10px;
+    margin-left: 9px;
+    border: 1px solid var(--secondary-color-400);
+    border-radius: 8px;
+    color: var(--secondary-color-400);
+    background-color: var(--white);
+    margin-top: 26px;
+  }
+
+  .box2 .btn2:hover{
+    background-color: var(--primary-color-100);
+  }
+
+  /* .box2 .btn3{
+    width: 150px;
+    padding: 5px;
+    margin-left: 3px;
+    border: 1px solid var(--secondary-color-400);
+    border-radius: 8px;
+    color: var(--secondary-color-400);
+    background-color: var(--white);
+    margin-top: 12px;
+  }
+
+  .box2 .btn3:hover{
+    background-color: var(--primary-color-100);
+  } */
