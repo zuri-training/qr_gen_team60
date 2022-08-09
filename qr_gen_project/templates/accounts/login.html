@@ -1,8 +1,8 @@
-{% extends 'base/base.html'%}
+
 {% load static%}
 
 <!-----------------Leave here for header------------->
-{% block title %} {{ block.super }} &#124; Login {% endblock title %}
+
 
 <!-------------------end header---------------------->
 
@@ -19,6 +19,7 @@
 {% endblock footer_adjust%}
 
 {%block style %}
+
 	<link rel="stylesheet" href="{% static 'accounts/css/login.css'%}" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.1.5/css/unicons.css">
@@ -35,7 +36,7 @@
                 <form action="{% url 'accounts:login' %}" method="post">
                     {% csrf_token%}
                     <div class="input-field">
-                        <input type="email" name="username" placeholder="Enter your email" id="email" required>
+                        <input type="email" name="email" placeholder="Enter your email" id="email" required>
                         <i class="uil uil-envelope icon"></i>
                     </div>
                     <div class="input-field">

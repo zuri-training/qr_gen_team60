@@ -1,5 +1,6 @@
-{% extends 'base/base.html'%}
+{% extends 'qr_generator/index.html' %}
 {% load static%}
+
 
     {% block title %} {{ block.super }}&nbsp;&#124;&nbsp;Sign&nbsp;Up {% endblock title %}
 
@@ -33,7 +34,7 @@
                 <form action="{% url 'accounts:register' %}" method="POST">
                     {% csrf_token %}
                     <div class="input-field">
-                        {{ form.fullname }}
+                        {{ form.username }}
                     </div>
                     <div class="input-field">
                         {{form.email}}

@@ -1,50 +1,42 @@
-{% extends 'base.html' %}
+{% extends 'qr_generator/index.html' %}
 {% load static %}
 <!-----------------Leave here for header------------->
 <!-------------------end header---------------------->
 
-{% block title %}
-{% endblock title %}
-
-{% block style %}
-{% endblock style %}
 
 {% block content %}
-    <!--Your Logic Here-->
-    <!DOCTYPE html>
-    <html lang="en">
+
+
+<section>
+    <article class="buttons">
+        <button href="{% url 'category' pk="image" %}" >Image</button>
+        <button href="{% url 'category' pk="pdf" %}" >Pdf</button>
+        <button href="{% url 'category' pk="url" %}" >Url</button>
+
+    </article>
+
+</section>
+
+
+
+    <form action="{% url 'qr_generator:generator'%}" method="post">
+        {% csrf_token%}
+        <input type="text" name="data" id="data">
+        <input type="submit">
+    </form>
+
+    <div>
+        {% if qr_image %}
+        <h4>Your QR Code is:</h4>
+            <img src="{{qr_image}}" alt="" width="200px" height="200px">
+        {% endif %}
+    </div>
     
-    <body>
-        <div class="header-section">
-            <header class="main-header">
-                <div class="menu"><span></span></div>
-                <div class="logo-section">
-                    <div class="logo"><img src = "/" alt="qr planet"></div>
-                </div>
-                <div class="main-menu">
-                    <ul class="group">
-                        <li class="list"><a href="#" class="list-item">Home</a></li>
-                        <li class="list"><a href="#" class="list-item">Qr code</a></li>
-                        <li class="list"><a href="#" class="list-item">Why us?</a></li>
-                        <li class="list"><a href="#" class="list-item">API</a></li>
-                        <li class="list"><a href="#" class="list-item">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="right-item">
-                    <div class="login-button">
-                        <a href="#" class="login">Login</a>
-                    </div>
-                    <div class="start-button">
-                        <a href="#" class="start">Get Started</a>
-                    </div>
-                </div>
-            </header>
-        </div>
-    </body>
-    </html>
-    <h2> It Worked!!</h2>
 {% endblock content %}
 
 
 <!-----------------Leave here for footer--------->
+{% block top_and_middle_footer %}
+    {# - just override the mid section-#}
+{% endblock top_and_middle_footer %}
 <!-------------------end footer---------------------->

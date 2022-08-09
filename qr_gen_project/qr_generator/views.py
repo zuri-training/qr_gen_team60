@@ -1,7 +1,5 @@
 from .imports import *
 
-
-
 def index(request):
     context = {}
     return render(request, 'qr_generator/index.html', context)
@@ -17,7 +15,57 @@ def index(request):
 #     return render(request, 'generator.html')
 
 
+def generate(request):
+    context = {}
 
+    if request.method == 'POST':
+
+        link_to_logo = STATIC_ROOT + '/base/images/' + 'qr_logo.png'
+        logo = Image.open(link_to_logo)
+        
+        basewidth = 100
+
+        # adjust image size
+        widthpercent = (basewidth/float(logo.size[0]))
+        hsize = int((float(logo.size[1])*float(widthpercent)))
+
+        logo = logo.resize((basewidth, hsize), Image.ANTIALIAS)
+        QRcode = qrcode.QRCode(
+            version=3,
+            box_size = 10,
+            border=2,
+            error_correction=qrcode.constants.ERROR_CORRECT_M
+        )
+
+
+        data = request.POST['data']
+
+        QRcode.make(fit=True)
+        
+        QRimg = QRcode.make_image(
+            fill_color='black', back_color="white").convert('RGB')
+        
+        # set size of QR code
+        pos = ((QRimg.size[0] - logo.size[0]) // 2,(QRimg.size[1] - logo.size[1]) // 2)
+
+        QRimg.paste(logo, pos)
+
+        # time_ = str(time.time())
+        # time2 = time_.split(',')
+        # time_ = ''.join(time2)
+        # print(time_)
+
+        img_name = '/upload/nick.png' # the folder must be pre-existing, time wasted to find out:6hrs
+        print(img_name)
+        QRimg.save(MEDIA_ROOT + img_name)
+        
+        loc = MEDIA_URL + img_name
+        context['qr_image'] = loc
+        print(loc)
+        return render(request, 'qr_generator/generator.html', context)
+    
+    else:
+        return render(request, 'qr_generator/generator.html', context)
 
 def form(request, template):
     form = ContactUsForm()
@@ -37,6 +85,7 @@ def contact_us(request):
             try:
                 send_mail(subject, message, from_email, ['simplenicky1@gmail.com'])
                 messages.success(request, message="Message Successfully sent!!")
+                return redirect('qr_generator:home')
             except BadHeaderError:
                 messages.error(request, message="Invalid Header")
                 return HttpResponse('Invalid header found.')
@@ -60,6 +109,7 @@ def contact_us(request):
     
     return render(request, 'qr_generator/contact.html', context)
 
+
 def qr_gen2(request):
 
     if request.method == "POST":
@@ -81,7 +131,30 @@ def qr_gen2(request):
             error_correction=qrcode.constants.ERROR_CORRECT_M
         )
         
+
+        # Import QRCode from pyqrcode
+
+
+
+        # String which represents the QR code
+        # s = "www.geeksforgeeks.org"
+
+        # # Generate QR code
+        # url = pyqrcode.create(s)
+
+        # # Create and save the svg file naming "myqr.svg"
+        # url.svg("myqr.svg", scale = 8)
+
+        # # Create and save the png file naming "myqr.png"
+        # url.png('myqr.png', scale = 6)
+
+
         # take the user input
+        # if the input is not text:
+        #   collect the input,  
+        #   get the location of the input with js
+        #   send to the view
+        #   sav
         input = request.POST.get('qr_value')
         QRcode.add_data(input)
         

@@ -1,5 +1,5 @@
 from .imports import *
-
+from django.contrib.auth.forms import AuthenticationForm #add this
 
 # Create your views here.
 def index(request):
@@ -27,7 +27,7 @@ def register(request):
   return render(request,'accounts/signup.html', context)
 
 
-from django.contrib.auth.forms import AuthenticationForm #add this
+
 
 @unauthenticated_user
 def login_view(request):
@@ -39,7 +39,7 @@ def login_view(request):
 		email = request.POST.get('email')
 		password = request.POST.get('password')
 
-		user = authenticate(username=email, password=password)
+		user = authenticate(email=email, password=password)
 
 		print(email, password)
 
