@@ -2,6 +2,9 @@ Name: Elizabeth Ogunmola
 Slack Username: Elizzy
 Github Username: Elizzy01
 Track: Full-stack Web Development
+Student ID: I4G000471K5M
+
 Contributions:
-   Homepage UI: (https://github.com/zuri-training/qr_gen_team60/tree/main/Elizabeth's%20template/Homepage)
-   FAQ UI: (https://github.com/zuri-training/qr_gen_team60/tree/main/Elizabeth's%20template/FAQ)
+   Contributed to Homepage UI: https://github.com/zuri-training/qr_gen_team60/tree/main/Templates/Elizabeth's%20template/Homepage
+   FAQ UI: https://github.com/zuri-training/qr_gen_team60/tree/main/Templates/Elizabeth's%20template/FAQ
+   Presentation slides: https://docs.google.com/presentation/d/1tgBIZ4bBodhI5Qq0xPWWmzvwheyojryPx6nqJhKC7VM/edit#slide=id.gc6f9e470d_0_0
