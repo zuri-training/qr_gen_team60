@@ -1,30 +1,57 @@
-from .imports import *
-from django.contrib.auth.forms import AuthenticationForm #add this
+from django.http import HttpResponseRedirect
+from django.shortcuts import redirect, render
+from django.contrib.auth.decorators import login_required
+from django.contrib import messages
+from accounts.decorators import unauthenticated_user
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import login, logout, authenticate
 
-# Create your views here.
+from .forms import CreateUserForm
+
+#===============================================================
+from django.shortcuts import render, redirect
+from django.core.mail import send_mail, BadHeaderError
+from django.http import HttpResponse
+from django.contrib.auth.forms import PasswordResetForm
+
+from django.template.loader import render_to_string
+from django.db.models.query_utils import Q
+from django.utils.http import urlsafe_base64_encode
+from django.contrib.auth.tokens import default_token_generator
+from django.utils.encoding import force_bytes
+
+
+from django.contrib.auth import get_user_model
+
+
+User = get_user_model()
+
+
 def index(request):
     return render(request, 'accounts/index.html')
 
 
 # Registers a new user
-@unauthenticated_user
+#@unauthenticated_user
 def register(request):
-    
-  if request.method=='POST':
-    form = CreateUserForm(request.POST)
-    if form.is_valid():
-      form.save()
-      email = form.cleaned_data.get('email')
-      
-      login(request, email)
-      messages.success(request," Account was Created for "+email)
-      return redirect('accounts:home')
-  
-    messages.error(request, 'Incorrect credentials')
-  form = CreateUserForm()
-        
-  context = {'form':form}
-  return render(request,'accounts/signup.html', context)
+
+	template = 'accounts/register.html'
+		
+	if request.method=='POST':
+		form = CreateUserForm(request.POST)
+		if form.is_valid():
+			form.save()
+			email = form.cleaned_data.get('email')
+		
+			login(request, email)
+			messages.success(request," Account was Created for "+email)
+			return redirect('qr_generator:home')
+	
+		messages.error(request, 'Incorrect credentials')
+	form = CreateUserForm()
+			
+	context = {'form':form}
+	return render(request, template, context)
 
 
 
@@ -39,7 +66,7 @@ def login_view(request):
 		email = request.POST.get('email')
 		password = request.POST.get('password')
 
-		user = authenticate(email=email, password=password)
+		user = authenticate(request, email=email, password=password)
 
 		print(email, password)
 
@@ -69,13 +96,14 @@ def log_out(request):
 	return redirect(to='qr_generator:home')
 
 
-@login_required(login_url="/qr-gen/accounts/login")
 def password_reset_request(request):
 	if request.method == "POST":
 		password_reset_form = PasswordResetForm(request.POST)
+
 		if password_reset_form.is_valid():
 			data = password_reset_form.cleaned_data['email']
 			associated_users = User.objects.filter(Q(email=data))
+
 			if associated_users.exists():
 				for user in associated_users:
 					subject = "Password Reset Requested"
@@ -83,7 +111,7 @@ def password_reset_request(request):
 					c = {
 					"email":user.email,
 					'domain':'127.0.0.1:8000',#!
-					'site_name': 'Website',#!
+					'site_name': 'QR Planet',#!
 					"uid": urlsafe_base64_encode(force_bytes(user.pk)),
 					"user": user,
 					'token': default_token_generator.make_token(user),

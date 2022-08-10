@@ -1,4 +1,4 @@
-{% extends 'qr_generator/index.html' %}
+
 {% load static%}
 
 
@@ -8,14 +8,11 @@
 <div class="d-flex justify-content-center form_container">
     <form method="POST" action="{% url 'accounts:register' %}" class="site-form">
       {% csrf_token %}
-
-      <div class="input-group mb-2">{{ form.username }}</div>
-
-      <div class="input-group mb-2">{{form.email}}</div>
-
-      <div class="input-group mb-2">{{form.password1}}</div>
-
-      <div class="input-group mb-2">{{form.password2}}</div>
+      
+      {% for form in form %}
+      <div class="input-group mb-2">{{ form }}</div>
+      {% endfor %}
+        
 
       <div class="d-flex justify-content-center mt-3 login_container">
         <input

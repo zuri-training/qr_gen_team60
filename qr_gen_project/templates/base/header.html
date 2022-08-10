@@ -14,7 +14,7 @@
           <li><a href="{% url 'qr_generator:home'%}">Home</a></li>
           {% if request.user.is_authenticated %}
           {# -- Add QR generate url here-- #}
-            <li><a href="{% url 'qr_generator:generator'%}">Generate QR Code</a></li>
+            <li><a href="#">Generate QR Code</a></li>
             {%else%}
             <li><a href="{% url 'accounts:login'%}"></a></li>
           {% endif %}

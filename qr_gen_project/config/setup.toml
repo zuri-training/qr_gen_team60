@@ -1,8 +1,5 @@
 SECRET_KEY = "django-insecure-o80n6aftui53q1^mbo*lbm1cpmjfmoy=gvda1^z(l27@zwo$r5"
 DEBUG = true
-EMAIL_USE_TLS = true
-EMAIL_HOST_USER = "d9c28aad6129e6"
-EMAIL_HOST_PASSWORD = "019e302beff558e"
-EMAIL_HOST = 'smtp.mailtrap.io'
-EMAIL_PORT = '2525'
+EMAIL_HOST_USER = "simplenick01@gmail.com"
+EMAIL_HOST_PASSWORD = "gijshnvioxzobhfz"
 

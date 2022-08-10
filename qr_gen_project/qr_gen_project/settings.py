@@ -134,6 +134,7 @@ CORS_ORIGIN_WHITELIST = (
 )
 # SMTP Configuration (for sending mails)
 
+# For Mailtrap
 # EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 # EMAIL_USE_TLS = True
 # EMAIL_HOST = 'smtp.mailtrap.io'
@@ -141,8 +142,17 @@ CORS_ORIGIN_WHITELIST = (
 # EMAIL_HOST_PASSWORD = '019e302beff558'
 # EMAIL_PORT = '2525'
 
+from config import setup as config
 
-EMAIL_BACKEND =  'django.core.mail.backends.console.EmailBackend' #!
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_USE_SSL = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = config["EMAIL_HOST_USER"]
+EMAIL_HOST_PASSWORD = config["EMAIL_HOST_PASSWORD"]
+EMAIL_PORT = '465'
+
+# for console
+# EMAIL_BACKEND =  'django.core.mail.backends.console.EmailBackend' #!
 
 # Thousand Separator
 USE_THOUSAND_SEPARATOR = True

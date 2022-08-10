@@ -12,6 +12,8 @@ from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 
 
+from django.contrib.auth import views as auth_views
+
 schema_view = get_schema_view(
    openapi.Info(
       title="QR Planets API Documentation",
@@ -47,6 +49,10 @@ urlpatterns += [
 
 urlpatterns += [
     path('qr-gen/api/', include('api.urls'), ),
+]
+
+urlpatterns +=[
+    path('reset_complete/', auth_views.PasswordResetCompleteView.as_view(template_name='accounts/password/password_reset_complete.html'), name='password_reset_complete'),      
 ]
 
 
