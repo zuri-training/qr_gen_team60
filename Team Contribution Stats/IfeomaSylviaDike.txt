@@ -1,0 +1,51 @@
+
+Name: Ifeoma Sylvia Dike
+
+Slack Username: Ifeoma Sylvia Dike
+
+GitHub Username: IfeomaSD
+
+Student ID: I4G008838NRH
+
+Track: Product Design (Full-time)
+
+Contributions:
+
+UI Style Guides-Input fields: https://www.figma.com/file/IsSByeqo1V0yS9QW6wmS8j/QR_GENERATOR-PROJECT?node-id=108%3A1116
+
+Project Logo Research and Ideation: https://www.figma.com/file/IsSByeqo1V0yS9QW6wmS8j/QR_GENERATOR-PROJECT?node-id=890%3A24860
+
+https://www.figma.com/file/IsSByeqo1V0yS9QW6wmS8j/QR_GENERATOR-PROJECT?node-id=113%3A760
+
+Excel Sheet documentation: https://docs.google.com/spreadsheets/d/1bJNvIUXHTU9gYR_koJBvhWqCwEmlVViBNHf0Fe76V4Y/edit?usp=drivesdk
+
+Presentation: https://docs.google.com/presentation/d/1tgBIZ4bBodhI5Qq0xPWWmzvwheyojryPx6nqJhKC7VM/edit#slide=id.gc6f9e470d_0_126
+
+Wireframes for Desktop Dashboard: https://www.figma.com/file/IsSByeqo1V0yS9QW6wmS8j/QR_GENERATOR-PROJECT?node-id=914%3A14239
+
+Wireframes for Desktop Sign Up/Log In Page: https://www.figma.com/file/IsSByeqo1V0yS9QW6wmS8j/QR_GENERATOR-PROJECT?node-id=366%3A1649
+
+Hi-fi for Desktop Sign Up Page: https://www.figma.com/file/IsSByeqo1V0yS9QW6wmS8j/QR_GENERATOR-PROJECT?node-id=862%3A11296
+
+Hi-fi for Desktop API Page: https://www.figma.com/file/IsSByeqo1V0yS9QW6wmS8j/QR_GENERATOR-PROJECT?node-id=2074%3A71265
+
+Hi-fi for Mobile Sign Up and Log In: https://www.figma.com/file/IsSByeqo1V0yS9QW6wmS8j/QR_GENERATOR-PROJECT?node-id=1825%3A77851
+
+https://www.figma.com/file/IsSByeqo1V0yS9QW6wmS8j/QR_GENERATOR-PROJECT?node-id=1825%3A77832
+
+Hi-fi for Mobile Dashboards: https://www.figma.com/file/IsSByeqo1V0yS9QW6wmS8j/QR_GENERATOR-PROJECT?node-id=1825%3A74952
+
+https://www.figma.com/file/IsSByeqo1V0yS9QW6wmS8j/QR_GENERATOR-PROJECT?node-id=1825%3A75176
+
+https://www.figma.com/file/IsSByeqo1V0yS9QW6wmS8j/QR_GENERATOR-PROJECT?node-id=1825%3A75338
+
+https://www.figma.com/file/IsSByeqo1V0yS9QW6wmS8j/QR_GENERATOR-PROJECT?node-id=1825%3A75436
+
+https://www.figma.com/file/IsSByeqo1V0yS9QW6wmS8j/QR_GENERATOR-PROJECT?node-id=1825%3A76044
+
+https://www.figma.com/file/IsSByeqo1V0yS9QW6wmS8j/QR_GENERATOR-PROJECT?node-id=1825%3A77358
+
+Hi-fi for Mobile API Page: https://www.figma.com/file/IsSByeqo1V0yS9QW6wmS8j/QR_GENERATOR-PROJECT?node-id=2167%3A72424
+
+ 
+

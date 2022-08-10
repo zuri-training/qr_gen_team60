@@ -1,0 +1,13 @@
+1. Name: John Damisa Raji
+2. Slack Username: John Tiger
+3. GitHub Username: JohnTiger13
+4. Student ID: I4G008468DJZ
+5. Track: Product Design Full Time
+6. Contributions
+7. UX research - User Personas, User Stories, Brainstorm, Empathy Map: https://www.figma.com/file/anjJgHKzzGzrRVbbD65ryP/USERFLOW-PT_60?node-id=0%3A1
+8. Research Plan - https://docs.google.com/document/d/1gNokt6EeyOvIPdDD7w2zhJKlHyhro8TJiVsfXWNduQk/edit
+9. Project Brief - https://docs.google.com/document/d/1gNokt6EeyOvIPdDD7w2zhJKlHyhro8TJiVsfXWNduQk/edit
+10. Desktop Hi-fi designs:https://www.figma.com/file/IsSByeqo1V0yS9QW6wmS8j/QR_GENERATOR-PROJECT?node-id=826%3A11169
+11. Desktop Lo-fi designs:https://www.figma.com/file/IsSByeqo1V0yS9QW6wmS8j/QR_GENERATOR-PROJECT?node-id=294%3A1429
+12. Mobile Hi-fi designs:https://www.figma.com/file/IsSByeqo1V0yS9QW6wmS8j/QR_GENERATOR-PROJECT?node-id=1642%3A58366
+13. Prototype:https://www.figma.com/file/IsSByeqo1V0yS9QW6wmS8j/QR_GENERATOR-PROJECT?node-id=826%3A11169
