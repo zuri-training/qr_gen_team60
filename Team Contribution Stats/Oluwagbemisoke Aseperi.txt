@@ -1,0 +1,15 @@
+Name: Oluwagbemisoke Ruth Aseperi 
+Slack username: Gbemisoke
+GitHub username: Kiishiii
+Student ID: I4G003096XAO
+Track: Product Design (Full time) 
+
+Role: Design team lead 
+
+Contributions: 
+    Style guides: https://www.figma.com/file/lsSByeq01VOy59QW6wmS8j/QR_GENERATOR-PROJECT?node-id=0%3A1
+    Interactive UI Elements: https://www.figma.com/file/IsSByeqo1V0yS9QW6wmS8j/QR_GENERATOR-PROJECT
+    Design: https://www.figma.com/file/IsSByeqo1V0yS9QW6wmS8j/QR_GENERATOR-PROJECT
+    Components: https://www.figma.com/file/lsSByeq01VOy59QW6wm58j/QR_GENERATOR_PROJECT?node-id=108%3A443
+    Board arrangements 
+    Prototyping: https://www.figma.com/proto/IsSByeqo1V0yS9QW6wmS8j/QR_GENERATOR-PROJECT?node-id=949%3A14998&starting-point-node-id=831%3A10434&scaling=scale-down
