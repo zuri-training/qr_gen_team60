@@ -8,7 +8,7 @@ User = get_user_model()
 
 class Category(models.Model):
     """Every Available category"""
-    category_name = models.CharField(max_length=250, unique=True)
+    category_name = models.CharField(primary_key=True, max_length=250, unique=True)
 
     def __str__(self):
         return f'{self.category_name}'
@@ -19,14 +19,12 @@ class Category(models.Model):
 
 
 class QRCollection(models.Model):
-    """All qr collections available"""
+    """All QR collections available"""
     qr_user = models.ForeignKey(User, on_delete=models.CASCADE, )
-    url_to_qr_code = models.URLField(max_length=250, unique=True,)
-
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     time_created = models.DateTimeField(auto_now_add=True)
     
-    qr_code = models.ImageField(upload_to='upload/')
+    qr_code = models.FileField(upload_to='upload/')
     qr_name = models.CharField(max_length=200, blank=True, null=True)
 
     def __str__(self):
@@ -41,7 +39,7 @@ class QRCollection(models.Model):
 class UserCollection(models.Model):
     """A simple abstraction of the Collections for a user"""
     qr_user = models.OneToOneField(User, on_delete=models.CASCADE, )
-    qr_collection = models.ForeignKey(QRCollection, on_delete=models.CASCADE,)
+    qr_code = models.ForeignKey(QRCollection, on_delete=models.CASCADE,)
 
     def __str__(self):
         return str(self.qr_user)

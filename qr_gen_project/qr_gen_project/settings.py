@@ -28,7 +28,8 @@ INSTALLED_APPS = [
     'qr_generator.apps.QrGeneratorConfig',
     # 'api',
     'rest_framework',
-    'corsheaders'
+    'corsheaders',
+    'drf_yasg',
 ]
 
 
@@ -48,7 +49,7 @@ ROOT_URLCONF = 'qr_gen_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['templates'],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -121,15 +122,17 @@ CORS_ORIGIN_ALLOW_ALL = True # for now, will be changed later
 CORS_ORIGIN_WHITELIST = (
     'http://localhost:8000',
 )
-
 # SMTP Configuration (for sending mails)
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_USE_TLS = True
-EMAIL_HOST = ''
-EMAIL_HOST_USER = ''
-EMAIL_HOST_PASSWORD = ''
-EMAIL_PORT = ''
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_USE_TLS = True
+# EMAIL_HOST = 'smtp.mailtrap.io'
+# EMAIL_HOST_USER = 'd9c28aad6129e6'
+# EMAIL_HOST_PASSWORD = '019e302beff558'
+# EMAIL_PORT = '2525'
+
+
+EMAIL_BACKEND =  'django.core.mail.backends.console.EmailBackend' #!
 
 # Thousand Separator
 USE_THOUSAND_SEPARATOR = True
@@ -149,10 +152,35 @@ GOOGLE_DRIVE_STORAGE_MEDIA_ROOT = '<base google drive path for file uploads>' # 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 REST_FRAMEWORK = {
-    # Use Django's standard `django.contrib.auth` permissions,
-    # or allow read-only access for unauthenticated users.
-    'DEFAULT_PERMISSION_CLASSES': [],
-    'TEST_REQUEST_DEFAULT_FORMAT': 'json'
+    'DEFAULT_AUTHENTICATION_CLASSES':[
+        'accounts.jwt.JWTAuthentication',
+    ]
 }
 
 
+
+# Loggers
+# LOGGING = {
+#     'version': 1,
+#     'disable_existing_loggers': False,
+#     'handlers': {
+#         'file': {
+#             'level': 'WARNING',
+#             'class': 'logging.FileHandler',
+#             'filename': BASE_DIR / 'logs/Logs.log',
+#         },
+#     },
+#     'loggers': {
+#         '': {
+#             'handlers': ['file'], 
+#             'level': 'WARNING',
+#             'propagate': True,
+#         },
+#     },
+# }
+
+LOGOUT_REDIRECT_URL = '/qr-gen/'
+
+
+# Because we changed default user id
+AUTH_USER_MODEL='accounts.QRUser'

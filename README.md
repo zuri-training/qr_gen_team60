@@ -4,8 +4,8 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/zuri-training/qr_gen_team60">
-    <img src="./qr_gen_project/static/images/qr_logo.png" alt="Logo" width="300" height="250">
+  <a href="https://github.com/zuri-training/qr_gen_team60/">
+    <img src="https://github.com/zuri-training/qr_gen_team60/blob/main/qr_gen_project/static/base/images/qr_logo.png" alt="Logo" width="300" height="250">
   </a>
 
 <h3 align="center">QR Planet</h3>
@@ -87,10 +87,23 @@ QR Planet is a web app that focuses on generating QR  codes that perform tasks i
 
 <!-- Collaborators -->
 ## Collaborators
-
+  #### Elizabeth Ogunmola - Software Developer
+  #### Temitope Yusuff - Software Developer
+  #### Oluwabemisoke Aseperi - Product Designer
+  #### Wisdom Emmanuel - Software Developer
+  #### Kingsley Onoriode - Product Designer
+  #### Odekunle Joseph - Product designer
+  #### Ibrahim Tomiwa-   Product designer
+  #### Joshua Oladoye-Sule- Product Designer 
+  #### Ifeoma Sylvia Dike - Product Designer
+  #### Saminu Mojisola - Product Designer
+  #### Raji John Damisa - Product Designer
+  #### Ndafohamba Shadjanale- Product design 
+  <br>
 <div align="center">
-    <h1>Try our QR Generator Today!!!</h1>
-    <img src="https://github.com/zuri-training/qr_gen_team60/tree/main/qr_gen_project/static/gif" alt="Logo" width="300" height="220">
+    <h1>Try out QR Planet Today!!!</h1>
 </div>
+
+![QR Planet](https://github.com/zuri-training/qr_gen_team60/blob/main/qr_gen_project/static/base/gif/qr.gif)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
