@@ -1,0 +1,18 @@
+Full name: Odekunle Joseph Toluwabori
+Track: Product Design (Full-time)
+Slack username:Bhorie
+I was the lead assistant and I worked on the following and also supervised and corrected errors
+User research 1 :https://docs.google.com/document/d/10FINt0sqhiap49EtrSLWEa5d-QFvJtktwOEM87El-0s/edit?usp=sharing
+User research 2:  https://www.figma.com/file/ADuNAAbXxw6rbkzIB0LENP/UX-Research-PT_60?node-id=0%3A1
+Empathy mapping: https://www.figma.com/file/ADuNAAbXxw6rbkzIB0LENP/UX-Research-PT_60?node-id=0%3A1
+User persona : https://www.figma.com/file/ADuNAAbXxw6rbkzIB0LENP/UX-Research-PT_60?node-id=0%3A1
+User story : https://www.figma.com/file/ADuNAAbXxw6rbkzIB0LENP/UX-Research-PT_60?node-id=0%3A1
+Brainstormed with the team to bring up product ideas : https://www.figma.com/file/ADuNAAbXxw6rbkzIB0LENP/UX-Research-PT_60?node-id=0%3A1
+Userflow : https://www.figma.com/file/anjJgHKzzGzrRVbbD65ryP/USERFLOW-PT_60?node-id=0%3A1
+Wire framing : https://www.figma.com/file/IsSByeqo1V0yS9QW6wmS8j/QR_GENERATOR-PROJECT?node-id=294%3A1429
+Created interactive components like drop downs for QR code generate page and also worked on the team's logo : https://www.figma.com/file/IsSByeqo1V0yS9QW6wmS8j/QR_GENERATOR-PROJECT?node-id=108%3A443,https://www.figma.com/file/IsSByeqo1V0yS9QW6wmS8j/QR_GENERATOR-PROJECT?node-id=1675%3A64772, https://www.figma.com/file/IsSByeqo1V0yS9QW6wmS8j/QR_GENERATOR-PROJECT?node-id=108%3A1116
+Created API docs screen, worked on multiple QR generate screens for both mobile and desktop : https://www.figma.com/file/IsSByeqo1V0yS9QW6wmS8j/QR_GENERATOR-PROJECT?node-id=2074%3A71265, https://www.figma.com/file/IsSByeqo1V0yS9QW6wmS8j/QR_GENERATOR-PROJECT?node-id=1216%3A52487, https://www.figma.com/file/IsSByeqo1V0yS9QW6wmS8j/QR_GENERATOR-PROJECT?node-id=2167%3A72424
+Worked on mobile conversions for various screens amongst which was QR generate screens and FAQ page :https://www.figma.com/file/IsSByeqo1V0yS9QW6wmS8j/QR_GENERATOR-PROJECT?node-id=1915%3A71127, https://www.figma.com/file/IsSByeqo1V0yS9QW6wmS8j/QR_GENERATOR-PROJECT?node-id=1642%3A59561
+Worked on overlay components and prototyped various pages for both mobile and desktop : https://www.figma.com/file/IsSByeqo1V0yS9QW6wmS8j/QR_GENERATOR-PROJECT?node-id=1991%3A71182,https://www.figma.com/file/IsSByeqo1V0yS9QW6wmS8j/QR_GENERATOR-PROJECT?node-id=1642%3A58366,https://www.figma.com/file/IsSByeqo1V0yS9QW6wmS8j/QR_GENERATOR-PROJECT?node-id=826%3A11169
+Worked on wireframes and low fi pages: https://www.figma.com/file/IsSByeqo1V0yS9QW6wmS8j/QR_GENERATOR-PROJECT?node-id=294%3A1429
+Joined the presentation team and worked on presentation slides, team google sheets and technical documentation : https://docs.google.com/presentation/d/1tgBIZ4bBodhI5Qq0xPWWmzvwheyojryPx6nqJhKC7VM/edit#slide=id.g136ee08da58_4_0,https://docs.google.com/spreadsheets/d/1bJNvIUXHTU9gYR_koJBvhWqCwEmlVViBNHf0Fe76V4Y/edit?usp=sharing
