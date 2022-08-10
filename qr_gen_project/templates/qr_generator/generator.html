@@ -9,12 +9,15 @@
 
 <section>
     <article class="buttons">
-        <button href="{% url 'category' pk="image" %}" >Image</button>
-        <button href="{% url 'category' pk="pdf" %}" >Pdf</button>
-        <button href="{% url 'category' pk="url" %}" >Url</button>
-
+        <button href="{% url 'qr_generator:generator' extra_args='image' %}" >Image</button>
+        <button href="{% url 'qr_generator:generator' extra_args='pdf' %}" >Pdf</button>
+        <button href="{% url 'qr_generator:generator' extra_args='url' %}" >Url</button>
     </article>
-
+    {% if val %}
+    <aside>
+        <input type={{val}} name="{{val}}">
+    </aside>
+    {% endif%}
 </section>
 
 

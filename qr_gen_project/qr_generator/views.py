@@ -13,56 +13,67 @@ def index(request):
 #         img.save(str(settings.MEDIA_ROOT) + '/' + img_name)
 #         return render(request, 'generator.html', {'img_name': img_name})
 #     return render(request, 'generator.html')
+def category(request, pk):
+    if pk == "image":
+        return 'image'
 
-
-def generate(request):
+def generate(request, *extra_args):
     context = {}
 
     if request.method == 'POST':
-
-        link_to_logo = STATIC_ROOT + '/base/images/' + 'qr_logo.png'
-        logo = Image.open(link_to_logo)
         
-        basewidth = 100
+        if extra_args['image']:
+            val = None
+            match (extra_args[0]):
+                case 'image':
+                    val = 'image'
 
-        # adjust image size
-        widthpercent = (basewidth/float(logo.size[0]))
-        hsize = int((float(logo.size[1])*float(widthpercent)))
+                case 'pdf':
+                    val = 'file'
 
-        logo = logo.resize((basewidth, hsize), Image.ANTIALIAS)
-        QRcode = qrcode.QRCode(
-            version=3,
-            box_size = 10,
-            border=2,
-            error_correction=qrcode.constants.ERROR_CORRECT_M
-        )
+                case 'url':
+                    val = 'url'
 
+            context[val] = val
 
-        data = request.POST['data']
+            return render(request, 'qr_generator/generator.html', context)
+        else:
+            link_to_logo = STATIC_ROOT + '/base/images/' + 'qr_logo.png'
+            logo = Image.open(link_to_logo)
+            
+            basewidth = 100
 
-        QRcode.make(fit=True)
-        
-        QRimg = QRcode.make_image(
-            fill_color='black', back_color="white").convert('RGB')
-        
-        # set size of QR code
-        pos = ((QRimg.size[0] - logo.size[0]) // 2,(QRimg.size[1] - logo.size[1]) // 2)
+            # adjust image size
+            widthpercent = (basewidth/float(logo.size[0]))
+            hsize = int((float(logo.size[1])*float(widthpercent)))
 
-        QRimg.paste(logo, pos)
+            logo = logo.resize((basewidth, hsize), Image.ANTIALIAS)
+            QRcode = qrcode.QRCode(
+                version=3,
+                box_size = 10,
+                border=2,
+                error_correction=qrcode.constants.ERROR_CORRECT_M
+            )
 
-        # time_ = str(time.time())
-        # time2 = time_.split(',')
-        # time_ = ''.join(time2)
-        # print(time_)
+            data = request.POST['data']
 
-        img_name = '/upload/nick.png' # the folder must be pre-existing, time wasted to find out:6hrs
-        print(img_name)
-        QRimg.save(MEDIA_ROOT + img_name)
-        
-        loc = MEDIA_URL + img_name
-        context['qr_image'] = loc
-        print(loc)
-        return render(request, 'qr_generator/generator.html', context)
+            QRcode.make(fit=True)
+            
+            QRimg = QRcode.make_image(
+                fill_color='black', back_color="white").convert('RGB')
+            
+            # set size of QR code
+            pos = ((QRimg.size[0] - logo.size[0]) // 2,(QRimg.size[1] - logo.size[1]) // 2)
+
+            QRimg.paste(logo, pos)
+
+            img_name = '/upload/nick.png' # the folder must be pre-existing, time wasted to find out:6hrs
+            QRimg.save(MEDIA_ROOT + img_name)
+            
+            loc = MEDIA_URL + img_name
+            context['qr_image'] = loc
+
+            return render(request, 'qr_generator/generator.html', context)
     
     else:
         return render(request, 'qr_generator/generator.html', context)
