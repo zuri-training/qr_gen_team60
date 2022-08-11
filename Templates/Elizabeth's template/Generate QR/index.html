@@ -9,6 +9,35 @@
     <title>Generate QR</title>
 </head>
 <body>
+    <!-- header -->
+    <header>
+        <div class="wrap">
+          <img class="logo" href="#" src="logo.svg" alt="logo" />
+          <nav class="navbar">
+            <input type="checkbox" name="" id="nav-toggle">
+            <div class="nav-links">
+              <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">QR Code</a></li>
+                <li><a href="#">Why us?</a></li>
+                <li><a href="#">API</a></li>
+                <li><a href="#">Contact</a></li>
+              </ul>
+              <div class="nav-button">
+                <button type = "submit" class="Secondary-button"><a href="#">Login</a></button>
+                <button type = "submit" class="Primary-button"><a href="#">Get Started</a></button>
+              </div>
+            </div>            
+            <label for="nav-toggle" class="icon-burger"> 
+              <div class="line"></div>
+              <div class="line"></div>
+              <div class="line"></div> 
+            </label>  
+          </nav>
+        </div> 
+    </header>
+    
+    
     <div class="wrapper">
         <div class="options">
             <div class="features">
@@ -200,15 +229,17 @@
             </div>
 
             <div class="link">
-                <h2>Submit URL/Link</h2>
-                <input type="text" placeholder="Enter link to Application" name="link"/>
-                <p>Your Paypal account and the amount you want displayed will be shown when your QR code  is scanned</p>
+                <h2>Github</h2>
+                <input type="text" placeholder="Input your github profile link" name="link"/>
+                <p>This will direct clients to your github profile when your QR code is scanned.</p>
             </div>
         </div>
 
         <div class="generate">
-            <img src="" alt="">
-
+            <div class="img">
+                <img src="images/qr-code.png" alt="qr code image">
+            </div>
+            
             <div>
                 <a href="#">
                     <button class="btn-1">
@@ -238,6 +269,21 @@
 
         </div>
     </div>
+
+        
+    
+ 
+    
+
+    <footer>
+        <div class="wrap">
+            <p><span>2022</span> QR Planet; All Rights Reserved</p>
+            <a href="#">Report</a>
+
+        </div>
+        
+    </footer>
+  
 
 
 </body>
