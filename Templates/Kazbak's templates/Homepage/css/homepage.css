@@ -568,7 +568,8 @@ footer hr {
         right: 0;
         top: 100px;
         bottom: 100%;
-        width: auto;         
+        width: auto;
+        /* flex-direction: column; */        
         overflow: hidden;
         background-color: var(--secondary-color-200);
         transition: all .5s ease-in-out

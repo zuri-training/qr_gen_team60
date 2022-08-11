@@ -22,7 +22,7 @@
     <link rel="apple-touch-icon" type="image/png" href="{% static 'base/favicon_io/apple-touch-icon.png' %}"/>
     <link rel="icon" type="image/png" sizes="512x512" href="{% static 'base/favicon_io/android-chrome-512x512.png' %}"/>
     <link rel="shortcut icon" href="{% static 'base/favicon_io/favicon.ico' %}" type="image/x-icon"/>
-
+    <link rel="stylesheet" href="{% static 'base/css/base.css'%}">
     <title>QR&nbsp;Planet&nbsp;{% block title %} {% endblock title %}</title>
 
     {% block style %} {% endblock style %}
@@ -35,13 +35,12 @@
       {% block header %} {% endblock header %}
     </header>
 
-    {% block content %} 
-    
-    {% endblock content %}
+    {% block content %} {% endblock content %}
     
 
     <footer>
-        {% block top_and_middle_footer %}{% endblock top_and_middle_footer %}
+        {% block top_footer %}{% endblock top_footer %}
+        {% block middle_footer %}{% endblock middle_footer %}
         {% block bottom_footer %}{% endblock bottom_footer %}
     </footer>
 

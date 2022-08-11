@@ -1,4 +1,25 @@
-from .imports import *
+# account/views.py
+from smtplib import SMTPServerDisconnected
+from django.http import BadHeaderError, HttpResponse, HttpResponseRedirect
+from django.shortcuts import redirect, render
+from django.conf import settings
+# from qrcode import *
+import time
+from django.core.mail import send_mail
+from requests import request
+from django.contrib import messages
+from qr_generator.forms import ContactUsForm 
+import qrcode
+from PIL import Image
+from django.conf import settings
+from qr_gen_project.settings import MEDIA_URL, STATIC_ROOT, STATIC_URL, MEDIA_ROOT
+import logging
+import datetime
+
+from django.contrib.auth import get_user_model
+
+User = get_user_model()
+# --------------------imports
 
 def index(request):
     context = {}
@@ -143,23 +164,6 @@ def qr_gen2(request):
         )
         
 
-        # Import QRCode from pyqrcode
-
-
-
-        # String which represents the QR code
-        # s = "www.geeksforgeeks.org"
-
-        # # Generate QR code
-        # url = pyqrcode.create(s)
-
-        # # Create and save the svg file naming "myqr.svg"
-        # url.svg("myqr.svg", scale = 8)
-
-        # # Create and save the png file naming "myqr.png"
-        # url.png('myqr.png', scale = 6)
-
-
         # take the user input
         # if the input is not text:
         #   collect the input,  
@@ -193,5 +197,10 @@ def qr_gen2(request):
 def test_form(request, template):
     form = ContactUsForm()
     return render(request, "qr_generator/" + template +'.html',{"form":form})
+
+
+
+def learn_more(request):
+    return render(request, 'base/coming_soon.html')
 
 

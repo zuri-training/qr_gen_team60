@@ -12,13 +12,7 @@
       <div class="nav-links">
         <ul>
           <li><a href="{% url 'qr_generator:home'%}">Home</a></li>
-          {% if request.user.is_authenticated %}
-          {# -- Add QR generate url here-- #}
-            <li><a href="#">Generate QR Code</a></li>
-            {%else%}
-            <li><a href="{% url 'accounts:login'%}"></a></li>
-          {% endif %}
-          
+          <li><a href="#">Generate QR Code</a></li>
           <li><a href="#">Why us?</a></li>
           <li><a href="{% url 'docs'%}">API</a></li>
           <li><a href="{% url 'qr_generator:contact'%}">Contact</a></li>
@@ -26,11 +20,11 @@
         <div class="nav-button">
             {% if request.user.is_authenticated %}
                 <button type = "submit" class="Secondary-button"><a href="{% url 'accounts:logout'%}">Logout</a></button>
-                <button type = "submit" class="Primary-button"><a href="#">Generate QR Code</a></button>
             {% else %}
                 <button type = "submit" class="Secondary-button"><a href="{% url 'accounts:login'%}">Login</a></button>
-                <button type = "submit" class="Primary-button"><a href="#">Get Started</a></button>
+                
             {% endif %}
+            <button type = "submit" class="Primary-button"><a href="#">Get Started</a></button>
           
         </div>
       </div>            

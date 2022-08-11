@@ -46,8 +46,11 @@ def register(request):
 			login(request, email)
 			messages.success(request," Account was Created for "+email)
 			return redirect('qr_generator:home')
-	
-		messages.error(request, 'Incorrect credentials')
+		
+		else:
+			messages.error(request, 'Incorrect credentials')
+
+		
 	form = CreateUserForm()
 			
 	context = {'form':form}
@@ -68,17 +71,13 @@ def login_view(request):
 
 		user = authenticate(request, email=email, password=password)
 
-		print(email, password)
-
 		if user is not None:
 			login(request, user)
-			print(f'{user} logged in')
 			messages.success(request, f"You are now logged in as {email}.")
 			return redirect('qr_generator:home',) # pk=str(request.user.id)
 		
 		else: 
 			messages.error(request, 'Account not Registered!!')
-			print(user)
 	
 	return render(request, 'accounts/login.html', context)
 
@@ -101,14 +100,16 @@ def password_reset_request(request):
 		password_reset_form = PasswordResetForm(request.POST)
 
 		if password_reset_form.is_valid():
-			data = password_reset_form.cleaned_data['email']
-			associated_users = User.objects.filter(Q(email=data))
+			email = password_reset_form.cleaned_data['email']
+			associated_users = User.objects.filter(Q(email=email))
 
 			if associated_users.exists():
 				for user in associated_users:
 					subject = "Password Reset Requested"
-					email_template_name = "accounts/password/password_reset_email.txt"
-					c = {
+
+					email_template = "accounts/password/password_reset_email.txt"
+
+					extra = {
 					"email":user.email,
 					'domain':'127.0.0.1:8000',#!
 					'site_name': 'QR Planet',#!
@@ -117,9 +118,11 @@ def password_reset_request(request):
 					'token': default_token_generator.make_token(user),
 					'protocol': 'http',#!
 					}
-					email = render_to_string(email_template_name, c)
+
+					email = render_to_string(email_template, extra)
+					
 					try:
-						send_mail(subject, email, 'simplenicky1@gmail.com' , [user.email], fail_silently=False) #! change admin later
+						send_mail(subject, email, 'simplenick01@gmail.com',[user.email,], fail_silently=False) #! change admin later
 					except BadHeaderError:
 						return HttpResponse('Invalid header found.')
 					return redirect ('accounts:password_reset_done')#!

@@ -28,7 +28,7 @@
             <div class="wrapper">
               <div class="hero-button">
               <button class="Primary-button"> <a href="#"> Get started </a></button>
-              <button class="btn-2"> <a href=""> Learn more </a></button>
+              <button class="btn-2"> <a href="{% url 'qr_generator:learn_more'%}"> Learn more </a></button>
             </div> 
             </div>
         </div>
@@ -156,9 +156,9 @@
 
 
 
-{% block top_and_middle_footer %}
-    {% include 'base/top_and_middle_footer.html'%}
-{% endblock top_and_middle_footer %}
+    
+    {% block top_footer %} {% include 'base/top_footer.html'%} {% endblock top_footer %}
+    {% block middle_footer %} {% include 'base/middle_footer.html'%} {% endblock middle_footer %}
 
 {% block bottom_footer %}
     {% include 'base/bottom_footer.html'%}

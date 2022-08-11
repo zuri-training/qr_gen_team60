@@ -22,7 +22,7 @@
     --primary-color-100: #adb9cb;
     --gc-600: #868b8f;
     --wc-1: #fffcfc;
-    --desktop-background: url(../images/homepage-bg.svg);
+    --desktop-background: url(images/homepage-bg.svg);
 }
 
 * {
