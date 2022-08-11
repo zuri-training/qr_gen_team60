@@ -12,11 +12,13 @@ from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 
 
+from django.contrib.auth import views as auth_views
+
 schema_view = get_schema_view(
    openapi.Info(
       title="QR Planets API Documentation",
       default_version='v1',
-      description="""The Easiest Way to generate, download &amp; share QR CodesOnline with QR Planet Code Generator within few minutes.
+      description="""The Easiest Way to generate, download &amp; share QR Codes Online with QR Planet Code Generator within few minutes.
       Get started today.
       These are the Available Endpoints, Other API Endpoints are coming soon""",
       
@@ -33,9 +35,6 @@ urlpatterns = [
    path('qr-gen/api/redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
 ]
 
-
-
-
 urlpatterns += [
     path('qr-gen/', include('qr_generator.urls', namespace='qr_generator'),),
     path('qr-gen/admin/', admin.site.urls),
@@ -47,6 +46,10 @@ urlpatterns += [
 
 urlpatterns += [
     path('qr-gen/api/', include('api.urls'), ),
+]
+
+urlpatterns +=[
+    path('reset_complete/', auth_views.PasswordResetCompleteView.as_view(template_name='accounts/password/password_reset_complete.html'), name='password_reset_complete'),      
 ]
 
 

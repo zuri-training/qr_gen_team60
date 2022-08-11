@@ -1,11 +1,11 @@
-{% extends 'base.html' %} {% load static %}
+{% extends 'base/base.html' %} {% load static %}
 <!-----------------Leave here for header------------->
 <!-------------------end header---------------------->
 
-{% block title %} {{ block.super }} &#124; Contact Us {% endblock title %}
+{% block title %} {{ block.super }}&nbsp;&#124;&nbsp;Contact Us {% endblock title %}
 
 {%block style %}
-	<link rel="stylesheet" href="{% static 'css/contact_us.css'%}" />
+	<link rel="stylesheet" href="{% static 'qr_generator/css/contact_us.css'%}" />
 {% endblock style %}
 
 {% block content %}
@@ -30,9 +30,9 @@
     <input type="submit" class="Primary-Button" value="Send your message"/>
   </form>
   <div class="socials">
-    <img src="{% static '/images/Twitter.png' %}" alt="Twitter" />&nbsp;&nbsp;
-    <img src="{% static '/images/Facebook.png' %}" alt="Facebook" />&nbsp;&nbsp;
-    <img src="{% static '/images/Linkedin.png' %}" alt="Linkedin" />
+    <img src="{% static 'qr_generator/images/Twitter.png' %}" alt="Twitter" />&nbsp;&nbsp;
+    <img src="{% static 'qr_generator/images/Facebook.png' %}" alt="Facebook" />&nbsp;&nbsp;
+    <img src="{% static 'qr_generator/images/Linkedin.png' %}" alt="Linkedin" />
   </div>
   
 </div>

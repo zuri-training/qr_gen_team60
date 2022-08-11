@@ -32,10 +32,7 @@
 }
 
 body {
-    background-image: url(images/homepage-bg.svg);
-    background-size: cover;
-    font-family: "Outfit", sans-serif;
-    font-size: 14px;
+    background-image: linear-gradient(to bottom, #b6cff4 0%, var(--secondary-color-200) 34%, var(--white-2) 90%);    
 }
 
 
@@ -183,165 +180,121 @@ button a {
     background-color: var(--grey-200);
 }
 
-
-.btn-2 {
-    padding: 6px 32px;
-    border-radius: 8px;
-    border: solid 1px var(--primary-color-300);
-    color: var(--primary-color-300);
-    background-color: transparent;
+.container{    
+    width: 80%;    
+    margin: auto;    
+    padding: 100px 0;    
 }
-
-.btn-2 a {
-    color: var(--primary-color-300);
-}
-
-.btn-2:hover {
-    background-color: var(--secondary-color-200);
-}
-
-/* start */
-/* Signup Field */
-
-.container{
-    max-width: 40%;
-    max-width: 40%;    
-    padding: 50px 20px;
-    margin: 0 auto;
-}
-
-.container .mobile-logo {
-    display: none;
-}
-
-.container .forms{
-    padding: 30px;
-}
-
-.container .form .title{
-    font-size: 37px;
-    font-weight: 600;
+    
+.container h1{
+    padding-bottom: 50px;
+    font-family: "Montserrat", sans-serif;
+    font-size: 80px;
+    font-weight: 800;   
     text-align: center;
-    color: var(--primary-color-300);    
+    color: var(--black-for-texts);
 }
 
-.container .form .sub-title{
-    color: var(--grey-600);
-    font-size: 18px;    
-    margin-top: 15px;
-    margin-bottom: -15px;    
-    text-align: center;    
+.container p{    
+    padding: 40px 0;
+    font-family: "Outfit", sans-serif;
+    font-size: 28px;
+    text-align: center;
+    color: var(--grey-700);
 }
 
-.form .input-field{
-    position: relative;
-    height: 50px;
-    width: 100%;
-    margin-top: 30px;
+.input-field{
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;    
 }
 
 .input-field input{
     font-family: "Outfit", sans-serif;
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    font-size: 16px;
-    padding: 0 8px;
+    width: 388px;
+    height: 46px;
+    padding: 16px 8px;
     border-radius: 8px;
-    border: solid 1px var(--secondary-color-200);
-    transition: all 0.3s ease;
-    /* color: var(--primary-color-100); */
-}  
-
-.input-field input:is(:focus, :valid){
-    background-color: #e9e9e9;
+    border: solid 1px #868683;
+    background-color: #fff;
 }
 
-.input-field i{
-    position: relative;
-    float: right;
-    top: 50%;
-    left: 0;
-    color: var(--grey-400);
-    /* margin-left: -30px;  */
-    padding: 0 15px;
-    cursor: pointer;
-    transform: translateY(-50%);
-}
-
-.input-field input:is(:focus, :valid) ~ i{
-    color: var(--primary-color-300);
-}
-
-.input-field i.showHidePw{
-    right: 0;
+.icons{
+    margin: 50px 0;
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
 }
 
 
+/* Footer */
 
-.form .checkbox-text{
-    /* display: flex; */
-    /* align-items: center; */
-    /* justify-content: space-between; */
-    margin-top: 20px;
-}
-
-.checkbox-text .checkbox-content{
-    /* display: flex; */
-    align-items: center;
-
-}
-.checkbox-text .text{
-    text-align: center;
-}
-
-
-
-.checkbox-content input{
-    margin: 0 8px 4px;
-    accent-color: var(--primary-color-200);
-}
-
-.form .text{
-    color: var(--secondary-color-400);
-    font-size: 14px;
-}
-
-.form a.text{
-    color: var(--primary-color-200);
-    text-decoration: none;
-}
-.form a:hover{
-    text-decoration: underline;
-}
-
-.form .button{
-    margin-top: 25px; 
-}
-.form .button input{
-    border: none;
-    color: #fff;
-    font-size: 17px;
-    font-weight: 500;
-    letter-spacing: 1px;
-    border-radius: 6px;
-    background-color: var(--primary-color-300);
-    cursor: pointer;
-    transition: all 0.3 ease;
-}
-
-.button input:hover{
+footer {
     background-color: var(--primary-color-200);
+    color: var(--wc-1);
+    font-family: "Outfit", sans-serif;
 }
 
-.form .login-signup {
-    margin-top: 30px;
-    text-align: center;
+footer hr {
+    max-width: 1000px;
+    margin: auto;
+    height: 3px;
+    opacity: 0.1;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.25);
+    background-color: var(--white);
 }
 
-.login-signup .text{
-    font-size: 17px;
+
+.top_footer .wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    height: 100%;
+    padding-top: 20px;
+    margin-bottom: 15px;
 }
+
+
+.top_footer h4 {
+    font-family: "Outfit", sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.top_footer p {
+    font-size: 14px;
+    padding-top: 10px;
+}
+
+.mail {
+    width: 413px;
+    padding: 11px 32px;
+    margin: 15px 15px 15px 0;
+    border-radius: 8px;
+    font-family: "Outfit", sans-serif;
+    border: solid 1px var(--grey-600);
+    color: var(--grey-600);
+}
+
+.footer-button {
+    padding: 8px 40px;
+    border-radius: 8px;
+    border: solid 1px var(--grey-600);
+    background-color: var(--white);
+    font-size: 14px;
+    color: var(--primary-color-200);
+}
+
+.footer-button a {
+    color: var(--grey-600);
+}
+
+footer .icons {
+    display: none;
+}
+
 
 /* Bottom Footer */
 
@@ -364,7 +317,6 @@ button a {
 }
 
 .footer_2 p {
-    color: var(--white);
     width: 80%
 }
 
@@ -372,7 +324,6 @@ button a {
     color: var(--wc-1);
     text-decoration: none;
 }
-
 
 @media screen and (max-width: 768px) {
     body {
@@ -455,16 +406,41 @@ button a {
         margin-right: 0;
     }
 
-    .container {
-        max-width: 100%;
-        border: none;
+    .navbar .wrapper{
+        display: block;
+        padding: 10px 20px;        
+        text-align: center;
+    }
+    .Secondary-button{
+        margin-right: 0;
     }
 
-    .container .mobile-logo {
-        max-width: 30%;
-        padding: 50px 0;
-        margin: 0 auto;
-        display: grid;
-        place-self: center;
+    .container {
+        padding: 200px 0;
+    }
+
+    .container h1{
+        font-size: 36px;
+        color: var(--secondary-color-400);
+        padding-bottom: 5px;
+    }
+    .container p{
+        font-size: 18px;
+        color: var(--black-for-texts);
+        padding-bottom: 5px;
+    }
+
+    .container .input-field{
+        display: none;
+    }
+
+    .container .icons{
+        display: none;
+    }
+
+    footer .icons{
+        display: flex;
+        align-content: center;
+        justify-content: space-around;
     }
 }

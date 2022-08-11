@@ -1,25 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Poppins:wght@300;400;600;700&display=swap');
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 
-body{
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-image: url('../svg/login_home.svg');
-    background-size: 90%;
-}
+/* start */
+/* Signup Field */
 
 .container{
-    position: relative;
-    max-width: 630px;
-    width: 100%;
-    /* border-radius: 8px;
-    border: solid 1px var(--secondary-color-200); */
+    max-width: 40%;
+    max-width: 40%;    
+    padding: 50px 20px;
+    margin: 0 auto;
+}
+
+.container .mobile-logo {
+    display: none;
 }
 
 .container .forms{
@@ -27,22 +18,18 @@ body{
 }
 
 .container .form .title{
-    /* position: relative; */
     font-size: 37px;
     font-weight: 600;
     text-align: center;
-    color: var(--primary-color-300);
-    /* align-items: center; */
+    color: var(--primary-color-300);    
 }
 
 .container .form .sub-title{
-    /* position: relative; */
-    font-size: 25px;
+    color: var(--grey-600);
+    font-size: 18px;    
     margin-top: 15px;
-    margin-bottom: -15px;
-    /* font-weight: 200; */
-    text-align: center;
-    color: var(--primary-color-300);
+    margin-bottom: -15px;    
+    text-align: center;    
 }
 
 .form .input-field{
@@ -53,6 +40,7 @@ body{
 }
 
 .input-field input{
+    font-family: "Outfit", sans-serif;
     position: absolute;
     height: 100%;
     width: 100%;
@@ -73,6 +61,7 @@ body{
     float: right;
     top: 50%;
     left: 0;
+    color: var(--grey-400);
     /* margin-left: -30px;  */
     padding: 0 15px;
     cursor: pointer;
@@ -151,4 +140,101 @@ body{
 
 .login-signup .text{
     font-size: 17px;
+}
+
+
+
+@media screen and (max-width: 768px) {
+    body {
+        background-image: none;
+        background-color: #f1f1f1;
+    }
+
+    .logo {
+        float: none;
+        margin-left: 60px;
+    }
+
+    .nav-links {
+        float: none;
+        position: fixed;
+        z-index: 9;
+        left: 0;
+        right: 0;
+        top: 100px;
+        bottom: 100%;
+        width: auto;
+        overflow: hidden;
+        background-color: var(--secondary-color-200);
+        transition: all .5s ease-in-out
+    }
+
+    .nav-links ul {
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-links li a {
+        font-weight: bolder;
+        margin: 10px 0;
+        padding: 20px 0;
+    }
+
+    .nav-links li a:hover {
+        border: none;
+        background-color: var(--secondary-color-300);
+        transition: all .5s ease;
+    }
+
+    .nav-links .nav-button {
+        display: none;
+    }
+
+    nav .icon-burger {
+        display: block;
+    }
+
+    .nav-links {
+        flex-direction: column;
+    }
+
+    nav :checked~.nav-links {
+        bottom: 0;
+    }
+
+    nav :checked~.icon-burger .line:nth-child(1) {
+        transform: translateY(10px) rotate(225deg);
+    }
+
+    nav :checked~.icon-burger .line:nth-child(3) {
+        transform: translateY(-10px) rotate(-225deg);
+    }
+
+    nav :checked~.icon-burger .line:nth-child(2) {
+        opacity: 0;
+    }
+
+    .navbar .wrapper {
+        display: block;
+        padding: 10px 20px;
+        text-align: center;
+    }
+
+    .Secondary-button {
+        margin-right: 0;
+    }
+
+    .container {
+        max-width: 100%;
+        border: none;
+    }
+
+    .container .mobile-logo {
+        max-width: 30%;
+        padding: 50px 0;
+        margin: 0 auto;
+        display: grid;
+        place-self: center;
+    }
 }
