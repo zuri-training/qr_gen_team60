@@ -22,7 +22,7 @@
     --primary-color-100: #adb9cb;
     --gc-600: #868b8f;
     --wc-1: #fffcfc;
-    --desktop-background: url(../images/homepage-bg.svg);
+    --desktop-background: url(images/homepage-bg.svg);
 }
 
 * {
@@ -581,7 +581,6 @@ footer hr {
     }
 
     .nav-links li a{
-        font-weight: bolder;
         margin: 10px 0;
         padding: 20px 0;
     }
