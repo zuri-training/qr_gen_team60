@@ -10,10 +10,8 @@ urlpatterns = [
 ]
 
 urlpatterns +=[
-    path('test', views.qr_gen, name="home"),
-    path("<int:qr_id>/", views.get_qr, name="get_qr")
+    path("<int:qr_id>/", views.get_qr, name="get_qr"),
     path('contact-us/', views.contact_us, name='contact'),
-    path('generator/<str:extra_args>', views.generate, name='generator')
 ]
 
 urlpatterns += [

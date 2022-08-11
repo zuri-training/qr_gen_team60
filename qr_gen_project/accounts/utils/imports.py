@@ -6,7 +6,7 @@ from accounts.decorators import unauthenticated_user
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login, logout, authenticate
 
-from .forms import CreateUserForm
+from ..forms import CreateUserForm
 
 #===============================================================
 from django.shortcuts import render, redirect
