@@ -8,14 +8,7 @@ class CreateUserForm(UserCreationForm):
     class Meta:
         model = QRUser
         fields = ('username', 'email', 'password1', 'password2')
-        widgets = {
-            'form_item': forms.TextInput(
-                attrs={
-                    'class': 'form-control', 'required': False
-                }
-            )
-}
-
+       
 
     # def clean(self):
     #     value = self.cleaned_data['fullname']

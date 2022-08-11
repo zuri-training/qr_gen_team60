@@ -1,14 +1,23 @@
 
 import os
-from config import setup as conf
 from pathlib import Path
+from django.contrib.messages import constants as messages
+from config import setup as config
+
+MESSAGE_TAGS = {
+        messages.DEBUG: 'alert-secondary',
+        messages.INFO: 'alert-info',
+        messages.SUCCESS: 'alert-success',
+        messages.WARNING: 'alert-warning',
+        messages.ERROR: 'alert-danger',
+ }
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = conf['SECRET_KEY']
+SECRET_KEY = config['SECRET_KEY']
 
-DEBUG = conf['DEBUG']
+DEBUG = config['DEBUG']
 
 ALLOWED_HOSTS = ['*']
 
@@ -120,19 +129,21 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 CORS_ORIGIN_ALLOW_ALL = True # for now, will be changed later
 CORS_ORIGIN_WHITELIST = (
-    'http://localhost:8000',
+    'http://localhost:8000', 'https://*'
 )
+
+
 # SMTP Configuration (for sending mails)
 
-# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-# EMAIL_USE_TLS = True
-# EMAIL_HOST = 'smtp.mailtrap.io'
-# EMAIL_HOST_USER = 'd9c28aad6129e6'
-# EMAIL_HOST_PASSWORD = '019e302beff558'
-# EMAIL_PORT = '2525'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_USE_SSL = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = config["EMAIL_HOST_USER"]
+EMAIL_HOST_PASSWORD = config["EMAIL_HOST_PASSWORD"]
+EMAIL_PORT = '465'
 
 
-EMAIL_BACKEND =  'django.core.mail.backends.console.EmailBackend' #!
+# EMAIL_BACKEND =  'django.core.mail.backends.console.EmailBackend' #!
 
 # Thousand Separator
 USE_THOUSAND_SEPARATOR = True
