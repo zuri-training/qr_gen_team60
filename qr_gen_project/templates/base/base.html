@@ -23,6 +23,18 @@
     <link rel="icon" type="image/png" sizes="512x512" href="{% static 'base/favicon_io/android-chrome-512x512.png' %}"/>
     <link rel="shortcut icon" href="{% static 'base/favicon_io/favicon.ico' %}" type="image/x-icon"/>
     <link rel="stylesheet" href="{% static 'base/css/base.css'%}">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="https://unicons.iconscout.com/release/v2.1.5/css/unicons.css"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+  />
     <title>QR&nbsp;Planet&nbsp;{% block title %} {% endblock title %}</title>
 
     {% block style %} {% endblock style %}
@@ -44,9 +56,17 @@
         {% block bottom_footer %}{% endblock bottom_footer %}
     </footer>
 
-    <script type="text/js">
-       {% block extra_script %}{% endblock extra_script %} 
-    </script>
 
+       {% block extra_script %}{% endblock extra_script %} 
+
+    
+    {# messages everywhere#}
+    {% if messages %}
+      {% for message in messages %}
+        <script>
+          alert("{{ message }}")
+        </script>
+      {% endfor%}
+    {% endif %}
 </html>
 
