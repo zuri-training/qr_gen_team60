@@ -1,0 +1,9 @@
+Name: Eluwole Eninlaloluwa
+Slack Username: Eluwole Eninlaloluwa
+Github Username: blitzdev01
+Track: Full-stack Web Development
+Student ID: I4G015965FS1
+
+Contributions:
+   Download QR Function:https://github.com/zuri-training/qr_gen_team60/tree/getQr
+   Error Page: https://github.com/zuri-training/qr_gen_team60/tree/main/Templates/Error%20Page
