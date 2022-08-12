@@ -2,6 +2,7 @@
 
 from django.db import models
 from django.contrib.auth import get_user_model
+from qr_gen_project.settings import MEDIA_URL, STATIC_ROOT, STATIC_URL, MEDIA_ROOT
 
 # Todo: extend the base user model and override to __str__ method to return name
 User = get_user_model()
@@ -30,7 +31,6 @@ class QRCollection(models.Model):
     def __str__(self):
         return f'{self.qr_user}\'s {self.category} QR'
 
-    #? def save() override save method and cleanup qr_name before saving so it can be easily accesible
 
     class Meta:
         db_table = 'qr_collection'

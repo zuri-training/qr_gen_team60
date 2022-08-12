@@ -1,62 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://unicons.iconscout.com/release/v2.1.5/css/unicons.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
+{% extends 'qr_generator/index.html' %}
+
+{% load static %}
+
+  {% block style %}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="./JS/generateqr.js"></script>
-    <link rel="stylesheet" href="./css/generateqr.css" />
+    <script src="{% static 'qr_generator/js/custom/generateqr.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'qr_generator/css/generateqr.css' %}" />
+  {% endblock style %}
 
-    <title>Generate QR</title>
-  </head>
-  <body>
-    <header>
-      <div class="wrapper">
-        <img class="logo" href="#" src="images/logo.svg" alt="logo" />
-        <nav class="navbar">
-          <input type="checkbox" name="" id="nav-toggle" />
-          <div class="nav-links">
-            <ul>
-              <li><a href="#">Home</a></li>
-              <li><a href="#">Generate QR Code</a></li>
-              <li><a href="#">Why us?</a></li>
-              <li><a href="#">API</a></li>
-              <li><a href="#">Contact</a></li>
-            </ul>
-            <div class="nav-button">
-              <button type="submit" class="Secondary-button">
-                <a href="#">Login</a>
-              </button>
-              <button type="submit" class="Primary-button">
-                <a href="#">Get Started</a>
-              </button>
-            </div>
-          </div>
-          <label for="nav-toggle" class="icon-burger">
-            <div class="line"></div>
-            <div class="line"></div>
-            <div class="line"></div>
-          </label>
-        </nav>
-      </div>
-    </header>
+  {% block title %}|&nbsp;Generate QR{% endblock title %}
+  
+  {% block content %}
 
+    
     <div class="wrapper">
+      
       <div class="container">
+        
         <div class="box1">
+          <h2>Choose a Feature</h2>
           <div class="cards" id="menu">
             <div class="card1">
               <button type="button" href="#p1">
@@ -95,7 +57,7 @@
               <button type="button" href="#p7">
                 <i class="uil uil-dollar-alt"></i>Bank details
               </button>
-              <button type="button">
+              <button type="button" href="#img">
                 <i class="uil uil-image-v"></i>Image
               </button>
               <button type="button">
@@ -133,42 +95,56 @@
           <div class="content">
             <div class="page active" id="p1">
               <!-- <section id="url"> -->
-              <p class="title">Submit URL/Link</p>
-              <input type="text" placeholder="Input URL/Link" />
+                <p class="title">Enter URL or Link</p>
+                <form action="{% url 'qr_generator:generate_qr' %}" method="post" id="url-input">
+                  {% csrf_token %}
+                  <input type="url" placeholder="Input URL/Link" name="text" required/>
+                </form>
+                <button type="submit" form="url-input">Generate QR Code</button>
               <!-- </section> -->
             </div>
 
             <div class="page" id="p2">
               <!-- <section id="store"> -->
-              <p class="title">Submit URL/Link</p>
-              <form action="" method="post">
-              <input type="text" placeholder="Enter Link to Application" />
-            </form>
+              <p class="title">Enter URL or Link</p>
+              <form action="{% url 'qr_generator:generate_qr' %}" method="post" id="app-store">
+                {% csrf_token %}
+                <input type="url" placeholder="Enter Link to Application" name="text" required/>
+                <input type="submit">Generate QR Code</button>
+              </form>
+              
+              
               <!-- </section> -->
             </div>
             <div class="page" id="p3">
               <!-- <section id="store"> -->
-              <p class="title">Text Display</p>
-              <textarea name="" id="message"></textarea>
+              <p class="title">Enter a Text</p>
+              <form action="{% url 'qr_generator:generate_qr' %}" method="post" id="text-input">
+                {% csrf_token %}
+                <textarea name="" id="message" name="text"></textarea>
+              </form>
+              <button type="submit" form="text-input">Generate QR Code</button>
               <!-- </section> -->
             </div>
-            <div class="page" id="p4">
-              <!-- <section id="store"> -->
-              <p class="title">Text Display</p>
-              <input type="text" placeholder="Input PDF Link" />
-              <textarea name="" id="message">Enter Message</textarea>
-              <!-- </section> -->
-            </div>
+       
             <div class="page" id="p5">
               <!-- <section id="store"> -->
               <p class="title">Github</p>
-              <input type="text" placeholder="Input your github profile" />
+              <form action="{% url 'qr_generator:generate_qr' %}" method="post" id="github-input">
+                {% csrf_token %}
+              <input type="url" placeholder="Input your github url" name="text"/>
+              </form>
+              <button type="submit" form="github-input">Generate QR Code</button>
               <!-- </section> -->
             </div>
             <div class="page" id="p6">
               <!-- <section id="store"> -->
-              <p class="title">Github</p>
-              <input type="text" placeholder="Enter Zoom Link" />
+              <p class="title">Zoom Link</p>
+              <form action="{% url 'qr_generator:generate_qr' %}" method="post" id="zoom-input">
+                {% csrf_token %}
+                <input type="url" placeholder="Enter Zoom Link" name="text"/>
+                </form>
+                <button type="submit" form="zoom-input">Generate QR</button>
               <!-- </section> -->
             </div>
             <div class="page" id="p7">
@@ -184,8 +160,10 @@
             <div class="page" id="p8">
               <!-- <section id="store"> -->
               <p class="title">Phone Details</p>
-              <input type="number" placeholder="Country Code" />
-              <input type="number" placeholder="Phone Number" />
+              <form action="" method="post"></form>
+                <input type="number" placeholder="Country Code" />
+                <input type="number" placeholder="Phone Number" />
+              
               <!-- </section> -->
             </div>
             <div class="page" id="p9">
@@ -194,29 +172,69 @@
               <input type="number" placeholder="Enter ratings page link" />
               <!-- </section> -->
             </div>
+
+
+            <div class="page" id="p4">
+              <!-- <section id="store"> -->
+              <p class="title">Coming soon</p>
+              
+              <!-- </section> -->
+            </div>
+
+            <div class="page" id="img">
+              <!-- <section id="store"> -->
+              <p class="title">Coming soon...</p>
+              
+              <!-- </section> -->
+            </div>
+
+
           </div>
         </div>
         <div class="box2">
+
+          
+          {% if qr_image %}
           <div class="qrimage">
-            <img src="./images/qrcodeimg.png" alt="qr code image" />
+            <img src="{{ qr_image }}" alt="qr code image" />
           </div>
 
-          <button class="btn1">Generate QR Code</button>
-          <button class="btn2"><i class="uil uil-share-alt"></i>Share</button>
-          <button class="btn2"><i class="uil uil-import"></i>Download</button>
+          <button class="btn2"><i class="uil uil-share-alt"></i><a href="{% url 'qr_generator:share' '{{ qr_image }}' %}">Share</a></button>
+  
+            <select class="btn2" id='SelectOption'>
+              <option value=""><a href="">Download</a></option>
+              <option value="pdf">PDF</option>
+              <option value="png">PNG</option>
+              <option value="svg">SVG</option>
+              <option value="jpeg">JPEG</option>
+              <option value="jpg">JPG</option>
+          
+          <button class="btn2"><i class="uil uil-import"></i>Save</button>
+
+            {% else %}
+            <img src="{% static 'qr_generator/images/qrcodeimg.png'%}" alt="qr code image" width="70%" height="60%" title="This is A SAMPLE"/>
+            
+            
+          {% endif %}
+          {# and a text here to tell it's a description#}
+         
         </div>
       </div>
     </div>
+    {% block extra_script %}
 
-    <footer>
-      <div class="bottom_footer">
-        <div class="wrapper">
-          <div class="footer_2">
-            <p><span>2022</span> QR Planet; All Rights Reserved</p>
-            <a href="#">Report</a>
-          </div>
-        </div>
-      </div>
-    </footer>
-  </body>
-</html>
+    {# to check what the user selected#}
+    <script>
+      document.getElementById('SelectOption').addEventListener('change', function() {
+      val = $( "#SelectOption" ).val();
+            if(val === 'pdf') {
+              window.open("{% url 'qr_generator:download_qr' '{{ qr_image }}' 'pdf' %}");
+              }
+            
+          });
+      </script>
+    {% endblock extra_script %}
+
+    {% endblock content %}
+    {% block top_footer %}{% endblock top_footer %}
+    {% block middle_footer %}{% endblock middle_footer %}

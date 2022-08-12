@@ -3,7 +3,7 @@
 
 {% block header %} 
 
-{% include 'base/messages.html'%}
+{# {% include 'base/messages.html'%} #}
 <div class="wrapper"><a href="{% url 'qr_generator:home'%}">
     <img class="logo" href="{% url 'qr_generator:home'%}" src="{% static 'qr_generator/images/logo.svg'%}" alt="logo" />
   </a>
@@ -12,7 +12,7 @@
       <div class="nav-links">
         <ul>
           <li><a href="{% url 'qr_generator:home'%}">Home</a></li>
-          <li><a href="#">Generate QR Code</a></li>
+          <li><a href="{% url 'qr_generator:generate_qr' %}">Generate QR Code</a></li>
           <li><a href="#">Why us?</a></li>
           <li><a href="{% url 'docs'%}">API</a></li>
           <li><a href="{% url 'qr_generator:contact'%}">Contact</a></li>
@@ -20,11 +20,13 @@
         <div class="nav-button">
             {% if request.user.is_authenticated %}
                 <button type = "submit" class="Secondary-button"><a href="{% url 'accounts:logout'%}">Logout</a></button>
+                <button type = "submit" class="Primary-button"><a href="#">Dashboard</a></button>
             {% else %}
                 <button type = "submit" class="Secondary-button"><a href="{% url 'accounts:login'%}">Login</a></button>
+                <button type = "submit" class="Primary-button"><a href="{% url 'qr_generator:generate_qr' %}">Get Started</a></button>
                 
             {% endif %}
-            <button type = "submit" class="Primary-button"><a href="#">Get Started</a></button>
+            
           
         </div>
       </div>            
