@@ -22,7 +22,7 @@
     --primary-color-100: #adb9cb;
     --gc-600: #868b8f;
     --wc-1: #fffcfc;
-    --desktop-background: url(../images/homepage-bg.svg);
+    --desktop-background: url(images/homepage-bg.svg);
 }
 
 * {
@@ -32,58 +32,55 @@
 }
 
 body {
-    background-image: url(images/homepage-bg.svg);
+    background-image: url(../images/homepage-bg.svg);
     background-size: cover;
+    font-family: "Outfit", sans-serif;
     font-size: 14px;
 }
 
-h1, h2, h3, h4 {
-    font-family: "Montserrat", sans-serif;
-    font-weight: bolder;
-    margin-bottom: 10px;
-}
 
-p, a {
+a {
     font-family: "Outfit", sans-serif;
-
 }
 
-.wrapper{
+.wrapper {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 30px;
 }
 
-header{
+header {
     background-color: var(--white);
+    border-bottom: 1px solid var(--grey-400);
+    /* margin-bottom: 30px; */
 }
 
-header .wrapper{   
-    display: flex;      
+header .wrapper {
+    display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;    
+    flex-wrap: wrap;
     min-height: 100px;
 }
 
 .logo {
     float: left;
     cursor: pointer;
-    max-width: 200px;  
+    max-width: 200px;
 }
 
 nav {
     float: right;
 }
 
-.nav-links{
+.nav-links {
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
 }
 
-.nav-links ul{
+.nav-links ul {
     list-style-type: none;
     color: var(--primary-color-200);
     display: flex;
@@ -94,11 +91,11 @@ nav {
     text-decoration: none;
     font-size: 16px;
     padding: 5px 10px;
-    margin: 0 10px; 
+    margin: 0 10px;
     color: var(--primary-color-200);
 }
 
-.navbar{
+.navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -112,14 +109,14 @@ nav {
 }
 
 .nav-links li a:hover {
-    border-bottom: 2px solid var(--secondary-color-400);    
+    border-bottom: 2px solid var(--secondary-color-400);
     transition: all .5s ease;
 }
 
 /* Nav for mobile view */
 
 #nav-toggle {
-    position: absolute;      
+    position: absolute;
     top: -100px;
 }
 
@@ -131,7 +128,7 @@ nav .icon-burger {
     transform: translateY(50%);
 }
 
-nav .icon-burger .line{
+nav .icon-burger .line {
     width: 30px;
     height: 5px;
     margin: 5px;
@@ -151,16 +148,16 @@ button a {
     transition: all 0.3s ease 0s;
 }
 
-.Primary-button {           
+.Primary-button {
     padding: 8px 32px;
     border-radius: 8px;
     border: none;
     background-color: var(--primary-color-200);
-    color: var(--white);    
+    color: var(--white);
 }
 
 
-.Primary-button a{
+.Primary-button a {
     color: var(--white);
 }
 
@@ -169,20 +166,20 @@ button a {
     background-color: var(--secondary-color-400);
 }
 
-.Secondary-button{
+.Secondary-button {
     padding: 6px 32px;
     margin-right: 20px;
     border-radius: 8px;
     border: solid 1px var(--grey-600);
     background-color: transparent;
-    
+
 }
 
-.Secondary-button a{
+.Secondary-button a {
     color: var(--grey-600);
 }
 
-.Secondary-button:hover{
+.Secondary-button:hover {
     background-color: var(--grey-200);
 }
 
@@ -199,15 +196,18 @@ button a {
     color: var(--primary-color-300);
 }
 
-.btn-2:hover{
+.btn-2:hover {
     background-color: var(--secondary-color-200);
-
 }
+
+/* End of header and nav desktop view */
+
+
 /* Hero Section */
 
 .hero-bg{
     background-color: hsla(216, 34%, 54%, 0.3);
-    min-height: 400px;
+    min-height: 500px;
 }
 
 .hero-section .wrapper {
@@ -216,33 +216,73 @@ button a {
     justify-content: space-between;
 }
 
-.hero-section{    
-    padding: 20px;
-}
-
-.hero-text h1 {    
+.hero-head {
+    position: relative;    
+    left: -22%;
+    height: 100px;
+    transform: translateY(10%);
+    overflow: hidden;
+    font-family: "Montserrat", sans-serif;
     font-size: 46px;
     font-weight: 700;
-    line-height: 1.4;
+    line-height: 100px;
     color: var(--primary-color-300);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+}
+
+.hero-head2 {
+    position: relative;    
+    transform: translateY(5%);
+    font-family: "Montserrat", sans-serif;
+    font-size: 46px;
+    font-weight: 700;
+    line-height: 50px;
+    color: var(--primary-color-300);
+}
+
+.hero-head2 p {    
+    width: 70%;    
+    padding-top: 30px;    
+    font-size: 22px;
+    color: var(--primary-color-300);
+    font-size: 22px;
+    color: var(--primary-color-300);
+    font-family: "Outfit", sans-serif;
+    font-weight: lighter;
+    line-height: 2rem;
 }
 
 .highlight {
     color: var(--secondary-color-400);
 }
 
-.hero-text p {
-    width: 70%;    
-    padding: 30px 0;    
-    font-size: 22px;
-    color: var(--primary-color-300);
-}
-
-
-.hero-section img{
+.hero-section img {
     max-width: 400px;
+    padding-top: 50px;
     margin-right: 50px;
 }
+
+.hero-button{
+    padding-bottom: 80px;
+}
+.slider{
+    color: var(--secondary-color-400);
+    margin-left: 12px;
+    animation: slider 6s linear infinite;
+}
+@keyframes slider{
+    0% {margin-top: -350px;}
+    5% {margin-top: -200px;}
+    30% {margin-top: -200px;}
+    35% {margin-top: 0px;}
+    65% {margin-top: 0px;}
+    70% {margin-top: 200px;}
+    100% {margin-top: 200px;}
+}
+
 
 
 /* Middle section */
@@ -581,7 +621,7 @@ footer hr {
         text-align: center;
     }
 
-    .nav-links li a{
+    .nav-links li a {
         font-weight: bolder;
         margin: 10px 0;
         padding: 20px 0;
@@ -632,15 +672,42 @@ footer hr {
     .Secondary-button{
         margin-right: 0;
     }
-
-    .hero-section img{
-        height: 200px;   
-    }
-
-    .hero-text h1{
-        font-size: 36px;
+    
+    .slider {
+        animation: none;
     }
     
+    .slider:nth-child(2), .slider:nth-child(3){
+        display: none;
+    }
+
+    .slider:nth-child(1){
+        display: block;
+        
+    }
+
+    .hero-head {
+        position: static;
+        margin-left: -80px;
+        font-size: 36px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: left;
+    }
+
+    .hero-head2 {
+        position: static;        
+        font-family: "Montserrat", sans-serif;
+        margin-bottom: 50px;
+        font-size: 36px;
+    }
+
+    
+    .hero-section img{
+        height: 250px;   
+    }
+
     .hero-text p{
         display: none;
     }
