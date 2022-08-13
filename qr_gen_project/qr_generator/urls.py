@@ -9,7 +9,8 @@ urlpatterns = [
     path('', views.index, name="home"),
     path('generate-qr/', views.generate_qr, name='generate_qr'),
     path('share-qr/<str:pk>/', views.share_qr, name='share'),
-    path('download-qr/<str:pk>/<str:filename>/', views.download_file, name='download_qr'),
+    path('download-qr/<str:filetype>/', views.download_file, name='download_qr'),
+    path('save-qr/', views.save_qr, name='save_qr'),
 ]
 
 urlpatterns +=[

@@ -17,23 +17,29 @@
 
     <section class="hero-bg">
         <div class="hero-section">
-            <div class="wrapper">
-                <div class="hero-text">
-                  <h1>The <span class="highlight">&#35;1 Fast</span><br> QR Code Generator <br>
-                  for everyone </h1>                       
-                  {% if request.user.is_authenticated %}
-                    <p>Stand out with quality trackable QR codes for an ever expanding usecase. <br><br>
-                    Hey <span class="highlight">{{ request.user.username|title }}</span> What would you like to do &quest; 
-                    </p>
-
-                  {% else %}
-                    <p>Stand out with quality trackable QR codes for an ever expanding usecase.
-                    </p>
-                  {% endif %}
+          <div class="wrapper">
+            <div class="hero-text">
+              <div class="hero-head">
+                <div>The <span class="highlight">#1</span></div>                     
+                  <div class="slider">
+                    <div> Fast</div>
+                    <div> Dynamic</div>
+                    <div> Secure</div>
+                  </div>                
+              </div>
+              <div class="hero-head2">
+                QR Code Generator <br>for everyone 
+                <p>Stand out with quality trackable QR codes for an every expanding usecase</p> 
+                
+                {% if request.user.is_authenticated %}
+                <p>Hi <span class="highlight">{{request.user.username|title}}</span> what would you like to do&quest;</p> 
                   
-                </div> 
-                <img src="{% static 'qr_generator/images/hero_img.svg'%}" alt="img">   
-            </div>
+                {% endif %}
+                  
+              </div>
+            </div> 
+            <img src="{% static 'qr_generator/images/hero_img.svg'%}" alt="img">   
+        </div>
             <div class="wrapper">
               <div class="hero-button">
               <button class="Primary-button"> <a href="{% url 'qr_generator:generate_qr' %}"> Get started </a></button>

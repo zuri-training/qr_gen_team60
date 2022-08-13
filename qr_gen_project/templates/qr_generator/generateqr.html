@@ -196,21 +196,28 @@
           
           {% if qr_image %}
           <div class="qrimage">
-            <img src="{{ qr_image }}" alt="qr code image" />
+            <img src="{{ qr_image }}" name=img value="{{ qr_image }}" alt="qr code image" />
           </div>
 
-          <button class="btn2"><i class="uil uil-share-alt"></i><a href="{% url 'qr_generator:share' '{{ qr_image }}' %}">Share</a></button>
-  
-            <select class="btn2" id='SelectOption'>
-              <option value=""><a href="">Download</a></option>
+          <form style="display:none;" action="{% url 'qr_generator:save_qr' %}" method="post" id="save_btn" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="url" name="qr" value="{{qr_image}}"/>
+          </form>
+          
+          <button type="submit" class="btn2"><i class="uil uil-import" form="save_btn"></i>Save</button>
+          <button class="btn2"><i class="uil uil-share-alt"></i><a href="{% url 'qr_generator:share' '{{ qr_image }}' %}">Share</a></button>      
+            <select  class="btn2" id=downLoad_option name="download_option">
+              <option value="">--select format--</option>
               <option value="pdf">PDF</option>
               <option value="png">PNG</option>
               <option value="svg">SVG</option>
               <option value="jpeg">JPEG</option>
               <option value="jpg">JPG</option>
-          
-          <button class="btn2"><i class="uil uil-import"></i>Save</button>
+            </select>
+            <button class="btn2" type="button" id="submit_button">Download</button>
+            
 
+          
             {% else %}
             <img src="{% static 'qr_generator/images/qrcodeimg.png'%}" alt="qr code image" width="70%" height="60%" title="This is A SAMPLE"/>
             
@@ -221,18 +228,33 @@
         </div>
       </div>
     </div>
+
+
+    <script>
+      $(function() {
+      $('#download_option').change(function() {
+      
+      $('#submit_button'+ $(this).val()).show();
+      $('#submit_button').hide();
+      
+      });
+      });
+    </script>
+
     {% block extra_script %}
 
-    {# to check what the user selected#}
-    <script>
-      document.getElementById('SelectOption').addEventListener('change', function() {
-      val = $( "#SelectOption" ).val();
-            if(val === 'pdf') {
-              window.open("{% url 'qr_generator:download_qr' '{{ qr_image }}' 'pdf' %}");
-              }
-            
-          });
-      </script>
+
+
+  <script>
+
+    $("#submit_button").click(function() {
+      var link = "{% url 'qr_generator:download_qr' 'TYPE' %}";
+      link = link.replace('TYPE', $("#download_option").val());
+
+      window.location.href = link;
+    });
+    </script>
+
     {% endblock extra_script %}
 
     {% endblock content %}
