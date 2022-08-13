@@ -1,5 +1,9 @@
 # account/models.py
-
+from io import BytesIO
+from qrcode import *
+import qrcode
+from django.utils import timezone
+from django.core.files import File
 from django.db import models
 from django.contrib.auth import get_user_model
 from qr_gen_project.settings import MEDIA_URL, STATIC_ROOT, STATIC_URL, MEDIA_ROOT
@@ -22,14 +26,14 @@ class Category(models.Model):
 class QRCollection(models.Model):
     """All QR collections available"""
     qr_user = models.ForeignKey(User, on_delete=models.CASCADE, )
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    category = models.CharField(max_length=200, blank=True, null=True)
     time_created = models.DateTimeField(auto_now_add=True)
     
-    qr_code = models.FileField(upload_to='upload/')
+    qr_code = models.ImageField(upload_to='user/')
     qr_name = models.CharField(max_length=200, blank=True, null=True)
 
     def __str__(self):
-        return f'{self.qr_user}\'s {self.category} QR'
+        return f'{self.qr_user.username}\'s {self.category} QR'
 
 
     class Meta:
