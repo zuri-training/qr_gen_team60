@@ -85,6 +85,17 @@ QR Planet is a web app that focuses on generating QR  codes that perform tasks i
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
+<!-- How to run project -->
+## Run the project
+
+
+1. Fork the repository
+2. Clone repository to you local machine 
+3. Create a new virtual environment 
+4. Install dependencies using ## pip3 install -r requirements.txt
+5. Run migrations 
+6. python manage.py  runserver
+
 <!-- Collaborators -->
 ## Collaborators
   #### Elizabeth Ogunmola - Software Developer
