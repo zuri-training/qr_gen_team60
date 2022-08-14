@@ -1,0 +1,13 @@
+Name : Kazeem Bakare
+Slack Username: kazbak
+Github Username : kazbak
+Track : Full-stack
+Student ID: I4G018029EE3
+
+Contributions: 
+	    Presentation Slides: https://docs.google.com/presentation/d/1tgBIZ4bBodhI5Qq0xPWWmzvwheyojryPx6nqJhKC7VM/edit#slide=id.gc6f9e470d_0_0        
+        Login & Signup views: https://github.com/zuri-training/qr_gen_team60/commit/f42e5346089ac39dee32c14976f9da09358cabe0
+        Contact page: https://github.com/zuri-training/qr_gen_team60/commit/b2d56ad20852e4eb4cc803f057b94eddfb870fc7
+        Homepage: https://github.com/zuri-training/qr_gen_team60/commit/02cf3444a06436c9026c92a7901c467a21fd325a
+        Mobile Responsiveness of homepage, dashboard, login, signup, contact, generate Qr pages:
+        https://github.com/zuri-training/qr_gen_team60/commit/0e2c83862ad476c41b1c9f5d22ae0cf34c652cf7

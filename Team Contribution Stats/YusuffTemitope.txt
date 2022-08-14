@@ -1,0 +1,11 @@
+Name : Yusuff Temitope
+Slack Username: Temitope_0X
+Github Username : Tope-stack
+Track : Full-stack Software Development
+Contributions:
+            Role: Team lead
+            Setup team github repo and github project(https://github.com/zuri-training/qr_gen_team60)
+            Worked on Login UI, Signup UI, Coming soon UI, Generate Qr-code UI(https://github.com/zuri-training/qr_gen_team60/tree/main/Templates/Tope's%20templates)
+            Technical Documentation(https://docs.google.com/document/d/11YqY3GACwCbnjsB-XrjberOGCVKw7SUvrz6sGoQM0_s/edit?usp=sharing)
+            Worked on presentation slides(https://docs.google.com/presentation/d/1tgBIZ4bBodhI5Qq0xPWWmzvwheyojryPx6nqJhKC7VM/edit?usp=sharing)
+            

@@ -1,14 +1,25 @@
 
 import os
-from config import setup as conf
 from pathlib import Path
+from django.contrib.messages import constants as messages
+
+
+MESSAGE_TAGS = {
+        messages.DEBUG: 'alert-secondary',
+        messages.INFO: 'alert-info',
+        messages.SUCCESS: 'alert-success',
+        messages.WARNING: 'alert-warning',
+        messages.ERROR: 'alert-danger',
+ }
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = conf['SECRET_KEY']
+SECRET_KEY = os.getenv('QR_SECRET_KEY')
 
-DEBUG = conf['DEBUG']
+DEBUG = True
+# DEBUG = os.geten('QR_DEBUG') in production
 
 ALLOWED_HOSTS = ['*']
 
@@ -21,6 +32,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    "whitenoise.runserver_nostatic",
     'django.contrib.staticfiles',
     'accounts',
 
@@ -28,12 +40,15 @@ INSTALLED_APPS = [
     'qr_generator.apps.QrGeneratorConfig',
     # 'api',
     'rest_framework',
-    'corsheaders'
+    'corsheaders',
+    'drf_yasg',
+    'django_social_share'
 ]
 
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -48,7 +63,7 @@ ROOT_URLCONF = 'qr_gen_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['templates'],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -70,9 +85,9 @@ WSGI_APPLICATION = 'qr_gen_project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-        }
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
+}
 
 
 # Password validation
@@ -119,17 +134,21 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 CORS_ORIGIN_ALLOW_ALL = True # for now, will be changed later
 CORS_ORIGIN_WHITELIST = (
-    'http://localhost:8000',
+    'http://localhost:8000', 'http://QR-gen.eba-n3fpcnmc.us-west-2.elasticbeanstalk.com*'
 )
+
 
 # SMTP Configuration (for sending mails)
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_USE_TLS = True
-EMAIL_HOST = ''
-EMAIL_HOST_USER = ''
-EMAIL_HOST_PASSWORD = ''
-EMAIL_PORT = ''
+EMAIL_USE_SSL = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = os.getenv('QR_EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.getenv('QR_EMAIL_HOST_PASSWORD')
+EMAIL_PORT = '465'
+
+
+# EMAIL_BACKEND =  'django.core.mail.backends.console.EmailBackend' #!
 
 # Thousand Separator
 USE_THOUSAND_SEPARATOR = True
@@ -149,10 +168,13 @@ GOOGLE_DRIVE_STORAGE_MEDIA_ROOT = '<base google drive path for file uploads>' # 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 REST_FRAMEWORK = {
-    # Use Django's standard `django.contrib.auth` permissions,
-    # or allow read-only access for unauthenticated users.
-    'DEFAULT_PERMISSION_CLASSES': [],
-    'TEST_REQUEST_DEFAULT_FORMAT': 'json'
+    'DEFAULT_AUTHENTICATION_CLASSES':[
+        'accounts.jwt.JWTAuthentication',
+    ]
 }
 
+LOGOUT_REDIRECT_URL = '/qr-gen/'
 
+
+# Because we changed default user id
+AUTH_USER_MODEL='accounts.QRUser'
