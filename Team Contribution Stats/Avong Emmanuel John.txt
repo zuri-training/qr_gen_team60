@@ -1,0 +1,13 @@
+Name: Avong Emmanuel John
+Slack Username: Avong
+Github Username: AAvong "initial account 'av215' lost access to initial account"
+Track: Full-stack Web Development
+Student ID: I4G000951NDT
+
+Contributions
+   I made contributions to following features with initial github account "av215" :
+
+   Account User Authentication: https://github.com/zuri-training/qr_gen_team60/tree/main/qr_gen_project/accounts
+   Account templates : https://github.com/zuri-training/qr_gen_team60/tree/main/qr_gen_project/templates/accounts
+   Contact us template together with Bakare Kazeem: https://github.com/zuri-training/qr_gen_team60/tree/main/Templates/Contact%20Us
+   
