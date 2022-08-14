@@ -100,8 +100,14 @@ QR Planet is a web app that focuses on generating QR  codes that perform tasks i
 ## Collaborators
   #### Elizabeth Ogunmola - Software Developer
   #### Temitope Yusuff - Software Developer
-  #### Oluwabemisoke Aseperi - Product Designer
+  #### Bakare Kazeem - Software Developer
   #### Wisdom Emmanuel - Software Developer
+  #### Eluwole Eninlaoluwa - Software Developer
+  #### Ikechukwu Onunkwo - Software Developer
+  #### Avong Emmanuel - Software Developer
+  #### Ifeoluwa Oladeni - Software Developer
+  #### Festus Adesiju - Software Developer
+  #### Oluwagbemisoke Aseperi - Product Designer
   #### Kingsley Onoriode - Product Designer
   #### Odekunle Joseph - Product designer
   #### Ibrahim Tomiwa-   Product designer
@@ -110,6 +116,10 @@ QR Planet is a web app that focuses on generating QR  codes that perform tasks i
   #### Saminu Mojisola - Product Designer
   #### Raji John Damisa - Product Designer
   #### Ndafohamba Shadjanale- Product designer 
+  #### Victoria Alabi - Product Designer
+  #### Ruth Oladejo - Product Designer
+  #### Alexander Ejezie - Product Designer
+ 
   <br>
 <div align="center">
     <h1>Try out QR Planet Today!!!</h1>
