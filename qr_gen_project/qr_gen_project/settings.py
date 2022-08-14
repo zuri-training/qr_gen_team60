@@ -3,6 +3,7 @@ import os
 from pathlib import Path
 from django.contrib.messages import constants as messages
 
+
 MESSAGE_TAGS = {
         messages.DEBUG: 'alert-secondary',
         messages.INFO: 'alert-info',
@@ -11,12 +12,14 @@ MESSAGE_TAGS = {
         messages.ERROR: 'alert-danger',
  }
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.getenv('QR_SECRET_KEY')
 
 DEBUG = True
+# DEBUG = os.geten('QR_DEBUG') in production
 
 ALLOWED_HOSTS = ['*']
 
@@ -29,6 +32,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    "whitenoise.runserver_nostatic",
     'django.contrib.staticfiles',
     'accounts',
 
@@ -44,6 +48,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -138,8 +143,8 @@ CORS_ORIGIN_WHITELIST = (
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_USE_SSL = True
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
+EMAIL_HOST_USER = os.getenv('QR_EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.getenv('QR_EMAIL_HOST_PASSWORD')
 EMAIL_PORT = '465'
 
 
@@ -167,28 +172,6 @@ REST_FRAMEWORK = {
         'accounts.jwt.JWTAuthentication',
     ]
 }
-
-
-
-# Loggers
-# LOGGING = {
-#     'version': 1,
-#     'disable_existing_loggers': False,
-#     'handlers': {
-#         'file': {
-#             'level': 'WARNING',
-#             'class': 'logging.FileHandler',
-#             'filename': BASE_DIR / 'logs/Logs.log',
-#         },
-#     },
-#     'loggers': {
-#         '': {
-#             'handlers': ['file'], 
-#             'level': 'WARNING',
-#             'propagate': True,
-#         },
-#     },
-# }
 
 LOGOUT_REDIRECT_URL = '/qr-gen/'
 

@@ -13,6 +13,7 @@ urlpatterns = [
 
 urlpatterns += [
     path('text-qr/<str:text>/', views.text, name='text'),
+    path('url-qr/<str:url>/', views.text, name='url'),
 ]
 
 
