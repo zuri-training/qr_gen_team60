@@ -68,6 +68,7 @@ QR Planet is a web app that focuses on generating QR  codes that perform tasks i
 #### `Github Project Organization:`
 > <a href="https://github.com/orgs/zuri-training/projects/299">Team 60 Github Projects</a>
 
+
 ## __Project Status__: _in progress_
 <br><br>
 
