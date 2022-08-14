@@ -194,26 +194,29 @@
         <div class="box2">
 
           
-          {% if qr %}
+          {% if qr_image %}
           <div class="qrimage">
-            <img src="{{ qr.qr_code.url }}" name=img value="{{ qr_image }}" alt="qr code image" />
-          </div>
+            <img src="{{ qr_image.qr_code.url }}" name=img value="{{ qr_image }}" alt="qr code image" />
+          {# Then save #}
 
-          <form style="display:none;" action="{% url 'qr_generator:save_qr' %}" method="post" id="save_btn">
-            {% csrf_token %}
-            <input type="url" name="qr" value="{{qr_image}}"/>
-          </form>
-          <button type="submit" class="btn2" form="save_btn"><i class="uil uil-import"></i>Save</button>
-          <button class="btn2"><i class="uil uil-share-alt"></i><a href="{% url 'qr_generator:share' '{{ qr_image }}' %}">Share</a></button>      
-            <select  class="btn2" id=downLoad_option name="download_option">
-              <option value="">--select format--</option>
-              <option value="pdf">PDF</option>
-              <option value="png">PNG</option>
-              <option value="svg">SVG</option>
-              <option value="jpeg">JPEG</option>
-              <option value="jpg">JPG</option>
+          <button type="submit" class="btn2"><i class="uil uil-import"></i><a href={% url 'qr_generator:save_qr' id=qr_image.id %}>Save</a></button>
+          <button class="btn2"><i class="uil uil-share-alt"></i><a href={% url 'qr_generator:share'  'qr_image.image.url' %}>Share</a></button>   
+          {% comment %}
+          <select name="rec-type" id="rec-type" onchange="location = this.value;">
+
+            <option value="{% url 'transactions' "expense" %}">Expense</option>
+            <option value="{% url 'transactions' "income" %}">Income</option>
+    
+    </select>   
+    {% endcomment %}
+            <select  class="btn2" id=downLoad_option name="download_option" onchange="location = this.value;">
+              <option value="">--Download--</option>
+              <option value="{% url 'qr_generator:download' qr_image.id 'pdf' %}">PDF</option>
+              <option value="{% url 'qr_generator:download' qr_image.id 'png' %}">PNG</option>
+              <option value="{% url 'qr_generator:download' qr_image.id 'svg' %}">SVG</option>
+              <option value="{% url 'qr_generator:download' qr_image.id 'jpeg' %} ">JPEG</option>
+              <option value="{% url 'qr_generator:download' qr_image.id 'jpg'%} ">JPG</option>
             </select>
-            <button class="btn2" type="button" id="submit_button">Download</button>
             
 
           
@@ -228,17 +231,6 @@
       </div>
     </div>
 
-
-    <script>
-      $(function() {
-      $('#download_option').change(function() {
-      
-      $('#submit_button'+ $(this).val()).show();
-      $('#submit_button').hide();
-      
-      });
-      });
-    </script>
 
     {% block extra_script %}
     {% endblock extra_script %}
