@@ -98,7 +98,7 @@
                 <p class="title">Enter URL or Link</p>
                 <form action="{% url 'qr_generator:generate_qr' %}" method="post" id="url-input">
                   {% csrf_token %}
-                  <input type="text" placeholder="Input URL/Link" name="url-link" required/>
+                  <input type="url" placeholder="Input URL/Link" name="url-link" required/>
                 </form>
                 <button type="submit" form="url-input">Generate QR Code</button>
               <!-- </section> -->
@@ -110,10 +110,10 @@
               <form action="{% url 'qr_generator:generate_qr' %}" method="post" id="app-store">
                 {% csrf_token %}
                 <input type="url" placeholder="Enter Link to Application" name="text" required/>
-                <input type="submit">Generate QR Code</button>
               </form>
-              
-              
+              <button type="submit" form="app-store">Generate QR Code</button>
+                
+
               <!-- </section> -->
             </div>
             <div class="page" id="p3">
@@ -121,7 +121,7 @@
               <p class="title">Enter a Text</p>
               <form action="{% url 'qr_generator:generate_qr' %}" method="post" id="text-input">
                 {% csrf_token %}
-                <textarea name="text" id="message" name="text"></textarea>
+                <textarea name="text" id="message"></textarea>
               </form>
               <button type="submit" form="text-input">Generate QR Code</button>
               <!-- </section> -->
@@ -194,26 +194,21 @@
         <div class="box2">
 
           
-          {% if qr %}
+          {% if qr_image %}
           <div class="qrimage">
-            <img src="{{ qr.qr_code.url }}" name=img value="{{ qr_image }}" alt="qr code image" />
-          </div>
+            <img src="{{ qr_image.qr_code.url }}" name=img value="{{ qr_image }}" alt="qr code image" />
+          {# Then save #}
 
-          <form style="display:none;" action="{% url 'qr_generator:save_qr' %}" method="post" id="save_btn">
-            {% csrf_token %}
-            <input type="url" name="qr" value="{{qr_image}}"/>
-          </form>
-          <button type="submit" class="btn2" form="save_btn"><i class="uil uil-import"></i>Save</button>
-          <button class="btn2"><i class="uil uil-share-alt"></i><a href="{% url 'qr_generator:share' '{{ qr_image }}' %}">Share</a></button>      
-            <select  class="btn2" id=downLoad_option name="download_option">
-              <option value="">--select format--</option>
-              <option value="pdf">PDF</option>
-              <option value="png">PNG</option>
-              <option value="svg">SVG</option>
-              <option value="jpeg">JPEG</option>
-              <option value="jpg">JPG</option>
+          <button type="submit" class="btn2"><i class="uil uil-import"></i><a href={% url 'qr_generator:save_qr' id=qr_image.id %}>Save</a></button>
+          <button class="btn2"><i class="uil uil-share-alt"></i><a href={% url 'qr_generator:share'  'qr_image.image.url' %}>Share</a></button>   
+            <select  class="btn2" id=downLoad_option name="download_option" onchange="location = this.value;">
+              <option value="">--Download--</option>
+              <option value="{% url 'qr_generator:download' qr_image.id 'pdf' %}">PDF</option>
+              <option value="{% url 'qr_generator:download' qr_image.id 'png' %}">PNG</option>
+              <option value="{% url 'qr_generator:download' qr_image.id 'svg' %}">SVG</option>
+              <option value="{% url 'qr_generator:download' qr_image.id 'jpeg' %} ">JPEG</option>
+              <option value="{% url 'qr_generator:download' qr_image.id 'jpg'%} ">JPG</option>
             </select>
-            <button class="btn2" type="button" id="submit_button">Download</button>
             
 
           
@@ -227,10 +222,10 @@
         </div>
       </div>
     </div>
-    
     {% block extra_script %}
     {% endblock extra_script %}
 
     {% endblock content %}
     {% block top_footer %}{% endblock top_footer %}
     {% block middle_footer %}{% endblock middle_footer %}
+
