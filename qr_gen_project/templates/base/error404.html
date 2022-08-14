@@ -1,4 +1,3 @@
-
 {% extends 'qr_generator/index.html'%}
 {% load static %}
 
@@ -8,7 +7,7 @@
 {% block content%}
     <section class="middle-section">
         <div class="error">
-          <img src="images/lf20_ge2cws3x.json_404.svg" alt="" />
+          <img src="{% static 'base/images/error.svg' %}" alt="" />
           <h1>Oops! Something went wrong.</h1>
         </div>
       </section>
