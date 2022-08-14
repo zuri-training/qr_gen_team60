@@ -52,12 +52,8 @@ def index(request):
 def share_qr(request, pk):
     return render(request, 'qr_generator/share_qr.html', {'qr_image':pk})
 
-def save_qr(request):
-    qr = request.POST['qr']
 
-    print(qr)
-    
-
+# =========== CONVERT QR FORMATS ================
 
 # Convert to JPEG
 def convert_to_jpeg(path):
@@ -106,9 +102,7 @@ def convert_to_pdf(path):
     pdf_image = rgb_image.save(path.replace('.png', '.pdf'), 'PDF')
     return path.replace('.png', '.pdf'), os.path.basename(path.replace('.png', '.pdf'))
 
-
-def qr(request):
-    return render(request, template, context)
+# =========== ENDCONVERT QR FORMATS ================
 
 
 def text(request, text):
@@ -121,7 +115,20 @@ def text(request, text):
     ls = QRCollection.objects.all().order_by('-id')[0]
     context = {'qr_image':ls}
 
-    return render(request, 'qr_generator/textqr.html', context)
+    return render(request, 'qr_generator/common/textqr.html', context)
+
+def url(request, url):
+    QRCollection.objects.create(
+        qr_user = request.user,
+        category = 'URL',
+        qr_info = 'Your URL is: ' + url
+    )
+
+    ls = QRCollection.objects.all().order_by('-id')[0]
+    context = {'qr_image':ls}
+
+    return render(request, 'qr_generator/common/url_qr.html', context)
+
 
 
 def QR_page(request):
@@ -136,15 +143,32 @@ def generate_qr(request):
     template = 'qr_generator/generateqr.html'
     
     if request.method == 'POST':
-        
-        if 'text' in request.POST:
-            qr_type = 'text'
-            info = request.POST['text']
-        elif 'url' in request.POST:
-            qr_type = 'url'
-            info = request.POST['url']
 
-        return redirect(f'qr_generator:{qr_type}',info)
+        # if text is selected        
+        if 'text' in request.POST:
+            QRCollection.objects.create(
+                qr_user = request.user,
+                category = 'TEXT',
+                qr_info = 'Your Text is: ' + request.POST['text'],
+                )
+
+            ls = QRCollection.objects.all().order_by('-id')[0]
+            context = {'qr_image':ls}
+
+            return render(request, 'qr_generator/common/url_qr.html', context)
+
+        # if Url is selected
+        elif 'url-link' in request.POST:
+            QRCollection.objects.create(
+                qr_user = request.user,
+                category = 'URL',
+                qr_info = 'Your Link is: ' + request.POST['url-link'],
+                )
+
+            ls = QRCollection.objects.all().order_by('-id')[0]
+            context = {'qr_image':ls}
+
+            return render(request, 'qr_generator/common/url_qr.html', context)
     
     return render(request, template, context)
 
@@ -226,7 +250,7 @@ def download_file(request, id='', file_type=''):
             
             case 'jpeg':
                 filepath, filename = convert_to_jpeg(obj)
-                
+
         path = open(filepath, 'rb')
         mime_type, _ = mimetypes.guess_type(filepath)
         response = HttpResponse(path, content_type=mime_type)
