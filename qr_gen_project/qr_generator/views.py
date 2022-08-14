@@ -1,5 +1,7 @@
 # account/views.py
 import base64
+from pathlib import Path
+from pickletools import read_unicodestring1
 from smtplib import SMTPServerDisconnected
 from django.http import BadHeaderError, HttpResponse, HttpResponseRedirect
 from django.shortcuts import redirect, render
@@ -23,7 +25,7 @@ from django.contrib.auth import get_user_model
 from django.shortcuts import render
 from django.conf import settings
 from qrcode import *
-from .models import QRCollection
+from .models import QRCollection, UserCollection
 
 
 import mimetypes
@@ -32,27 +34,29 @@ from django.http.response import HttpResponse
 from qr_generator.models import Category
 from django.core.files import File
 
+from django.shortcuts import render
+import qrcode
+import qrcode.image.svg
+from io import BytesIO
+from qr_generator.models import MyQRCode
+
+
 User = get_user_model()
-
-
-OUR_LOGO = STATIC_ROOT + '/base/images/' + 'qr_logo.png'
-
 
 def index(request):
     context = {}
     return render(request, 'qr_generator/index.html', context)
 
 
-def get_current_time():
-    now = str(datetime.datetime.now()).split('.')
-    return str(now[1])
-
 
 def share_qr(request, pk):
     return render(request, 'qr_generator/share_qr.html', {'qr_image':pk})
 
-def save_qr(request, ):
-    pass
+def save_qr(request):
+    qr = request.POST['qr']
+
+    print(qr)
+    
 
 
 # Convert to JPEG
@@ -103,62 +107,45 @@ def convert_to_pdf(path):
     return path.replace('.png', '.pdf'), os.path.basename(path.replace('.png', '.pdf'))
 
 
+def qr(request):
+    return render(request, template, context)
+
+
+def text(request, text):
+    QRCollection.objects.create(
+        qr_user = request.user,
+        category = 'TEXT',
+        qr_info = text,
+    )
+
+    ls = QRCollection.objects.all().order_by('-id')[0]
+    context = {'qr_image':ls}
+
+    return render(request, 'qr_generator/textqr.html', context)
+
+
+def QR_page(request):
+    qr_code = QRCollection.objects.filter(user=request.user).order_by('-id')
+    return render(request, 'qr_generator/textqr.html', {'qr':qr_code})
+
+
 
 @login_required(login_url="/qr-gen/accounts/login")
 def generate_qr(request):
     context = {}
     template = 'qr_generator/generateqr.html'
-    now = get_current_time()
-
-    user_data = request.POST
-
+    
     if request.method == 'POST':
-        data = user_data['text']
-
-    
-        our_logo = Image.open(OUR_LOGO)
-    
-        # adjust image size
-        widthpercent = (100/float(our_logo.size[0]))
-        hsize = int((float(our_logo.size[1])*float(widthpercent)))
-        our_logo = our_logo.resize((100, hsize), Image.ANTIALIAS)
-
-        QRcode = qrcode.QRCode(
-        version=3,
-        box_size = 10,
-        border=2,
-        error_correction=qrcode.constants.ERROR_CORRECT_M
-        )
-
-        QRcode.make(fit=True)
-    
-        QRimg = QRcode.make_image(
-            fill_color='black', back_color="white").convert('RGB')
-
-         # set size of QR code
-        pos = (
-            (QRimg.size[0] - our_logo.size[0]) // 2,
-            (QRimg.size[1] - our_logo.size[1]) // 2
-            )
-
-        QRimg.paste(our_logo, pos) # save to db here
-
-        img_name = '/upload/' + str(request.user.username) +  now + '.png' # the folder must be pre-existing, time wasted to find out:6hrs
-
-        # file_name = '{0}_{1}.png'.format(request.user.username, now)
-
-        QRimg.save(MEDIA_ROOT + img_name)
-        QRCollection.objects.create(
-            qr_user = request.user,
-            category = 'QRCode',
-            qr_code = File(QRimg),
-            qr_name = str(request.user.username) + '\'s Qr'
-            )
         
-        loc = MEDIA_URL + img_name
-        context['qr_image'] = loc
-        print(loc)
+        if 'text' in request.POST:
+            qr_type = 'text'
+            info = request.POST['text']
+        elif 'url' in request.POST:
+            qr_type = 'url'
+            info = request.POST['url']
 
+        return redirect(f'qr_generator:{qr_type}',info)
+    
     return render(request, template, context)
 
 
@@ -166,9 +153,12 @@ def category(request, pk):
     if pk == "image":
         return 'image'
 
-def save_qr(request):
-    print(request.user)
-    print('Save clicked')
+def save_qr(request, id):
+    user = request.user
+    UserCollection.objects.create(qr_user=user, qr_code=id)
+    print('saved')
+    messages.success(request, 'Your QR has been saved!! Go to You Dashboard to view it')
+    return  render(request, 'qr_generator/generateqr.html')
 
 def form(request, template):
     form = ContactUsForm()
@@ -213,64 +203,38 @@ def contact_us(request):
 
 
 # Define function to download pdf file using template
-def download_file(request, filetype=''):
+def download_file(request, id='', file_type=''):
 
 
-    if filetype != '':
+    if id != '':
+        file = QRCollection.objects.get(id=id).qr_code
+        obj = MEDIA_ROOT + '/' + str(file)
 
-        obj = request.post['img']
-        
-        if filetype == 'pdf':
-            print("\n\nPDF selected\n\n")
-            filepath, filename = convert_to_pdf(obj)
-        
-        elif filename == 'png':
-            filepath, filename = convert_to_png(obj)
-        
-        elif filename == 'jpg':
-            filepath, filename = convert_to_jpg(obj)
-        
-        elif filename == 'svg':
-            filepath, filename = convert_to_svg(obj)
-        
-        elif filename == 'jpeg':
-            filepath, filename = convert_to_jpeg(obj)
-        
-        
 
+        match file_type:
+            case 'pdf':
+                filepath, filename = convert_to_pdf(obj)
+            
+            case 'png':
+                filepath, filename = convert_to_png(obj)
+
+            case 'jpg':
+                filepath, filename = convert_to_jpg(obj)
+
+            case 'svg':
+                filepath, filename = convert_to_svg(obj)
+            
+            case 'jpeg':
+                filepath, filename = convert_to_jpeg(obj)
+                
         path = open(filepath, 'rb')
         mime_type, _ = mimetypes.guess_type(filepath)
         response = HttpResponse(path, content_type=mime_type)
         response['Content-Disposition'] = "attachment; filename=%s" % filename
         return response
 
-
-
-
-
-# def code_download_pdf(request, pk):
-#     obj = get_object_or_404(QrCode.objects.filter(user=request.user), pk=pk)
-#     filepath, filename = convert_to_pdf(obj.qr_code.path)
-#     response = HttpResponse(open(filepath, 'rb').read(), content_type='application/force-download')
-#     response['Content-Disposition'] = 'attachment; filename=%s' % filename
-#     return response
-
-
-
-def test_form(request, template):
-    form = ContactUsForm()
-    return render(request, "qr_generator/" + template +'.html',{"form":form})
-
-
-
 def learn_more(request):
     return render(request, 'base/coming_soon.html')
-
-
-def get_qr(request, qr_id):
-    collection = QRCollection.objects.get(id=qr_id)
-    return render(request, "", {"qr":collection})
-
 
 def page_not_found(request, exception):
     return render(request, 'base/error404.html', status=404)
