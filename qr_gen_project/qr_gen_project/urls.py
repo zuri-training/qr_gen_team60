@@ -33,6 +33,7 @@ schema_view = get_schema_view(
 urlpatterns = [
    path('qr-gen/api/documentation/', schema_view.with_ui('swagger', cache_timeout=0), name='docs'),
    path('qr-gen/api/redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
+   path('qr-gen/api/', include('api.urls'), ),
 ]
 
 urlpatterns += [
@@ -44,17 +45,8 @@ urlpatterns += [
     path('qr-gen/accounts/', include('accounts.urls', namespace='accounts'),),
 ]
 
-urlpatterns += [
-    path('qr-gen/api/', include('api.urls'), ),
-]
-
 urlpatterns +=[
     path('reset_complete/', auth_views.PasswordResetCompleteView.as_view(template_name='accounts/password/password_reset_complete.html'), name='password_reset_complete'),      
-]
-
-
-
-if settings.DEBUG:
-     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 handler404 = "qr_generator.views.page_not_found"

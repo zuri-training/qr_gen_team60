@@ -44,12 +44,10 @@
     {% endblock head %}
   </head>
   <body>
-    <header>
-      
-        {% if messages %}
-          {% include 'base/messages.html' %}
-        {% endif%}
-      
+    {% if messages %}
+      {% include 'base/messages.html' %}
+    {% endif%}
+    <header>      
       {% block header %} {% endblock header %}
     </header>
 
