@@ -14,7 +14,7 @@ from qr_generator.forms import ContactUsForm
 import qrcode
 from PIL import Image
 from django.conf import settings
-from qr_gen_project.settings import MEDIA_URL, STATIC_ROOT, STATIC_URL, MEDIA_ROOT
+from qr_gen_project.settings import  MEDIA_ROOT
 import datetime
 from django.contrib.auth.decorators import login_required
 
@@ -31,15 +31,10 @@ from .models import QRCollection, UserCollection
 import mimetypes
 import os
 from django.http.response import HttpResponse
-from qr_generator.models import Category
-from django.core.files import File
-
 from django.shortcuts import render
 import qrcode
-import qrcode.image.svg
-from io import BytesIO
-from qr_generator.models import MyQRCode
 
+import qrcode.image.svg
 
 User = get_user_model()
 
@@ -105,38 +100,6 @@ def convert_to_pdf(path):
 # =========== ENDCONVERT QR FORMATS ================
 
 
-def text(request, text):
-    QRCollection.objects.create(
-        qr_user = request.user,
-        category = 'TEXT',
-        qr_info = text,
-    )
-
-    ls = QRCollection.objects.all().order_by('-id')[0]
-    context = {'qr_image':ls}
-
-    return render(request, 'qr_generator/common/textqr.html', context)
-
-def url(request, url):
-    QRCollection.objects.create(
-        qr_user = request.user,
-        category = 'URL',
-        qr_info = 'Your URL is: ' + url
-    )
-
-    ls = QRCollection.objects.all().order_by('-id')[0]
-    context = {'qr_image':ls}
-
-    return render(request, 'qr_generator/common/url_qr.html', context)
-
-
-
-def QR_page(request):
-    qr_code = QRCollection.objects.filter(user=request.user).order_by('-id')
-    return render(request, 'qr_generator/textqr.html', {'qr':qr_code})
-
-
-
 @login_required(login_url="/qr-gen/accounts/login")
 def generate_qr(request):
     context = {}
@@ -169,6 +132,20 @@ def generate_qr(request):
             context = {'qr_image':ls}
 
             return render(request, 'qr_generator/common/url_qr.html', context)
+
+
+        # if App-store is selected
+        elif 'app-store' in request.POST:
+            QRCollection.objects.create(
+                qr_user = request.user,
+                category = 'URL',
+                qr_info = 'Your App-store Link is: ' + request.POST['app'],
+                )
+
+            ls = QRCollection.objects.all().order_by('-id')[0]
+            context = {'qr_image':ls}
+
+            return render(request, 'qr_generator/common/url_qr.html', context)
     
     return render(request, template, context)
 
@@ -195,10 +172,10 @@ def contact_us(request):
     if request.method == "POST":
         form =  ContactUsForm(request.POST)
         if form.is_valid():
-            from_email = settings.EMAIL_HOST_USER
+            from_email = settings.QR_EMAIL_HOST_USER
             subject = form.cleaned_data['subject']
             message = form.cleaned_data['message'] #request.POST.get('message')
-            reciever = settings.EMAIL_HOST_USER
+            reciever = settings.QR_EMAIL_HOST_USER
 
             try:
                 send_mail(subject, message, from_email, [reciever,])

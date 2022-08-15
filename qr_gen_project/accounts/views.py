@@ -42,8 +42,10 @@ def register(request):
 		if form.is_valid():
 			form.save()
 			email = form.cleaned_data.get('email')
+			password = form.cleaned_data.get('password1')
+			user = authenticate(request, email=email, password=password)
 		
-			login(request, email)
+			login(request, user)
 			messages.success(request," Account was Created for "+email)
 			return redirect('qr_generator:home')
 		

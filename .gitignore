@@ -133,5 +133,3 @@ dmypy.json
 
 # We won't want media files to be uploaded to github
 # we would change to a remote storage later
-media/
-staticfiles/

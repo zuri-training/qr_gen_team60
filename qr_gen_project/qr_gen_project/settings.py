@@ -19,7 +19,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv('QR_SECRET_KEY')
 
 DEBUG = True
-# DEBUG = os.geten('QR_DEBUG') in production
 
 ALLOWED_HOSTS = ['*']
 
@@ -143,8 +142,8 @@ CORS_ORIGIN_WHITELIST = (
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_USE_SSL = True
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = os.getenv('QR_EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = os.getenv('QR_EMAIL_HOST_PASSWORD')
+QR_EMAIL_HOST_USER = os.getenv('QR_EMAIL_HOST_USER')
+QR_EMAIL_HOST_PASSWORD = os.getenv('QR_EMAIL_HOST_PASSWORD')
 EMAIL_PORT = '465'
 
 
