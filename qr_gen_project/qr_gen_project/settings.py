@@ -16,7 +16,7 @@ MESSAGE_TAGS = {
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = os.getenv('QR_SECRET_KEY')
+SECRET_KEY = os.getenv('QR_SECRET_KEY', "django-insecure-o80n6aftui53q1^mbo*lbm1cpmjfmoy=gvda1^z(l27@zwo$r5")
 
 DEBUG = True
 
@@ -142,8 +142,8 @@ CORS_ORIGIN_WHITELIST = (
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_USE_SSL = True
 EMAIL_HOST = 'smtp.gmail.com'
-QR_EMAIL_HOST_USER = os.getenv('QR_EMAIL_HOST_USER')
-QR_EMAIL_HOST_PASSWORD = os.getenv('QR_EMAIL_HOST_PASSWORD')
+QR_EMAIL_HOST_USER = "simplenick01@gmail.com"
+QR_EMAIL_HOST_PASSWORD = "gijshnvioxzobhfz"
 EMAIL_PORT = '465'
 
 
