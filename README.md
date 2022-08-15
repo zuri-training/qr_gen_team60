@@ -153,15 +153,42 @@ QR Planet is a web app that focuses on generating QR  codes that perform tasks i
       ```
   <br>
 
+- Change directory
+
+  ``` ruby
+  cd qr_gen_team60/qr_gen_project/
+  ```
+<br>
+
+
 - Install all packages/ Dependencies used
     ``` ruby
     pip install -r requirements.txt
     ```
-- Run Migrations when changes are made
+- Run Migrations for the Apps
 
     ``` ruby
-    python manage.py migrate
+    python manage.py makemigrations accounts
     ``` 
+
+  
+    ``` ruby
+    python manage.py makemigrations qr_generator
+    ```
+
+
+    ``` ruby
+    python manage.py migrate accounts
+    ```
+
+    ``` ruby
+    python manage.py migrate qr_generator
+    ``` 
+
+  ``` ruby
+    python manage.py migrate
+    ```
+
 - Run Server
 
     ``` ruby
