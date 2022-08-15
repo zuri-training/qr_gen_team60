@@ -67,6 +67,7 @@ header .wrapper {
     float: left;
     cursor: pointer;
     max-width: 200px;
+    left: 70%;
 }
 
 nav {
